@@ -76,9 +76,16 @@ def generateCandidateList(isProtected, numCandidates):
 
 
 ###################################################################################
+# Number of runs
 N = 10000
-p = 0.4
-alpha = 0.05
+
+# Probability
+p = 0.5
+
+# Alpha
+alpha = 0.01
+
+# Number of candidates
 k = 1000
 
 successes = 0
