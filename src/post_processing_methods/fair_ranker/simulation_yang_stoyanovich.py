@@ -78,4 +78,7 @@ print("Example ranking satisfies mtable")
 print(ranking_satisfies_table_at_every_position([0, 1, 1, 0, 1], [0, 1, 2, 2, 3]))
 
 print("** Starting simulations **")
-perform_simulation_yang_stoyanovich(N=10000, p=0.5, k=1500, alpha=0.01)
+# Blue curve (top) in Figure 2 of FA*IR
+perform_simulation_yang_stoyanovich(N=10000, p=0.5, k=1500, alpha=0.05)
+# Red curve (bottom) in Figure 2 of FA*IR
+perform_simulation_yang_stoyanovich(N=10000, p=0.5, k=1000, alpha=0.01)
