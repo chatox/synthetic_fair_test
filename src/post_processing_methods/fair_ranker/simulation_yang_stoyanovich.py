@@ -5,6 +5,9 @@ from scipy.stats import binom
 
 
 def create_ranking_yang_stoyanovich(p, k):
+    ''' Create a ranking of 'k' positions in which at each position the
+        probability that the candidate is protected is 'p'.
+    '''
     ranking = []
     for i in range(k):
         is_protected = (random.random() <= p)
@@ -16,6 +19,8 @@ def create_ranking_yang_stoyanovich(p, k):
 
 
 def calculate_protected_needed_at_each_position(p, k, alpha):
+    ''' Calculate an mtable for parameters p, k, alpha
+    '''
     result = []
 
     for n in range(1, k + 1):
@@ -26,6 +31,9 @@ def calculate_protected_needed_at_each_position(p, k, alpha):
 
 
 def count_protected_in_prefix(k, ranking):
+    ''' Count how many protected elements are in a prefix of
+        size k of the given ranking
+    '''
     count = 0
     for i in range(k):
         if ranking[i] == 1:
@@ -34,6 +42,8 @@ def count_protected_in_prefix(k, ranking):
 
 
 def ranking_satisfies_table_at_every_position(ranking, table):
+    ''' Check if a ranking satisfies an mtable at every position
+    '''
     for i in range(1, len(table)+1):
         required = table[i-1]
         available = count_protected_in_prefix(i, ranking)
@@ -43,6 +53,9 @@ def ranking_satisfies_table_at_every_position(ranking, table):
 
 
 def perform_simulation_yang_stoyanovich(N, p, k, alpha):
+    ''' Perform a simulation by generating N rankings using Yang-Stoyanovich
+        method, and then compare them with an mtable.
+    '''
     mtable = calculate_protected_needed_at_each_position(p, k, alpha)
 
     success = 0
@@ -65,5 +78,4 @@ print("Example ranking satisfies mtable")
 print(ranking_satisfies_table_at_every_position([0, 1, 1, 0, 1], [0, 1, 2, 2, 3]))
 
 print("** Starting simulations **")
-perform_simulation_yang_stoyanovich(N=10000, p=0.5, k=1000, alpha=0.01)
-#perform_simulation_yang_stoyanovich(N=10000, p=0.5, k=1500, alpha=0.05)
+perform_simulation_yang_stoyanovich(N=10000, p=0.5, k=1500, alpha=0.01)
