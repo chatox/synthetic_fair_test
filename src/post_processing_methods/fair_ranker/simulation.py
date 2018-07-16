@@ -83,10 +83,10 @@ N = 10000
 p = 0.5
 
 # Alpha
-alpha = 0.01
+alpha = 0.05
 
 # Number of candidates
-k = 1000
+k = 1500
 
 successes = 0
 tester = FairnessInRankingsTester(minProp=p, alpha=alpha, k=k, correctedAlpha=False)
