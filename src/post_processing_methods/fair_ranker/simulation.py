@@ -96,7 +96,8 @@ for i in range(N-1):
     test = tester.fair_representation_condition(ranking=ranking)
     if test:
         successes = successes + 1
-print(k)
-print(successes)
-print(1 - (successes / N))
-print("---------")
+    if (i+1) % 200 == 0:
+        print("p=%.1f, alpha=%.2f, k=%d -- completed %d/%d trials -- Fail prob.=%.3f" % (p, alpha, k, i, N, (i-successes)/i))
+
+print("p=%.1f, alpha=%.2f, k=%d" % (p, alpha, k))
+print("Trials=%d, Successes=%d, Fail prob.=%.3f" % (N, successes, (N-successes)/N))
