@@ -21,7 +21,7 @@ class AlphaAdjustment:
         self.mtable = self.compute_mtable()
         self.aux_mtable = self.compute_aux_mtable()
 
-    def m(self, k:int):
+    def m(self, k: int):
         if k < 1:
             raise ValueError("Parameter k must be at least 1")
         elif k > self.n:
@@ -33,12 +33,12 @@ class AlphaAdjustment:
         """ Computes a table containing the minimum number of protected elements
             required at each position
         """
-        mtable = pd.DataFrame(columns=[ "m"])
+        mtable = pd.DataFrame(columns=["m"])
 #         mtable.loc[0] = 0  # test should not fail at the first position so we require no protected candidate at position 1
         for i in range(1, self.n + 1):
             if i % 2000 == 0:
                 print("Computing m: {:.0f} of {:.0f}".format(i, self.n))
-            mtable.loc[i] = [ self.m(i) ]
+            mtable.loc[i] = [self.m(i)]
         return mtable
 
     def compute_aux_mtable(self):
@@ -55,7 +55,7 @@ class AlphaAdjustment:
                 print("Computing m inverse: {:.0f} of {:.0f}".format(position, len(self.mtable)))
             if self.mtable.at[position, "m"] == last_m_seen + 1:
                 last_m_seen += 1
-                aux_mtable.loc[last_m_seen] = [ position, position - last_position ]
+                aux_mtable.loc[last_m_seen] = [position, position - last_position]
                 last_position = position
             elif self.mtable.at[position, "m"] != last_m_seen:
                 raise RuntimeError("Inconsistent mtable")
@@ -88,7 +88,7 @@ class AlphaAdjustment:
                 current_trial = np.empty(int(block_length) + 1)
                 for i in range(0, int(block_length) + 1):
                     current_trial[i] = stats.binom.pmf(i, block_length, self.p)
-                pmf_cache.loc[block_length] = [ current_trial ]
+                pmf_cache.loc[block_length] = [current_trial]
 
             # print("** Success table so far:")
             # print(success_obtained_prob)
@@ -121,10 +121,6 @@ class AlphaAdjustment:
         return success_probability
 
 
-# In[15]:
-
-
-
 class FairnessInRankingsTester():
     """
     implementation of the statistical significance test that decides if a ranking has a fair representation
@@ -144,11 +140,9 @@ class FairnessInRankingsTester():
     def candidates_needed(self):
         return self.__candidatesNeeded
 
-
     @property
     def minimal_proportion(self):
         return self.__minProp
-
 
     def __init__(self, minProp, alpha, k, correctedAlpha):
         """
@@ -170,10 +164,8 @@ class FairnessInRankingsTester():
         else:
             self.__candidatesNeeded = self.__calculate_protected_needed_at_each_position(k)
 
-
     def getCandidatesNeeded(self):
         return self.__candidatesNeeded
-
 
     def ranked_group_fairness_condition(self, ranking):
         """
@@ -198,7 +190,6 @@ class FairnessInRankingsTester():
                 return t, False
 
         return 0, True
-
 
     def fair_representation_condition(self, ranking):
         """
