@@ -3,6 +3,13 @@ import numpy as np
 import scipy.stats as stats
 from scipy.stats import binom
 
+def countProtected(ranking):
+    result = 0
+    for candidate in ranking:
+        if candidate.isProtected:
+            result += 1
+return result
+
 
 class AlphaAdjustment:
 
