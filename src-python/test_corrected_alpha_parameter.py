@@ -128,6 +128,9 @@ class AlphaAdjustment:
 
         return success_probability
 
+    def compute_fail_probability(self):
+        return 1 - self.compute_success_probability()
+
 
 class FairnessInRankingsTester():
     """
@@ -253,3 +256,10 @@ print(testerCAFalse.getCandidatesNeeded())
 
 print("Both calls with correctedAlpha=True and correctedAlpha=False generate same table?")
 print(testerCAFalse.getCandidatesNeeded() == testerCATrue.getCandidatesNeeded())
+
+
+k = 1500
+alpha = 0.05
+for p in [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]:
+    a = AlphaAdjustment(k, p, alpha)
+    print("Analytical Python for k=%d, p=%.2f, alpha=%.2f: %.4f" % (k, p, alpha, a.compute_fail_probability()))
