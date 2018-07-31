@@ -1,10 +1,11 @@
+import org.apache.commons.math3.distribution.BinomialDistribution;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Random;
 
-import org.apache.commons.math3.distribution.BinomialDistribution;
 
 public class Simulator {
 
@@ -28,7 +29,7 @@ public class Simulator {
         Random random = new Random();
         for (int i = 0; i < k; i++) {
             double r = random.nextDouble();
-            if (r < this.p) {
+            if (r <= this.p) {
                 ranking.add(true);      //true equals protected
             } else {
                 ranking.add(false);    //false equals unprotected
@@ -104,38 +105,18 @@ public class Simulator {
     }
 
 
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) throws Exception {
         Double[] pValues = {0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9};
 
-        PrintWriter pw = new PrintWriter(new File("C:\\Users\\Tom\\Desktop\\CIT\\Work\\test.csv"));
-        StringBuilder sb = new StringBuilder();
-        sb.append("k");
-        sb.append(';');
-        sb.append("p");
-        sb.append(';');
-        sb.append("alpha");
-        sb.append(';');
-        sb.append("failProb");
-        sb.append(';');
-        sb.append('\n');
-
-
+        int k= 1500;
+        double alpha = 0.05;
         for(double p : pValues){
-
-            Simulator sim = new Simulator(10000, 1500, p, 0.01);
-            sb.append(1500);
-            sb.append(';');
-            sb.append(p);
-            sb.append(';');
-            sb.append(0.01);
-            sb.append(';');
-            sb.append(sim.run());
-            sb.append(';');
-            sb.append('\n');
+            //Simulator simulator = new Simulator(10000, 1500, p, 0.05);
+            CSVWriter writer = new CSVWriter();
+            //System.out.println(writer.getPropotionFromCSVFile(1500,p,0.05));
+            //System.out.println(simulator.run());
+            System.out.println(writer.mTableIsEqual(k, p, alpha));
         }
-
-        pw.write(sb.toString());
-        pw.close();
 
     }
 
