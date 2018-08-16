@@ -38,7 +38,7 @@ public class CSVWriter {
 
     public double getPropotionFromCSVFile(int k, double p, double alpha) throws IOException {
         String filename = "ranking_" + k + "_" + p + "_" + alpha + ".csv";
-        String csvFile = "C:\\Users\\TSuehr\\Documents\\Simulation\\src\\csvFiles\\java-csv\\" + filename;
+        String csvFile = "C:\\Users\\Tom\\Desktop\\CIT\\Work\\synth-fair-test-java\\csvFiles\\java-csv\\" + filename;
         BufferedReader br = null;
         String line = "";
         String cvsSplitBy = ";";
@@ -58,8 +58,8 @@ public class CSVWriter {
 
     public boolean mTableIsEqual(int k, double p, double alpha) throws IOException {
         String filename = "mtable_" + k + "_" + p + "_" + alpha + ".csv";
-        String csvFileJava = "C:\\Users\\TSuehr\\Documents\\Simulation\\src\\csvFiles\\java-csv\\" + filename;
-        String csvFilePython = "C:\\Users\\TSuehr\\Documents\\synthetic_fair_test\\csvFiles\\csv-python\\" + filename;
+        String csvFileJava = "C:\\Users\\Tom\\Desktop\\CIT\\Work\\synth-fair-test-java\\csvFiles\\java-csv\\" + filename;
+        String csvFilePython = "C:\\Users\\Tom\\Desktop\\CIT\\Work\\synth-fair-test-java\\csvFiles\\csv-python\\" + filename;
         BufferedReader brJava = null;
         BufferedReader brPython = null;
         String line = "";

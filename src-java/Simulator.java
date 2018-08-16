@@ -70,9 +70,9 @@ public class Simulator {
     }
 
     private int[] computeMTable() {
-        int[] table = new int[this.k + 1];
-        for (int i = 1; i < this.k + 1; i++) {
-            table[i] = m(i);
+        int[] table = new int[this.k];
+        for (int i = 0; i < this.k; i++) {
+            table[i] = m(i+1);
         }
         return table;
     }
@@ -111,11 +111,11 @@ public class Simulator {
         int k= 1500;
         double alpha = 0.05;
         for(double p : pValues){
-            //Simulator simulator = new Simulator(10000, 1500, p, 0.05);
-            CSVWriter writer = new CSVWriter();
+            Simulator simulator = new Simulator(10000, k, p, alpha);
+            //CSVWriter writer = new CSVWriter();
             //System.out.println(writer.getPropotionFromCSVFile(1500,p,0.05));
-            //System.out.println(simulator.run());
-            System.out.println(writer.mTableIsEqual(k, p, alpha));
+            System.out.println(simulator.run());
+            //System.out.println(writer.mTableIsEqual(k, p, alpha));
         }
 
     }
