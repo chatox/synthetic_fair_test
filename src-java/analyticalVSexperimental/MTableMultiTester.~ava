@@ -132,7 +132,6 @@ public class MTableMultiTester {
                 throw new RuntimeException("Inconsistent mtable");
             }
         }
-        //table.put(mTable.length, mTable.length, (lastPosition - mTable.length);
         table.resolveNullEntries();
         return table;
     }
