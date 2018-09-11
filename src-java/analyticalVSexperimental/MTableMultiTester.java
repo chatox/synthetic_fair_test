@@ -33,24 +33,6 @@ public class MTableMultiTester {
         }
     }
 
-    public double findMinimumStepForMTableChange() {
-        double step = 0.0001;
-        double stepsize = 0.0001;
-        double alpha_c = this.alpha - step;
-        MTableGenerator generator = new MTableGenerator(this.n, this.p, this.alpha - step);
-        int[] modifiedMtable = generator.getMTable();
-
-        while (mTablesAreEqual(modifiedMtable, this.mTable)) {
-            alpha_c = alpha_c - step;
-            stepsize += step;
-            generator = new MTableGenerator(this.n, this.p, alpha_c);
-            modifiedMtable = generator.getMTable();
-        }
-
-
-        return step;
-    }
-
     public boolean mTablesAreEqual(int[] mtable1, int[] mTable2) {
         if (mtable1.length != mTable2.length) {
             return false;
@@ -88,12 +70,12 @@ public class MTableMultiTester {
         int currentMass = getMassOfMTable(currentTable);
         double step = 0.00001;
         double currentAlpha = alpha - step;
-        while (currentMass > 1200 && currentAlpha>0) {
+        while (currentMass > 1200 && currentAlpha > 0) {
             System.out.println("looping...");
             MTableGenerator generator = new MTableGenerator(this.n, this.p, currentAlpha);
 
             while (mTablesAreEqual(currentTable, generator.getMTable())) {
-                currentAlpha = currentAlpha -step;
+                currentAlpha = currentAlpha - step;
                 generator = new MTableGenerator(this.n, this.p, currentAlpha);
             }
 
@@ -132,7 +114,7 @@ public class MTableMultiTester {
                 throw new RuntimeException("Inconsistent mtable");
             }
         }
-        //table.put(mTable.length, mTable.length, (lastPosition - mTable.length);
+        //table.put(mTable.length,mTable.length,(mTable.length-lastPosition)-1);
         table.resolveNullEntries();
         return table;
     }
@@ -143,67 +125,152 @@ public class MTableMultiTester {
      * @return The probability of rejecting a fair ranking
      */
     public double computeFailureProbability(int[] mTable) {
+        String succProbForm = "";
         DataFrame auxMTable = computeAuxTMTable(mTable);
         int maxProtected = auxMTable.getLengthOf("inv") - 1;
         if (maxProtected == -1) {
-            return alpha;
+            return 0;
         }
         int minProtected = 1;
         double successProbability = 0;
-
+        if (minProtected == maxProtected) {
+            return 0;
+        }
         ArrayList<Double> currentTrial;
+        ArrayList<String> currentTrialFormula;
 
         double[] successObtainedProb = new double[maxProtected];
+        String[] successObtainedProbFormula = new String[maxProtected];
         successObtainedProb = fillWithZeros(successObtainedProb);
+        successObtainedProbFormula = fillWithEmptyStrings(successObtainedProbFormula);
+        successObtainedProbFormula[0] = "1";
         successObtainedProb[0] = 1.0;
         //Cache for the probability Mass Function for every trial
         //a trial is a block and every list in pmfCache is the pmf of a block of
         //a certain size (pmfCache.get(2) is a list of the probability mass function values
         // of a block of the size 2)
         ArrayList<ArrayList<Double>> pmfCache = new ArrayList<>();
+        ArrayList<ArrayList<String>> pmfCacheFormula = new ArrayList<>();
 
-        while (minProtected < maxProtected) {
+        while (minProtected <= maxProtected) {
+            System.out.println("loop");
             //get the current blockLength from auxMTable
             int blockLength = auxMTable.at(minProtected, "block");
             if (blockLength < pmfCache.size() && pmfCache.get(blockLength) != null) {
                 currentTrial = pmfCache.get(blockLength);
+                currentTrialFormula = pmfCacheFormula.get(blockLength);
             } else {
                 currentTrial = new ArrayList<>();
+                currentTrialFormula = new ArrayList<>();
                 //this has to be done to simulate an arrayList of the blocklength-size
                 for (int j = 0; j <= blockLength; j++) {
                     currentTrial.add(null);
+                    currentTrialFormula.add(null);
                 }
                 BinomialDistribution binomDist = new BinomialDistribution(blockLength, p);
                 for (int i = 0; i <= blockLength; i++) {
                     //enter the pmf value for position i in a block of blockLength size
                     currentTrial.set(i, binomDist.probability(i));
+                    String binDist = "BinomDist("+i+";"+blockLength+";"+p+")";
+                    currentTrialFormula.set(i,binDist);
                 }
 
                 //insert empty lists so that we have the current trial inserted on the right position
                 pmfCache = adjustPmfCache(pmfCache, blockLength);
+                pmfCacheFormula = adjustPmfCacheFormula(pmfCacheFormula, blockLength);
                 pmfCache.set(blockLength, currentTrial);
+                pmfCacheFormula.set(blockLength, currentTrialFormula);
             }
             //initialize with zeroes
             double[] newSuccessObtainedProb = fillWithZeros(new double[maxProtected]);
+            String[] newSuccessObtainedProbFormulas = fillWithEmptyStrings(new String[maxProtected]);
             for (int i = 0; i <= blockLength; i++) {
                 //shifts all values to the right for i positions (like python.roll)
                 //multiplies the current value with the currentTrial of the right position
+
+                String[] increaseFormula = increaseFormula(i, successObtainedProbFormula, currentTrialFormula);
                 double[] increase = increase(i, successObtainedProb, currentTrial);
                 //store the result
+                newSuccessObtainedProbFormulas = addEntryWiseFormulas(increaseFormula, newSuccessObtainedProbFormulas);
                 newSuccessObtainedProb = addEntryWise(increase, newSuccessObtainedProb);
             }
-            newSuccessObtainedProb[minProtected - 1] = 0;
+            //if(maxProtected<3 || maxProtected-minProtected>3){
+                newSuccessObtainedProb[minProtected-1] = 0;
+                newSuccessObtainedProbFormulas[minProtected-1] = "";
+            //}
+
+
+
 
             successObtainedProb = newSuccessObtainedProb;
+            successObtainedProbFormula = newSuccessObtainedProbFormulas;
             successProbability = sum(successObtainedProb);
+            succProbForm =sumFormulas(successObtainedProbFormula);
+
             minProtected += 1;
         }
 
+        System.out.println(succProbForm);
         return 1 - successProbability;
 
     }
 
+    private String[] addEntryWiseFormulas(String[] increaseFormula, String[] newSuccessObtainedProbFormulas) {
+        String[] form = new String[increaseFormula.length];
+
+        for(int i=0; i<form.length; i++){
+            if(increaseFormula.equals("")){
+                form[i] =newSuccessObtainedProbFormulas[i];
+            } else if (newSuccessObtainedProbFormulas[i].equals("")) {
+                form[i] = increaseFormula[i];
+            }else{
+                form[i] = increaseFormula[i]+" + " + newSuccessObtainedProbFormulas[i];
+            }
+        }
+
+        return form;
+    }
+
+    private String[] increaseFormula(int i, String[] successObtainedProbFormula, ArrayList<String> currentTrialFormula) {
+        String[] shifted = shiftToRightFormula(successObtainedProbFormula, i);
+        for (int j = 0; j < shifted.length; j++) {
+            if(!shifted[j].equals("")){
+                shifted[j] ="("+ shifted[j]+") * "+ currentTrialFormula.get(i);
+            }
+        }
+        return shifted;
+
+    }
+
+    private String[] shiftToRightFormula(String[] nums, int k) {
+        if(k > nums.length)
+            k=k%nums.length;
+
+        String[] result = new String[nums.length];
+
+        for(int i=0; i < k; i++){
+            result[i] = nums[nums.length-k+i];
+        }
+
+        int j=0;
+        for(int i=k; i<nums.length; i++){
+            result[i] = nums[j];
+            j++;
+        }
+        return result;
+    }
+
     private ArrayList<ArrayList<Double>> adjustPmfCache(ArrayList<ArrayList<Double>> pmfCache, int blocklength) {
+        if (pmfCache.size() <= blocklength) {
+            for (int i = pmfCache.size(); i <= blocklength; i++) {
+                pmfCache.add(null);
+            }
+        }
+        return pmfCache;
+    }
+
+    //For Debugging
+    private ArrayList<ArrayList<String>> adjustPmfCacheFormula(ArrayList<ArrayList<String>> pmfCache, int blocklength) {
         if (pmfCache.size() <= blocklength) {
             for (int i = pmfCache.size(); i <= blocklength; i++) {
                 pmfCache.add(null);
@@ -229,6 +296,13 @@ public class MTableMultiTester {
         return sum;
     }
 
+    private String[] fillWithEmptyStrings(String[] array){
+        for(int i=0; i<array.length; i++){
+            array[i]="";
+        }
+        return array;
+    }
+
     private double[] fillWithZeros(double[] array) {
         for (int i = 0; i < array.length; i++) {
             array[i] = 0;
@@ -237,27 +311,48 @@ public class MTableMultiTester {
         return array;
     }
 
+
+//    private double[] shiftToRight(double[] array, int pos) {
+//
+//        double[] shifted = new double[array.length];
+//        pos = pos % array.length;
+//        for (int i = 0; i < shifted.length; i++) {
+//            if (pos == 0) {
+//                shifted[i] = array[i];
+//            } else if (i + pos > shifted.length - 1) {
+//                shifted[i % pos] = array[i];
+//            } else {
+//                shifted[i + pos] = array[i];
+//            }
+//        }
+//        return shifted;
+//    }
+
     /**
      * Shifts all entries of an array to the right for pos positions
      * Example: shiftToRight('1,2,3,4',2) ---> 3,4,1,2
      *
-     * @param array the array that should be shifted
-     * @param pos   positions to shift to the right
+     * @param nums the array that should be shifted
+     * @param k   positions to shift to the right
      * @return the shifted array
      */
-    private double[] shiftToRight(double[] array, int pos) {
-        double[] shifted = new double[array.length];
-        pos = pos % array.length;
-        for (int i = 0; i < shifted.length; i++) {
-            if (pos == 0) {
-                shifted[i] = array[i];
-            } else if (i + pos > shifted.length - 1) {
-                shifted[i % pos] = array[i];
-            } else {
-                shifted[i + pos] = array[i];
-            }
+
+    private double[] shiftToRight(double[] nums, int k){
+        if(k > nums.length)
+            k=k%nums.length;
+
+        double[] result = new double[nums.length];
+
+        for(int i=0; i < k; i++){
+            result[i] = nums[nums.length-k+i];
         }
-        return shifted;
+
+        int j=0;
+        for(int i=k; i<nums.length; i++){
+            result[i] = nums[j];
+            j++;
+        }
+        return result;
     }
 
     private double sum(double[] array) {
@@ -266,6 +361,14 @@ public class MTableMultiTester {
             sum += anArray;
         }
         return sum;
+    }
+
+    private String sumFormulas(String[] form){
+        String s = "";
+        for(String formula : form){
+            s+= " + "+formula;
+        }
+        return s;
     }
 
     private String mTableToString(int[] array) {
@@ -277,6 +380,8 @@ public class MTableMultiTester {
         s += "]";
         return s;
     }
+
+
 
 
 }

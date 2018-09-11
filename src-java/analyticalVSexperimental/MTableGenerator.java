@@ -19,10 +19,20 @@ public class MTableGenerator {
             this.alpha = alpha;
     }
 
+//    private int[] computeMTable() {
+//        int[] table = new int[this.n+1];
+//        table[0] = 0;
+//        for (int i = 1; i <= this.n; i++) {
+//            table[i] = m(i);
+//        }
+//        return table;
+//    }
+
     private int[] computeMTable() {
-        int[] table = new int[this.n];
-        for (int i = 0; i < this.n; i++) {
-            table[i] = m(i+1);
+        int[] table = new int[this.n+1];
+
+        for (int i = 0; i < this.n+1; i++) {
+            table[i] = m(i);
         }
         return table;
     }

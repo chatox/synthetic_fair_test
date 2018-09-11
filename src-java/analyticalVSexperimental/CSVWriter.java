@@ -19,33 +19,37 @@ public class CSVWriter {
     }
 
     public void writeMTableFailProbPairAndSimulationFailProbPairToCSV(ArrayList<MTableFailProbPair> analytical, ArrayList<Double> experimental) throws FileNotFoundException {
-        String filename="experimentalVSAnalytical.csv";
-        PrintWriter pw = new PrintWriter(new File ("C:\\Users\\TSuehr\\Documents\\Simulation\\src\\csvFiles\\java-csv\\" + filename));
+        String filename="experimentalVSAnalytical_2.csv";
+        PrintWriter pw = new PrintWriter(new File ("C:\\Users\\tsuehr\\Desktop\\failProbs\\" + filename));
 
         StringBuilder sb = new StringBuilder();
 
         sb.append("k");
-        sb.append(';');
+        sb.append(',');
         sb.append("p");
-        sb.append(";");
+        sb.append(",");
+        sb.append("alpha");
+        sb.append(",");
         sb.append("massOfMTable");
-        sb.append(";");
+        sb.append(",");
         sb.append("failProbAnalytical");
-        sb.append(";");
+        sb.append(",");
         sb.append("failProbSimulation");
-        sb.append(";");
+        sb.append(",");
         sb.append('\n');
 
         for (int i=0; i<analytical.size(); i++) {
             MTableFailProbPair analyticalPair = analytical.get(i);
             sb.append(analyticalPair.getK());
-            sb.append(';');
+            sb.append(',');
             sb.append(analyticalPair.getP());
-            sb.append(';');
+            sb.append(',');
+            sb.append(analyticalPair.getAlpha());
+            sb.append(',');
             sb.append(analyticalPair.getMassOfMTable());
-            sb.append(';');
+            sb.append(',');
             sb.append(analyticalPair.getFailProb());
-            sb.append(';');
+            sb.append(',');
             sb.append(experimental.get(i));
             sb.append('\n');
         }
