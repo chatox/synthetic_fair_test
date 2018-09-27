@@ -14,9 +14,10 @@ public class RecursiveTableFailprobabilityCalculator {
 
 
 
-    public RecursiveTableFailprobabilityCalculator(int[] mtable, double p, double alpha){
-        this.mtable = mtable;
-        this.auxTable = computeAuxTMTable();
+    public RecursiveTableFailprobabilityCalculator(int k, double p, double alpha){
+        MTableGenerator generator = new MTableGenerator(k,p,alpha);
+        this.mtable = generator.getMTable();
+        this.auxTable = generator.getAuxMTable();
         this.p = p;
         this.alpha = alpha;
     }
@@ -84,15 +85,6 @@ public class RecursiveTableFailprobabilityCalculator {
         }
     }
 
-    private ArrayList<Integer> concatToNewArray(ArrayList<Integer> array, Integer i){
-        ArrayList<Integer> newArray = new ArrayList<>();
-        for(Integer num : array){
-            newArray.add(num);
-        }
-        newArray.add(i);
-        return newArray;
-    }
-
     private int sum(ArrayList<Integer> array) {
         int sum = 0;
         for (int i : array) {
@@ -109,25 +101,4 @@ public class RecursiveTableFailprobabilityCalculator {
         return sublist;
     }
 
-    /**
-     * Stores the inverse of an mTable entry and the size of the block with respect to the inverse
-     *
-     * @return A Dataframe with the columns "inv" and "block" for the values of the inverse mTable and blocksize
-     */
-    public DataFrame computeAuxTMTable() {
-        DataFrame table = new DataFrame("inv", "block");
-        int lastMSeen = 0;
-        int lastPosition = 0;
-        for (int position = 1; position < this.mtable.length; position++) {
-            if (this.mtable[position] == lastMSeen + 1) {
-                lastMSeen += 1;
-                table.put(position, position, (position - lastPosition));
-                lastPosition = position;
-            } else if (this.mtable[position] != lastMSeen) {
-                throw new RuntimeException("Inconsistent mtable");
-            }
-        }
-        table.resolveNullEntries();
-        return table;
-    }
 }

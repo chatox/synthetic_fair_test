@@ -5,6 +5,7 @@ import org.apache.commons.math3.distribution.BinomialDistribution;
 public class MTableGenerator {
 
     private int[] mTable;
+    private DataFrame auxMTable;
     private int n;
     private double p;
     private double alpha;
@@ -19,16 +20,9 @@ public class MTableGenerator {
             this.n = n;
             this.p = p;
             this.alpha = alpha;
+            this.mTable = computeMTable();
+            this.auxMTable = computeAuxMTable();
     }
-
-//    private int[] computeMTable() {
-//        int[] table = new int[this.n+1];
-//        table[0] = 0;
-//        for (int i = 1; i <= this.n; i++) {
-//            table[i] = m(i);
-//        }
-//        return table;
-//    }
 
     private int[] computeMTable() {
         int[] table = new int[this.n+1];
@@ -36,6 +30,28 @@ public class MTableGenerator {
         for (int i = 0; i < this.n+1; i++) {
             table[i] = m(i);
         }
+        return table;
+    }
+
+    /**
+     * Stores the inverse of an mTable entry and the size of the block with respect to the inverse
+     *
+     * @return A Dataframe with the columns "inv" and "block" for the values of the inverse mTable and blocksize
+     */
+    private DataFrame computeAuxMTable(){
+        DataFrame table = new DataFrame("inv", "block");
+        int lastMSeen = 0;
+        int lastPosition = 0;
+        for (int position = 1; position < this.mTable.length; position++) {
+            if (this.mTable[position] == lastMSeen + 1) {
+                lastMSeen += 1;
+                table.put(position, position, (position - lastPosition));
+                lastPosition = position;
+            } else if (this.mTable[position] != lastMSeen) {
+                throw new RuntimeException("Inconsistent mtable");
+            }
+        }
+        table.resolveNullEntries();
         return table;
     }
 
@@ -48,9 +64,6 @@ public class MTableGenerator {
     }
 
     public int[] getMTable() {
-        if (this.mTable == null) {
-            this.mTable = computeMTable();
-        }
         return mTable;
     }
 
@@ -67,4 +80,7 @@ public class MTableGenerator {
     }
 
 
+    public DataFrame getAuxMTable() {
+        return auxMTable;
+    }
 }

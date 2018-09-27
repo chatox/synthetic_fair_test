@@ -9,10 +9,7 @@ public class Main {
         int k = 6;
         double alpha = 0.05;
 
-        MTableGenerator generator = new MTableGenerator(k,p,alpha);
-        int[] mtable = generator.getMTable();
-
-        RecursiveTableFailprobabilityCalculator calculator = new RecursiveTableFailprobabilityCalculator(mtable,p,alpha);
+        RecursiveTableFailprobabilityCalculator calculator = new RecursiveTableFailprobabilityCalculator(k,p,alpha);
         System.out.println(calculator.calculateFailProbability());
     }
 }
