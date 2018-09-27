@@ -1,6 +1,11 @@
+package analyticalVSexperimental;
+
+import analyticalVSexperimental.MTableGenerator;
 import org.apache.commons.math3.distribution.BinomialDistribution;
 
 import java.util.ArrayList;
+
+
 
 public class MTableMultiTester {
 

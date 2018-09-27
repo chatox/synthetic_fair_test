@@ -1,3 +1,5 @@
+package analyticalVSexperimental;
+
 public class MTableFailProbPair {
 
     private int[] mTable;
