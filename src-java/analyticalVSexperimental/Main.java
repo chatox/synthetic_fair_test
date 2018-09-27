@@ -1,17 +1,16 @@
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
 
 public class Main {
 
     public static void main(String[] args) throws FileNotFoundException {
-        double p = 0.3;
-        int k = 50;
-        double alpha = 0.1;
+        double p = 0.85;
+        int k = 6;
+        double alpha = 0.05;
 
         MTableGenerator generator = new MTableGenerator(k,p,alpha);
         int[] mtable = generator.getMTable();
 
-        FailprobCalculator calculator = new FailprobCalculator(mtable,p,alpha);
+        RecursiveTableFailprobabilityCalculator calculator = new RecursiveTableFailprobabilityCalculator(mtable,p,alpha);
         System.out.println(calculator.calculateFailProbability());
 
         //Simulator simulator = new Simulator(20000,k,p,alpha);
@@ -37,7 +36,7 @@ public class Main {
 //            for(double p : pValues){
 //                for(double alpha : alphaValues){
 //                    MTableGenerator generator = new MTableGenerator(k,p,alpha);
-//                    FailprobCalculator tester = new FailprobCalculator(generator.getMTable(), p, alpha);
+//                    RecursiveTableFailprobabilityCalculator tester = new RecursiveTableFailprobabilityCalculator(generator.getMTable(), p, alpha);
 //                    double analyticalValue = tester.calculateFailProbability();
 //                    System.out.println(analyticalValue);
 //                    MTableFailProbPair failProbPair = new MTableFailProbPair(k,p,alpha,analyticalValue,generator.getMTable());
