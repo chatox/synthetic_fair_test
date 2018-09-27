@@ -19,7 +19,7 @@ public class CSVWriter {
     }
 
     public void writeMTableFailProbPairAndSimulationFailProbPairToCSV(ArrayList<MTableFailProbPair> analytical, ArrayList<Double> experimental) throws FileNotFoundException {
-        String filename="experimentalVSAnalytical_2.csv";
+        String filename="newAnalyticalAlgorithm.csv";
         PrintWriter pw = new PrintWriter(new File ("C:\\Users\\tsuehr\\Desktop\\failProbs\\" + filename));
 
         StringBuilder sb = new StringBuilder();
