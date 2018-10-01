@@ -13,7 +13,6 @@ public class RecursiveTableFailprobabilityCalculator {
     private double alpha;
 
 
-
     public RecursiveTableFailprobabilityCalculator(int k, double p, double alpha){
         MTableGenerator generator = new MTableGenerator(k,p,alpha);
         this.mtable = generator.getMTable();
@@ -61,9 +60,9 @@ public class RecursiveTableFailprobabilityCalculator {
             int maxPossibleThisBlock = Math.min(blockSizes.get(0), numCandidates);
             ArrayList<ArrayList<Integer>> assignments = new ArrayList<>();
 
+            ArrayList<Integer> newRemainingBlockSizes = sublist(blockSizes, 1, blockSizes.size());
             for(int itemsThisBlock = minNeededThisBlock; itemsThisBlock<= maxPossibleThisBlock; itemsThisBlock++){
                 int newRemainingCandidates = numCandidates - itemsThisBlock;
-                ArrayList<Integer> newRemainingBlockSizes = sublist(blockSizes, 1, blockSizes.size());
 
                 ArrayList<Integer> newPrefix = new ArrayList<>(prefix);
                 newPrefix.add(itemsThisBlock);

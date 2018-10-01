@@ -12,28 +12,34 @@
     <session id="-50350077">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.1" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.open.time.45" value="1" />
+          <entry key="project.open.time.55" value="1" />
+          <entry key="project.open.time.59" value="1" />
+          <entry key="project.opened" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="11" />
+          <entry key="java" value="36" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="11" />
+          <entry key="JAVA" value="36" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="194" />
+          <entry key="dummy" value="97" />
+          <entry key="java" value="5447" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="194" />
+          <entry key="JAVA" value="5447" />
+          <entry key="PLAIN_TEXT" value="97" />
         </counts>
       </usages-collector>
     </session>
@@ -43,17 +49,29 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src-java/analyticalVSexperimental/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="53" selection-start-line="6" selection-start-column="53" selection-end-line="6" selection-end-column="53" />
+            <state relative-caret-position="136">
+              <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src-java/analyticalVSexperimental/RecursiveNumericFailprobabilityCalculator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="364">
+              <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src-java/analyticalVSexperimental/RecursiveTableFailprobabilityCalculator.java">
+        <entry file="file://$PROJECT_DIR$/src-java/test/MTableMultiTesterTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="249">
-              <caret line="89" column="29" lean-forward="true" selection-start-line="89" selection-start-column="29" selection-end-line="89" selection-end-column="29" />
+            <state relative-caret-position="599">
+              <caret line="103" column="155" selection-start-line="103" selection-start-column="155" selection-end-line="103" selection-end-column="155" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -62,16 +80,55 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src-java/analyticalVSexperimental/MTableGenerator.java">
+        <entry file="file://$PROJECT_DIR$/src-java/test/RecursiveNumericFailprobabilityTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="419">
-              <caret line="39" column="7" selection-start-line="39" selection-start-column="7" selection-end-line="39" selection-end-column="7" />
+            <state relative-caret-position="242">
+              <caret line="48" column="135" selection-start-line="48" selection-start-column="135" selection-end-line="48" selection-end-column="135" />
               <folding>
-                <element signature="e#1665#1666#0" expanded="true" />
-                <element signature="e#1694#1695#0" expanded="true" />
-                <element signature="e#1986#1987#0" expanded="true" />
-                <element signature="e#2018#2019#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src-java/test/RecursiveTableFailprobabilityCalculatorTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="599">
+              <caret line="95" column="136" selection-start-line="95" selection-start-column="136" selection-end-line="95" selection-end-column="136" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src-java/analyticalVSexperimental/RecursiveTableFailprobabilityCalculator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="23" column="18" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src-java/analyticalVSexperimental/MTableMultiTester.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="196">
+              <caret line="139" column="21" lean-forward="true" selection-start-line="139" selection-start-column="21" selection-end-line="139" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src-java/analyticalVSexperimental/MTableFailProbPair.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -82,6 +139,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -103,12 +161,20 @@
         <option value="$PROJECT_DIR$/src-java/analyticalVSexperimental/DataFrame.java" />
         <option value="$PROJECT_DIR$/src-java/analyticalVSexperimental/FailprobCalculator.java" />
         <option value="$PROJECT_DIR$/src-java/analyticalVSexperimental/MTableFailProbPair.java" />
-        <option value="$PROJECT_DIR$/src-java/analyticalVSexperimental/MTableMultiTester.java" />
-        <option value="$PROJECT_DIR$/src-java/analyticalVSexperimental/RecursiveNumericFailprobabilityCalculator.java" />
         <option value="$PROJECT_DIR$/src-java/analyticalVSexperimental/Simulator.java" />
-        <option value="$PROJECT_DIR$/src-java/analyticalVSexperimental/Main.java" />
         <option value="$PROJECT_DIR$/src-java/analyticalVSexperimental/MTableGenerator.java" />
+        <option value="$PROJECT_DIR$/src-java/analyticalVSexperimental/BinomDistKey.java" />
         <option value="$PROJECT_DIR$/src-java/analyticalVSexperimental/RecursiveTableFailprobabilityCalculator.java" />
+        <option value="$PROJECT_DIR$/src-java/analyticalVSexperimental/RecursiveGlobalTableFailprobabilityCalculator.java" />
+        <option value="$PROJECT_DIR$/src-java/analyticalVSexperimental/Main.java" />
+        <option value="$PROJECT_DIR$/src-java/analyticalVSexperimental/RecursiveNumericFailprobabilityCalculator.java" />
+        <option value="$PROJECT_DIR$/src-java/test/MtableTest.java" />
+        <option value="$PROJECT_DIR$/src-java/test/RankingCaseParameterKey.java" />
+        <option value="$PROJECT_DIR$/src-java/test/ComputeFailProbTestSuite.java" />
+        <option value="$PROJECT_DIR$/src-java/analyticalVSexperimental/MTableMultiTester.java" />
+        <option value="$PROJECT_DIR$/src-java/test/RecursiveNumericFailprobabilityTest.java" />
+        <option value="$PROJECT_DIR$/src-java/test/RecursiveTableFailprobabilityCalculatorTest.java" />
+        <option value="$PROJECT_DIR$/src-java/test/MTableMultiTesterTest.java" />
       </list>
     </option>
   </component>
@@ -134,9 +200,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
       <pane id="Scope" />
-      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -144,16 +209,37 @@
               <item name="synthetic-fair-test" type="b2602c69:ProjectViewProjectNode" />
               <item name="synthetic-fair-test" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="synthetic-fair-test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="synthetic-fair-test" type="462c0819:PsiDirectoryNode" />
+              <item name="src-java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="synthetic-fair-test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="synthetic-fair-test" type="462c0819:PsiDirectoryNode" />
+              <item name="src-java" type="462c0819:PsiDirectoryNode" />
+              <item name="analyticalVSexperimental" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="synthetic-fair-test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="synthetic-fair-test" type="462c0819:PsiDirectoryNode" />
+              <item name="src-java" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538054704856" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538408907612" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../commons-math3-3.6.1" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
@@ -172,25 +258,11 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.RecursiveNumericFailprobabilityTest.runRecursiveTableFailprobCalculatorWithLowKAndZeroMTables">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HEIGHT" value="0" />
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <option name="WIDTH" value="0" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="analyticalVSexperimental.Main" />
-      <module name="FA-IR_Ranking" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="analyticalVSexperimental.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -201,68 +273,96 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="JUnit" factoryName="JUnit">
+    <configuration name="RecursiveNumericFailprobabilityTest.runRecursiveTableFailprobCalculatorWithLowKAndNonZeroMTables" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="FA-IR_Ranking" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test" />
+      <option name="MAIN_CLASS_NAME" value="test.RecursiveNumericFailprobabilityTest" />
+      <option name="METHOD_NAME" value="runRecursiveTableFailprobCalculatorWithLowKAndNonZeroMTables" />
+      <option name="TEST_OBJECT" value="method" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="alpha_adjustment" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="RecursiveNumericFailprobabilityTest.runRecursiveTableFailprobCalculatorWithLowKAndZeroMTables" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="FA-IR_Ranking" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/post_processing_methods/fair_ranker" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/post_processing_methods/fair_ranker/alpha_adjustment.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test" />
+      <option name="MAIN_CLASS_NAME" value="test.RecursiveNumericFailprobabilityTest" />
+      <option name="METHOD_NAME" value="runRecursiveTableFailprobCalculatorWithLowKAndZeroMTables" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
-    <configuration name="simulation" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="RecursiveNumericFailprobabilityTest.runRecursiveTableFailprobCalculatorWithVeryLowK" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="FA-IR_Ranking" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/post_processing_methods/fair_ranker" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/post_processing_methods/fair_ranker/simulation.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test" />
+      <option name="MAIN_CLASS_NAME" value="test.RecursiveNumericFailprobabilityTest" />
+      <option name="METHOD_NAME" value="runRecursiveTableFailprobCalculatorWithVeryLowK" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
-    <configuration name="simulation_yang_stoyanovich" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="RecursiveTableFailprobabilityCalculatorTest.runRecursiveTableFailprobCalculatorWithHighK" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="FA-IR_Ranking" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src-python" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src-python/simulation_yang_stoyanovich.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test" />
+      <option name="MAIN_CLASS_NAME" value="test.RecursiveTableFailprobabilityCalculatorTest" />
+      <option name="METHOD_NAME" value="runRecursiveTableFailprobCalculatorWithHighK" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RecursiveTableFailprobabilityCalculatorTest.runRecursiveTableFailprobCalculatorWithLowKAndNonZeroMTables" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="FA-IR_Ranking" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test" />
+      <option name="MAIN_CLASS_NAME" value="test.RecursiveTableFailprobabilityCalculatorTest" />
+      <option name="METHOD_NAME" value="runRecursiveTableFailprobCalculatorWithLowKAndNonZeroMTables" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -282,11 +382,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Main" />
+      <item itemvalue="JUnit.RecursiveTableFailprobabilityCalculatorTest.runRecursiveTableFailprobCalculatorWithLowKAndNonZeroMTables" />
+      <item itemvalue="JUnit.RecursiveTableFailprobabilityCalculatorTest.runRecursiveTableFailprobCalculatorWithHighK" />
+      <item itemvalue="JUnit.RecursiveNumericFailprobabilityTest.runRecursiveTableFailprobCalculatorWithVeryLowK" />
+      <item itemvalue="JUnit.RecursiveNumericFailprobabilityTest.runRecursiveTableFailprobCalculatorWithLowKAndZeroMTables" />
+      <item itemvalue="JUnit.RecursiveNumericFailprobabilityTest.runRecursiveTableFailprobCalculatorWithLowKAndNonZeroMTables" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.RecursiveNumericFailprobabilityTest.runRecursiveTableFailprobCalculatorWithLowKAndZeroMTables" />
+        <item itemvalue="JUnit.RecursiveNumericFailprobabilityTest.runRecursiveTableFailprobCalculatorWithVeryLowK" />
+        <item itemvalue="JUnit.RecursiveNumericFailprobabilityTest.runRecursiveTableFailprobCalculatorWithLowKAndNonZeroMTables" />
+        <item itemvalue="JUnit.RecursiveTableFailprobabilityCalculatorTest.runRecursiveTableFailprobCalculatorWithLowKAndNonZeroMTables" />
+        <item itemvalue="JUnit.RecursiveTableFailprobabilityCalculatorTest.runRecursiveTableFailprobCalculatorWithHighK" />
       </list>
     </recent_temporary>
   </component>
@@ -324,29 +432,63 @@
       <workItem from="1533036877884" duration="3071000" />
       <workItem from="1534348248517" duration="1038000" />
       <workItem from="1534853500729" duration="430000" />
-      <workItem from="1538053406959" duration="1287000" />
+      <workItem from="1538053406959" duration="4141000" />
+      <workItem from="1538120807276" duration="13158000" />
+      <workItem from="1538386272346" duration="7815000" />
+      <workItem from="1538406061411" duration="2767000" />
     </task>
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="RecursiveTableFailprobabilityCalculatorTest_runRecursiveTableFailprobCalculatorWithHighK - 2018.10.01 at 17h 38m 26s.xml">
+      <configuration name="RecursiveTableFailprobabilityCalculatorTest.runRecursiveTableFailprobCalculatorWithHighK" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RecursiveNumericFailprobabilityTest_runRecursiveTableFailprobCalculatorWithVeryLowK - 2018.10.01 at 17h 41m 02s.xml">
+      <configuration name="RecursiveNumericFailprobabilityTest.runRecursiveTableFailprobCalculatorWithVeryLowK" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RecursiveNumericFailprobabilityTest_runRecursiveTableFailprobCalculatorWithLowKAndZeroMTables - 2018.10.01 at 17h 41m 09s.xml">
+      <configuration name="RecursiveNumericFailprobabilityTest.runRecursiveTableFailprobCalculatorWithLowKAndZeroMTables" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RecursiveNumericFailprobabilityTest_runRecursiveTableFailprobCalculatorWithLowKAndNonZeroMTables - 2018.10.01 at 17h 41m 30s.xml">
+      <configuration name="RecursiveNumericFailprobabilityTest.runRecursiveTableFailprobCalculatorWithLowKAndNonZeroMTables" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RecursiveTableFailprobabilityCalculatorTest_runRecursiveTableFailprobCalculatorWithLowKAndNonZeroMTables - 2018.10.01 at 17h 42m 01s.xml">
+      <configuration name="RecursiveTableFailprobabilityCalculatorTest.runRecursiveTableFailprobCalculatorWithLowKAndNonZeroMTables" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RecursiveNumericFailprobabilityTest_runRecursiveTableFailprobCalculatorWithLowKAndNonZeroMTables - 2018.10.01 at 17h 42m 13s.xml">
+      <configuration name="RecursiveNumericFailprobabilityTest.runRecursiveTableFailprobCalculatorWithLowKAndNonZeroMTables" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RecursiveNumericFailprobabilityTest_runRecursiveTableFailprobCalculatorWithLowKAndNonZeroMTables - 2018.10.01 at 17h 42m 39s.xml">
+      <configuration name="RecursiveNumericFailprobabilityTest.runRecursiveTableFailprobCalculatorWithLowKAndNonZeroMTables" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RecursiveNumericFailprobabilityTest_runRecursiveTableFailprobCalculatorWithLowKAndNonZeroMTables - 2018.10.01 at 17h 43m 09s.xml">
+      <configuration name="RecursiveNumericFailprobabilityTest.runRecursiveTableFailprobCalculatorWithLowKAndNonZeroMTables" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RecursiveNumericFailprobabilityTest_runRecursiveTableFailprobCalculatorWithLowKAndNonZeroMTables - 2018.10.01 at 17h 44m 09s.xml">
+      <configuration name="RecursiveNumericFailprobabilityTest.runRecursiveTableFailprobCalculatorWithLowKAndNonZeroMTables" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RecursiveNumericFailprobabilityTest_runRecursiveTableFailprobCalculatorWithLowKAndNonZeroMTables - 2018.10.01 at 17h 44m 56s.xml">
+      <configuration name="RecursiveNumericFailprobabilityTest.runRecursiveTableFailprobCalculatorWithLowKAndNonZeroMTables" configurationId="JUnit" />
+    </history-entry>
+  </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62668000" />
+    <option name="totallyTimeSpent" value="89262000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20042644" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20682302" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3729626" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3984799" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.20038351" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.29050815" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -354,6 +496,7 @@
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" weight="0.3290938" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Messages" order="11" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -417,23 +560,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src-java/analyticalVSexperimental/DataFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src-java/analyticalVSexperimental/MTableMultiTester.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src-java/analyticalVSexperimental/FailprobCalculator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1">
@@ -448,57 +574,127 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src-java/analyticalVSexperimental/MTableFailProbPair.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src-java/analyticalVSexperimental/RecursiveNumericFailprobabilityCalculator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="33" selection-start-column="33" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src-java/analyticalVSexperimental/Simulator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="33" selection-start-column="33" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src-java/analyticalVSexperimental/Main.java">
+    <entry file="file://$PROJECT_DIR$/src-java/analyticalVSexperimental/RecursiveGlobalTableFailprobabilityCalculator.java" />
+    <entry file="file://$PROJECT_DIR$/src-java/analyticalVSexperimental/DataFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="53" selection-start-line="6" selection-start-column="53" selection-end-line="6" selection-end-column="53" />
+        <state relative-caret-position="204">
+          <caret line="12" column="11" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src-java/test/TestRunner.java" />
+    <entry file="file://$PROJECT_DIR$/src-java/analyticalVSexperimental/BinomDistKey.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="24" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/java.base/java/lang/Math.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="451" column="63" selection-start-line="451" selection-start-column="63" selection-end-line="451" selection-end-column="63" />
+          <folding>
+            <element signature="e#17923#17924#0" expanded="true" />
+            <element signature="e#18006#18007#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src-java/analyticalVSexperimental/MTableGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="419">
+        <state relative-caret-position="264">
           <caret line="39" column="7" selection-start-line="39" selection-start-column="7" selection-end-line="39" selection-end-column="7" />
-          <folding>
-            <element signature="e#1665#1666#0" expanded="true" />
-            <element signature="e#1694#1695#0" expanded="true" />
-            <element signature="e#1986#1987#0" expanded="true" />
-            <element signature="e#2018#2019#0" expanded="true" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src-java/test/RankingCaseParameterKey.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="62" lean-forward="true" selection-start-line="25" selection-start-column="62" selection-end-line="25" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../fairsearch-elasticsearch/src/test/java/com/purbon/search/fair/MTableGenTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1564">
+          <caret line="60" column="38" lean-forward="true" selection-start-line="60" selection-start-column="38" selection-end-line="60" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src-java/test/ComputeFailProbTestSuite.java" />
+    <entry file="file://$PROJECT_DIR$/src-java/analyticalVSexperimental/MTableFailProbPair.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src-java/analyticalVSexperimental/MTableMultiTester.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="139" column="21" lean-forward="true" selection-start-line="139" selection-start-column="21" selection-end-line="139" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src-java/analyticalVSexperimental/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src-java/analyticalVSexperimental/RecursiveTableFailprobabilityCalculator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="89" column="29" lean-forward="true" selection-start-line="89" selection-start-column="29" selection-end-line="89" selection-end-column="29" />
+        <state relative-caret-position="238">
+          <caret line="23" column="18" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src-java/analyticalVSexperimental/RecursiveNumericFailprobabilityCalculator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src-java/test/RecursiveNumericFailprobabilityTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="48" column="135" selection-start-line="48" selection-start-column="135" selection-end-line="48" selection-end-column="135" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src-java/test/RecursiveTableFailprobabilityCalculatorTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="599">
+          <caret line="95" column="136" selection-start-line="95" selection-start-column="136" selection-end-line="95" selection-end-column="136" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src-java/test/MTableMultiTesterTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="599">
+          <caret line="103" column="155" selection-start-line="103" selection-start-column="155" selection-end-line="103" selection-end-column="155" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
