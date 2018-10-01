@@ -5,7 +5,7 @@ import org.apache.commons.math3.distribution.BinomialDistribution;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class RecursiveNumericFailprobabilityCalculator {
+public class RecursiveBlockMatrixFailprobabilityCalculator {
 
     private int k;
     private double p;
@@ -13,9 +13,11 @@ public class RecursiveNumericFailprobabilityCalculator {
     private int[] mTable;
     private DataFrame auxMTable;
     private HashMap<BinomDistKey, Double> pmfCache;
+    private DataFrame blockMatrix;
+    private int height=0;
 
 
-    public RecursiveNumericFailprobabilityCalculator(int k, double p, double alpha) {
+    public RecursiveBlockMatrixFailprobabilityCalculator(int k, double p, double alpha) {
         MTableGenerator generator = new MTableGenerator(k, p, alpha);
         this.mTable = generator.getMTable();
         this.auxMTable = generator.getAuxMTable();
@@ -23,6 +25,8 @@ public class RecursiveNumericFailprobabilityCalculator {
         this.p = p;
         this.alpha = alpha;
         this.pmfCache = new HashMap<>();
+        blockMatrix = new DataFrame("value", "block");
+
     }
 
     public double calculateFailProbability() {
@@ -41,7 +45,9 @@ public class RecursiveNumericFailprobabilityCalculator {
 
     private double findLegalAssignmentsAux(double prefix, int numCandidates, ArrayList<Integer> blockSizes, int currentBlockNumber, int candidatesAssignedSoFar) {
         if (blockSizes.size() == 0) {
+            height++;
             return 1;
+
         } else {
             int minNeededThisBlock = currentBlockNumber - candidatesAssignedSoFar;
             if (minNeededThisBlock < 0) {
@@ -58,9 +64,11 @@ public class RecursiveNumericFailprobabilityCalculator {
                     pmfCache.put(new BinomDistKey(maxPossibleThisBlock, itemsThisBlock), binomialDistribution.probability(itemsThisBlock));
                 }
                 double newPrefix = prefix * pmfCache.get(new BinomDistKey(maxPossibleThisBlock, itemsThisBlock));
+                blockMatrix.put(height,itemsThisBlock,currentBlockNumber);
+
                 double suffixes = findLegalAssignmentsAux(newPrefix, newRemainingCandidates, newRemainingBlockSizes, currentBlockNumber + 1, candidatesAssignedSoFar + itemsThisBlock);
 
-                assignments = assignments + newPrefix * suffixes;
+                //assignments = assignments + newPrefix * suffixes;
             }
             return assignments;
         }
