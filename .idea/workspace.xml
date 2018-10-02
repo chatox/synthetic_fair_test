@@ -12,34 +12,35 @@
     <session id="-50350077">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
           <entry key="project.open.time.1" value="1" />
+          <entry key="project.open.time.43" value="1" />
           <entry key="project.open.time.45" value="1" />
           <entry key="project.open.time.55" value="1" />
           <entry key="project.open.time.59" value="1" />
-          <entry key="project.opened" value="4" />
+          <entry key="project.opened" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="37" />
+          <entry key="java" value="44" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="37" />
+          <entry key="JAVA" value="44" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="dummy" value="97" />
-          <entry key="java" value="5705" />
+          <entry key="dummy" value="107" />
+          <entry key="java" value="7029" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="5705" />
-          <entry key="PLAIN_TEXT" value="97" />
+          <entry key="JAVA" value="7029" />
+          <entry key="PLAIN_TEXT" value="107" />
         </counts>
       </usages-collector>
     </session>
@@ -49,17 +50,41 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src-java/analyticalVSexperimental/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="47" selection-start-line="19" selection-start-column="47" selection-end-line="19" selection-end-column="47" />
+            <state relative-caret-position="153">
+              <caret line="9" column="27" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src-java/analyticalVSexperimental/RecursiveNumericFailprobabilityCalculator.java">
+        <entry file="file://$PROJECT_DIR$/src-java/test/RecursiveNumericFailprobabilityCalculatorTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="718">
-              <caret line="76" lean-forward="true" selection-start-line="9" selection-start-column="4" selection-end-line="76" />
+            <state relative-caret-position="187">
+              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="101" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src-java/test/MTableMultiTesterTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="877">
+              <caret line="103" column="155" selection-start-line="103" selection-start-column="155" selection-end-line="103" selection-end-column="155" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src-java/test/RecursiveTableFailprobabilityCalculatorTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="616">
+              <caret line="60" column="48" selection-start-line="60" selection-start-column="48" selection-end-line="60" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -68,22 +93,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src-java/analyticalVSexperimental/RecursiveBlockMatrixFailprobabilityCalculator.java">
+        <entry file="file://$PROJECT_DIR$/src-java/test/RecursiveBlockMatrixFailprobabilityCalculatorTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
-              <caret line="47" column="21" selection-start-line="47" selection-start-column="21" selection-end-line="47" selection-end-column="21" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src-java/analyticalVSexperimental/RecursiveTableFailprobabilityCalculator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="45" column="5" lean-forward="true" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
+            <state relative-caret-position="361">
+              <caret line="85" lean-forward="true" selection-start-line="85" selection-end-line="85" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -122,18 +135,20 @@
         <option value="$PROJECT_DIR$/src-java/analyticalVSexperimental/Simulator.java" />
         <option value="$PROJECT_DIR$/src-java/analyticalVSexperimental/MTableGenerator.java" />
         <option value="$PROJECT_DIR$/src-java/analyticalVSexperimental/BinomDistKey.java" />
-        <option value="$PROJECT_DIR$/src-java/analyticalVSexperimental/RecursiveTableFailprobabilityCalculator.java" />
         <option value="$PROJECT_DIR$/src-java/analyticalVSexperimental/RecursiveGlobalTableFailprobabilityCalculator.java" />
         <option value="$PROJECT_DIR$/src-java/test/MtableTest.java" />
         <option value="$PROJECT_DIR$/src-java/test/RankingCaseParameterKey.java" />
         <option value="$PROJECT_DIR$/src-java/test/ComputeFailProbTestSuite.java" />
         <option value="$PROJECT_DIR$/src-java/analyticalVSexperimental/MTableMultiTester.java" />
-        <option value="$PROJECT_DIR$/src-java/test/RecursiveNumericFailprobabilityTest.java" />
-        <option value="$PROJECT_DIR$/src-java/test/RecursiveTableFailprobabilityCalculatorTest.java" />
         <option value="$PROJECT_DIR$/src-java/test/MTableMultiTesterTest.java" />
-        <option value="$PROJECT_DIR$/src-java/analyticalVSexperimental/RecursiveNumericFailprobabilityCalculator.java" />
-        <option value="$PROJECT_DIR$/src-java/analyticalVSexperimental/Main.java" />
+        <option value="$PROJECT_DIR$/src-java/analyticalVSexperimental/SuccessProbBlockMatrixKey.java" />
         <option value="$PROJECT_DIR$/src-java/analyticalVSexperimental/RecursiveBlockMatrixFailprobabilityCalculator.java" />
+        <option value="$PROJECT_DIR$/src-java/analyticalVSexperimental/RecursiveNumericFailprobabilityCalculator.java" />
+        <option value="$PROJECT_DIR$/src-java/test/RecursiveTableFailprobabilityCalculatorTest.java" />
+        <option value="$PROJECT_DIR$/src-java/analyticalVSexperimental/RecursiveTableFailprobabilityCalculator.java" />
+        <option value="$PROJECT_DIR$/src-java/analyticalVSexperimental/Main.java" />
+        <option value="$PROJECT_DIR$/src-java/test/RecursiveNumericFailprobabilityTest.java" />
+        <option value="$PROJECT_DIR$/src-java/test/RecursiveBlockMatrixFailprobabilityCalculatorTest.java" />
       </list>
     </option>
   </component>
@@ -154,13 +169,62 @@
     <option name="width" value="1936" />
     <option name="height" value="1212" />
   </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State />
+          <State>
+            <id>Android</id>
+          </State>
+          <State>
+            <id>CorrectnessLintAndroid</id>
+          </State>
+          <State>
+            <id>InitializationJava</id>
+          </State>
+          <State>
+            <id>J2ME issuesJava</id>
+          </State>
+          <State>
+            <id>Java</id>
+          </State>
+          <State>
+            <id>JavaScript</id>
+          </State>
+          <State>
+            <id>Kotlin</id>
+          </State>
+          <State>
+            <id>LintAndroid</id>
+          </State>
+          <State>
+            <id>MemoryJava</id>
+          </State>
+          <State>
+            <id>PerformanceJava</id>
+          </State>
+          <State>
+            <id>PerformanceLintAndroid</id>
+          </State>
+          <State>
+            <id>Potentially confusing code constructsJavaScript</id>
+          </State>
+          <State>
+            <id>Redundant constructsKotlin</id>
+          </State>
+          <State>
+            <id>Threading issuesJava</id>
+          </State>
+        </expanded-state>
+      </profile-state>
+    </entry>
+  </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -189,6 +253,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="AndroidView" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -198,12 +264,12 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538413164943" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538485845478" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../commons-math3-3.6.1" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -217,7 +283,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.RecursiveNumericFailprobabilityCalculatorTest.runRecursiveTableFailprobCalculatorWithHighK">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HEIGHT" value="0" />
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
@@ -246,7 +312,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RecursiveNumericFailprobabilityTest.runRecursiveTableFailprobCalculatorWithLowKAndNonZeroMTables" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RecursiveNumericFailprobabilityCalculatorTest.runRecursiveTableFailprobCalculatorWithHighK" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="FA-IR_Ranking" />
       <extension name="coverage">
         <pattern>
@@ -255,7 +321,24 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="test" />
-      <option name="MAIN_CLASS_NAME" value="test.RecursiveNumericFailprobabilityTest" />
+      <option name="MAIN_CLASS_NAME" value="test.RecursiveNumericFailprobabilityCalculatorTest" />
+      <option name="METHOD_NAME" value="runRecursiveTableFailprobCalculatorWithHighK" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RecursiveNumericFailprobabilityCalculatorTest.runRecursiveTableFailprobCalculatorWithLowKAndNonZeroMTables" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="FA-IR_Ranking" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test" />
+      <option name="MAIN_CLASS_NAME" value="test.RecursiveNumericFailprobabilityCalculatorTest" />
       <option name="METHOD_NAME" value="runRecursiveTableFailprobCalculatorWithLowKAndNonZeroMTables" />
       <option name="TEST_OBJECT" value="method" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -263,7 +346,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RecursiveNumericFailprobabilityTest.runRecursiveTableFailprobCalculatorWithLowKAndZeroMTables" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RecursiveNumericFailprobabilityCalculatorTest.runRecursiveTableFailprobCalculatorWithLowKAndZeroMTables" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="FA-IR_Ranking" />
       <extension name="coverage">
         <pattern>
@@ -272,7 +355,7 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="test" />
-      <option name="MAIN_CLASS_NAME" value="test.RecursiveNumericFailprobabilityTest" />
+      <option name="MAIN_CLASS_NAME" value="test.RecursiveNumericFailprobabilityCalculatorTest" />
       <option name="METHOD_NAME" value="runRecursiveTableFailprobCalculatorWithLowKAndZeroMTables" />
       <option name="TEST_OBJECT" value="method" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -280,24 +363,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RecursiveNumericFailprobabilityTest.runRecursiveTableFailprobCalculatorWithVeryLowK" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="FA-IR_Ranking" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="test" />
-      <option name="MAIN_CLASS_NAME" value="test.RecursiveNumericFailprobabilityTest" />
-      <option name="METHOD_NAME" value="runRecursiveTableFailprobCalculatorWithVeryLowK" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="RecursiveTableFailprobabilityCalculatorTest.runRecursiveTableFailprobCalculatorWithLowKAndNonZeroMTables" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RecursiveTableFailprobabilityCalculatorTest.runRecursiveTableFailprobCalculatorWithLowKAndZeroMTables" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="FA-IR_Ranking" />
       <extension name="coverage">
         <pattern>
@@ -307,7 +373,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="test" />
       <option name="MAIN_CLASS_NAME" value="test.RecursiveTableFailprobabilityCalculatorTest" />
-      <option name="METHOD_NAME" value="runRecursiveTableFailprobCalculatorWithLowKAndNonZeroMTables" />
+      <option name="METHOD_NAME" value="runRecursiveTableFailprobCalculatorWithLowKAndZeroMTables" />
       <option name="TEST_OBJECT" value="method" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
@@ -338,19 +404,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.RecursiveTableFailprobabilityCalculatorTest.runRecursiveTableFailprobCalculatorWithLowKAndNonZeroMTables" />
-      <item itemvalue="JUnit.RecursiveNumericFailprobabilityTest.runRecursiveTableFailprobCalculatorWithVeryLowK" />
-      <item itemvalue="JUnit.RecursiveNumericFailprobabilityTest.runRecursiveTableFailprobCalculatorWithLowKAndZeroMTables" />
-      <item itemvalue="JUnit.RecursiveNumericFailprobabilityTest.runRecursiveTableFailprobCalculatorWithLowKAndNonZeroMTables" />
+      <item itemvalue="JUnit.RecursiveNumericFailprobabilityCalculatorTest.runRecursiveTableFailprobCalculatorWithLowKAndZeroMTables" />
       <item itemvalue="Application.Main" />
+      <item itemvalue="JUnit.RecursiveTableFailprobabilityCalculatorTest.runRecursiveTableFailprobCalculatorWithLowKAndZeroMTables" />
+      <item itemvalue="JUnit.RecursiveNumericFailprobabilityCalculatorTest.runRecursiveTableFailprobCalculatorWithLowKAndNonZeroMTables" />
+      <item itemvalue="JUnit.RecursiveNumericFailprobabilityCalculatorTest.runRecursiveTableFailprobCalculatorWithHighK" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.RecursiveNumericFailprobabilityCalculatorTest.runRecursiveTableFailprobCalculatorWithHighK" />
+        <item itemvalue="JUnit.RecursiveNumericFailprobabilityCalculatorTest.runRecursiveTableFailprobCalculatorWithLowKAndNonZeroMTables" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.RecursiveNumericFailprobabilityTest.runRecursiveTableFailprobCalculatorWithLowKAndZeroMTables" />
-        <item itemvalue="JUnit.RecursiveNumericFailprobabilityTest.runRecursiveTableFailprobCalculatorWithVeryLowK" />
-        <item itemvalue="JUnit.RecursiveNumericFailprobabilityTest.runRecursiveTableFailprobCalculatorWithLowKAndNonZeroMTables" />
-        <item itemvalue="JUnit.RecursiveTableFailprobabilityCalculatorTest.runRecursiveTableFailprobCalculatorWithLowKAndNonZeroMTables" />
+        <item itemvalue="JUnit.RecursiveNumericFailprobabilityCalculatorTest.runRecursiveTableFailprobCalculatorWithLowKAndZeroMTables" />
+        <item itemvalue="JUnit.RecursiveTableFailprobabilityCalculatorTest.runRecursiveTableFailprobCalculatorWithLowKAndZeroMTables" />
       </list>
     </recent_temporary>
   </component>
@@ -391,50 +457,51 @@
       <workItem from="1538053406959" duration="4141000" />
       <workItem from="1538120807276" duration="13158000" />
       <workItem from="1538386272346" duration="7815000" />
-      <workItem from="1538406061411" duration="6721000" />
+      <workItem from="1538406061411" duration="6834000" />
+      <workItem from="1538466968868" duration="7934000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="RecursiveNumericFailprobabilityTest_runRecursiveTableFailprobCalculatorWithLowKAndZeroMTables - 2018.10.01 at 17h 41m 09s.xml">
+    <history-entry file="RecursiveNumericFailprobabilityTest_runRecursiveTableFailprobCalculatorWithLowKAndZeroMTables - 2018.10.02 at 14h 54m 05s.xml">
       <configuration name="RecursiveNumericFailprobabilityTest.runRecursiveTableFailprobCalculatorWithLowKAndZeroMTables" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="RecursiveNumericFailprobabilityTest_runRecursiveTableFailprobCalculatorWithLowKAndNonZeroMTables - 2018.10.01 at 17h 41m 30s.xml">
-      <configuration name="RecursiveNumericFailprobabilityTest.runRecursiveTableFailprobCalculatorWithLowKAndNonZeroMTables" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="RecursiveTableFailprobabilityCalculatorTest_runRecursiveTableFailprobCalculatorWithLowKAndNonZeroMTables - 2018.10.01 at 17h 42m 01s.xml">
-      <configuration name="RecursiveTableFailprobabilityCalculatorTest.runRecursiveTableFailprobCalculatorWithLowKAndNonZeroMTables" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="RecursiveNumericFailprobabilityTest_runRecursiveTableFailprobCalculatorWithLowKAndNonZeroMTables - 2018.10.01 at 17h 42m 13s.xml">
-      <configuration name="RecursiveNumericFailprobabilityTest.runRecursiveTableFailprobCalculatorWithLowKAndNonZeroMTables" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="RecursiveNumericFailprobabilityTest_runRecursiveTableFailprobCalculatorWithLowKAndNonZeroMTables - 2018.10.01 at 17h 42m 39s.xml">
-      <configuration name="RecursiveNumericFailprobabilityTest.runRecursiveTableFailprobCalculatorWithLowKAndNonZeroMTables" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="RecursiveNumericFailprobabilityTest_runRecursiveTableFailprobCalculatorWithLowKAndNonZeroMTables - 2018.10.01 at 17h 43m 09s.xml">
-      <configuration name="RecursiveNumericFailprobabilityTest.runRecursiveTableFailprobCalculatorWithLowKAndNonZeroMTables" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="RecursiveNumericFailprobabilityTest_runRecursiveTableFailprobCalculatorWithLowKAndNonZeroMTables - 2018.10.01 at 17h 44m 09s.xml">
-      <configuration name="RecursiveNumericFailprobabilityTest.runRecursiveTableFailprobCalculatorWithLowKAndNonZeroMTables" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="RecursiveNumericFailprobabilityTest_runRecursiveTableFailprobCalculatorWithLowKAndNonZeroMTables - 2018.10.01 at 17h 44m 56s.xml">
-      <configuration name="RecursiveNumericFailprobabilityTest.runRecursiveTableFailprobCalculatorWithLowKAndNonZeroMTables" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="RecursiveNumericFailprobabilityTest_runRecursiveTableFailprobCalculatorWithVeryLowK - 2018.10.01 at 17h 48m 24s.xml">
-      <configuration name="RecursiveNumericFailprobabilityTest.runRecursiveTableFailprobCalculatorWithVeryLowK" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="RecursiveNumericFailprobabilityTest_runRecursiveTableFailprobCalculatorWithLowKAndZeroMTables - 2018.10.01 at 17h 48m 28s.xml">
+    <history-entry file="RecursiveNumericFailprobabilityTest_runRecursiveTableFailprobCalculatorWithLowKAndZeroMTables - 2018.10.02 at 14h 55m 33s.xml">
       <configuration name="RecursiveNumericFailprobabilityTest.runRecursiveTableFailprobCalculatorWithLowKAndZeroMTables" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RecursiveTableFailprobabilityCalculatorTest_runRecursiveTableFailprobCalculatorWithLowKAndZeroMTables - 2018.10.02 at 14h 55m 57s.xml">
+      <configuration name="RecursiveTableFailprobabilityCalculatorTest.runRecursiveTableFailprobCalculatorWithLowKAndZeroMTables" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RecursiveTableFailprobabilityCalculatorTest_runRecursiveTableFailprobCalculatorWithLowKAndZeroMTables - 2018.10.02 at 14h 56m 06s.xml">
+      <configuration name="RecursiveTableFailprobabilityCalculatorTest.runRecursiveTableFailprobCalculatorWithLowKAndZeroMTables" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RecursiveTableFailprobabilityCalculatorTest_runRecursiveTableFailprobCalculatorWithLowKAndZeroMTables - 2018.10.02 at 14h 56m 51s.xml">
+      <configuration name="RecursiveTableFailprobabilityCalculatorTest.runRecursiveTableFailprobCalculatorWithLowKAndZeroMTables" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RecursiveNumericFailprobabilityTest_runRecursiveTableFailprobCalculatorWithLowKAndZeroMTables - 2018.10.02 at 14h 57m 06s.xml">
+      <configuration name="RecursiveNumericFailprobabilityTest.runRecursiveTableFailprobCalculatorWithLowKAndZeroMTables" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RecursiveNumericFailprobabilityTest_runRecursiveTableFailprobCalculatorWithLowKAndNonZeroMTables - 2018.10.02 at 14h 57m 12s.xml">
+      <configuration name="RecursiveNumericFailprobabilityTest.runRecursiveTableFailprobCalculatorWithLowKAndNonZeroMTables" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RecursiveNumericFailprobabilityTest_runRecursiveTableFailprobCalculatorWithLowKAndNonZeroMTables - 2018.10.02 at 14h 58m 15s.xml">
+      <configuration name="RecursiveNumericFailprobabilityTest.runRecursiveTableFailprobCalculatorWithLowKAndNonZeroMTables" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RecursiveNumericFailprobabilityTest_runRecursiveTableFailprobCalculatorWithLowKAndNonZeroMTables - 2018.10.02 at 15h 00m 25s.xml">
+      <configuration name="RecursiveNumericFailprobabilityTest.runRecursiveTableFailprobCalculatorWithLowKAndNonZeroMTables" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RecursiveNumericFailprobabilityTest_runRecursiveTableFailprobCalculatorWithHighK - 2018.10.02 at 15h 07m 32s.xml">
+      <configuration name="RecursiveNumericFailprobabilityTest.runRecursiveTableFailprobCalculatorWithHighK" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="93216000" />
+    <option name="totallyTimeSpent" value="101263000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20682302" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20895523" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -443,8 +510,8 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.20038351" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.29050815" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.20038351" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.29050815" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -477,9 +544,15 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src-java/analyticalVSexperimental/RecursiveBlockMatrixFailprobabilityCalculator.java</url>
-          <line>37</line>
+          <line>58</line>
           <properties />
           <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src-java/test/RecursiveNumericFailprobabilityCalculatorTest.java</url>
+          <line>77</line>
+          <properties />
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -558,21 +631,10 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src-java/test/TestRunner.java" />
-    <entry file="file://$PROJECT_DIR$/src-java/analyticalVSexperimental/BinomDistKey.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="24" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/java.base/java/lang/Math.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="66">
           <caret line="451" column="63" selection-start-line="451" selection-start-column="63" selection-end-line="451" selection-end-column="63" />
-          <folding>
-            <element signature="e#17923#17924#0" expanded="true" />
-            <element signature="e#18006#18007#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -605,36 +667,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src-java/test/RecursiveTableFailprobabilityCalculatorTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="599">
-          <caret line="95" column="136" selection-start-line="95" selection-start-column="136" selection-end-line="95" selection-end-column="136" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src-java/test/RecursiveNumericFailprobabilityTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="48" column="135" selection-start-line="48" selection-start-column="135" selection-end-line="48" selection-end-column="135" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src-java/test/MTableMultiTesterTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1751">
-          <caret line="103" column="155" selection-start-line="103" selection-start-column="155" selection-end-line="103" selection-end-column="155" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src-java/analyticalVSexperimental/MTableMultiTester.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="196">
@@ -642,10 +674,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src-java/analyticalVSexperimental/BinomDistKey.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" selection-start-line="12" selection-end-line="24" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src-java/analyticalVSexperimental/SuccessProbBlockMatrixKey.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="27" column="5" lean-forward="true" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+          <folding>
+            <element signature="e#471#472#0" expanded="true" />
+            <element signature="e#505#506#0" expanded="true" />
+            <element signature="e#540#541#0" expanded="true" />
+            <element signature="e#574#575#0" expanded="true" />
+            <element signature="e#617#618#0" expanded="true" />
+            <element signature="e#659#660#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src-java/analyticalVSexperimental/RecursiveBlockMatrixFailprobabilityCalculator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="88" lean-forward="true" selection-start-line="88" selection-end-line="88" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src-java/analyticalVSexperimental/RecursiveTableFailprobabilityCalculator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="45" column="5" lean-forward="true" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
+        <state relative-caret-position="374">
+          <caret line="39" column="52" selection-start-line="39" selection-start-column="52" selection-end-line="39" selection-end-column="52" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -654,8 +718,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src-java/analyticalVSexperimental/RecursiveNumericFailprobabilityCalculator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="718">
-          <caret line="76" lean-forward="true" selection-start-line="9" selection-start-column="4" selection-end-line="76" />
+        <state relative-caret-position="332">
+          <caret line="35" column="62" lean-forward="true" selection-start-line="35" selection-start-column="20" selection-end-line="35" selection-end-column="62" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -664,15 +728,45 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src-java/analyticalVSexperimental/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="47" selection-start-line="19" selection-start-column="47" selection-end-line="19" selection-end-column="47" />
+        <state relative-caret-position="153">
+          <caret line="9" column="27" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src-java/analyticalVSexperimental/RecursiveBlockMatrixFailprobabilityCalculator.java">
+    <entry file="file://$PROJECT_DIR$/src-java/test/MTableMultiTesterTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="47" column="21" selection-start-line="47" selection-start-column="21" selection-end-line="47" selection-end-column="21" />
+        <state relative-caret-position="877">
+          <caret line="103" column="155" selection-start-line="103" selection-start-column="155" selection-end-line="103" selection-end-column="155" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src-java/test/RecursiveTableFailprobabilityCalculatorTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="616">
+          <caret line="60" column="48" selection-start-line="60" selection-start-column="48" selection-end-line="60" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src-java/test/RecursiveNumericFailprobabilityCalculatorTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="101" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src-java/test/RecursiveBlockMatrixFailprobabilityCalculatorTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="85" lean-forward="true" selection-start-line="85" selection-end-line="85" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -682,6 +776,17 @@
   </component>
   <component name="masterDetails">
     <states>
+      <state key="ArquillianSettingsConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />

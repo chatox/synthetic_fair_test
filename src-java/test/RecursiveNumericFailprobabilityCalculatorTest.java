@@ -8,10 +8,10 @@ import org.junit.Test;
 
 import java.util.HashMap;
 
-public class RecursiveNumericFailprobabilityTest {
+public class RecursiveNumericFailprobabilityCalculatorTest {
 
     HashMap<RankingCaseParameterKey, Double> failProbMap;
-    double precisionBoundary = 0.03;
+    double precisionBoundary = 0.05;
 
     @Before
     public void setUp() {
@@ -59,11 +59,11 @@ public class RecursiveNumericFailprobabilityTest {
         RecursiveNumericFailprobabilityCalculator calculator4 = new RecursiveNumericFailprobabilityCalculator(10,0.2,0.05);
         RecursiveNumericFailprobabilityCalculator calculator5 = new RecursiveNumericFailprobabilityCalculator(10,0.2,0.1);
 
-        boolean test1 = Math.abs(1-(calculator1.calculateFailProbability() / failProbMap.get(new RankingCaseParameterKey(10,0.1,0.05)))) < precisionBoundary;
-        boolean test2 = Math.abs(1-(calculator2.calculateFailProbability() / failProbMap.get(new RankingCaseParameterKey(10,0.1,0.1)))) < precisionBoundary;
-        boolean test3 = Math.abs(1-(calculator3.calculateFailProbability() / failProbMap.get(new RankingCaseParameterKey(10,0.1,0.15)))) < precisionBoundary;
-        boolean test4 = Math.abs(1-(calculator4.calculateFailProbability() / failProbMap.get(new RankingCaseParameterKey(10,0.2,0.05)))) < precisionBoundary;
-        boolean test5 = Math.abs(1-(calculator5.calculateFailProbability() / failProbMap.get(new RankingCaseParameterKey(10,0.2,0.1)))) < precisionBoundary;
+        boolean test1 = (calculator1.calculateFailProbability() == failProbMap.get(new RankingCaseParameterKey(10,0.1,0.05)));
+        boolean test2 = (calculator2.calculateFailProbability() == failProbMap.get(new RankingCaseParameterKey(10,0.1,0.1)));
+        boolean test3 = (calculator3.calculateFailProbability() == failProbMap.get(new RankingCaseParameterKey(10,0.1,0.15)));
+        boolean test4 = (calculator4.calculateFailProbability() == failProbMap.get(new RankingCaseParameterKey(10,0.2,0.05)));
+        boolean test5 = (calculator5.calculateFailProbability() == failProbMap.get(new RankingCaseParameterKey(10,0.2,0.1)));
 
         TestCase.assertTrue(test1 && test2 && test3 && test4 && test5);
 
@@ -82,6 +82,8 @@ public class RecursiveNumericFailprobabilityTest {
         TestCase.assertTrue(test1 && test2 && test3);
     }
 
+
+    //TODO Divide test into smaller parts
     @Test
     public void runRecursiveTableFailprobCalculatorWithHighK(){
         RecursiveNumericFailprobabilityCalculator calculator1 = new RecursiveNumericFailprobabilityCalculator(100,0.1,0.05);

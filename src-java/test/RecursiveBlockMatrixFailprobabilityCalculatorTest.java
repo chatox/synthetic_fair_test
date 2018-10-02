@@ -1,13 +1,15 @@
 package test;
 
-import analyticalVSexperimental.RecursiveTableFailprobabilityCalculator;
+import analyticalVSexperimental.RecursiveBlockMatrixFailprobabilityCalculator;
+import analyticalVSexperimental.RecursiveNumericFailprobabilityCalculator;
 import junit.framework.TestCase;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.HashMap;
 
-public class RecursiveTableFailprobabilityCalculatorTest {
+public class RecursiveBlockMatrixFailprobabilityCalculatorTest {
+
 
     HashMap<RankingCaseParameterKey, Double> failProbMap;
     double precisionBoundary = 0.05;
@@ -43,20 +45,20 @@ public class RecursiveTableFailprobabilityCalculatorTest {
 
     @Test
     public void runRecursiveTableFailprobCalculatorWithVeryLowK(){
-        RecursiveTableFailprobabilityCalculator calculator = new RecursiveTableFailprobabilityCalculator(6,0.85,0.05);
+        RecursiveBlockMatrixFailprobabilityCalculator calculator = new RecursiveBlockMatrixFailprobabilityCalculator(6,0.85,0.05);
 
-        boolean test1 = 1-(calculator.calculateFailProbability() / failProbMap.get(new RankingCaseParameterKey(6,0.85,0.05))) < precisionBoundary;
+        boolean test1 = Math.abs(1-(calculator.calculateFailProbability() / failProbMap.get(new RankingCaseParameterKey(6,0.85,0.05)))) < precisionBoundary;
 
         TestCase.assertTrue(test1);
     }
 
     @Test
     public void runRecursiveTableFailprobCalculatorWithLowKAndZeroMTables(){
-        RecursiveTableFailprobabilityCalculator calculator1 = new RecursiveTableFailprobabilityCalculator(10,0.1,0.05);
-        RecursiveTableFailprobabilityCalculator calculator2 = new RecursiveTableFailprobabilityCalculator(10,0.1,0.1);
-        RecursiveTableFailprobabilityCalculator calculator3 = new RecursiveTableFailprobabilityCalculator(10,0.1,0.15);
-        RecursiveTableFailprobabilityCalculator calculator4 = new RecursiveTableFailprobabilityCalculator(10,0.2,0.05);
-        RecursiveTableFailprobabilityCalculator calculator5 = new RecursiveTableFailprobabilityCalculator(10,0.2,0.1);
+        RecursiveBlockMatrixFailprobabilityCalculator calculator1 = new RecursiveBlockMatrixFailprobabilityCalculator(10,0.1,0.05);
+        RecursiveBlockMatrixFailprobabilityCalculator calculator2 = new RecursiveBlockMatrixFailprobabilityCalculator(10,0.1,0.1);
+        RecursiveBlockMatrixFailprobabilityCalculator calculator3 = new RecursiveBlockMatrixFailprobabilityCalculator(10,0.1,0.15);
+        RecursiveBlockMatrixFailprobabilityCalculator calculator4 = new RecursiveBlockMatrixFailprobabilityCalculator(10,0.2,0.05);
+        RecursiveBlockMatrixFailprobabilityCalculator calculator5 = new RecursiveBlockMatrixFailprobabilityCalculator(10,0.2,0.1);
 
         boolean test1 = (calculator1.calculateFailProbability() == failProbMap.get(new RankingCaseParameterKey(10,0.1,0.05)));
         boolean test2 = (calculator2.calculateFailProbability() == failProbMap.get(new RankingCaseParameterKey(10,0.1,0.1)));
@@ -70,9 +72,9 @@ public class RecursiveTableFailprobabilityCalculatorTest {
 
     @Test
     public void runRecursiveTableFailprobCalculatorWithLowKAndNonZeroMTables(){
-        RecursiveTableFailprobabilityCalculator calculator1 = new RecursiveTableFailprobabilityCalculator(10,0.2,0.15);
-        RecursiveTableFailprobabilityCalculator calculator2 = new RecursiveTableFailprobabilityCalculator(10,0.3,0.05);
-        RecursiveTableFailprobabilityCalculator calculator3 = new RecursiveTableFailprobabilityCalculator(10,0.3,0.1);
+        RecursiveBlockMatrixFailprobabilityCalculator calculator1 = new RecursiveBlockMatrixFailprobabilityCalculator(10,0.2,0.15);
+        RecursiveBlockMatrixFailprobabilityCalculator calculator2 = new RecursiveBlockMatrixFailprobabilityCalculator(10,0.3,0.05);
+        RecursiveBlockMatrixFailprobabilityCalculator calculator3 = new RecursiveBlockMatrixFailprobabilityCalculator(10,0.3,0.1);
 
         boolean test1 = Math.abs(1-(calculator1.calculateFailProbability() / failProbMap.get(new RankingCaseParameterKey(10,0.2,0.15)))) < precisionBoundary;
         boolean test2 = Math.abs(1-(calculator2.calculateFailProbability() / failProbMap.get(new RankingCaseParameterKey(10,0.3,0.05)))) < precisionBoundary;
@@ -81,13 +83,15 @@ public class RecursiveTableFailprobabilityCalculatorTest {
         TestCase.assertTrue(test1 && test2 && test3);
     }
 
+
+    //TODO Divide test into smaller parts
     @Test
     public void runRecursiveTableFailprobCalculatorWithHighK(){
-        RecursiveTableFailprobabilityCalculator calculator1 = new RecursiveTableFailprobabilityCalculator(100,0.1,0.05);
-        RecursiveTableFailprobabilityCalculator calculator2 = new RecursiveTableFailprobabilityCalculator(100,0.1,0.1);
-        RecursiveTableFailprobabilityCalculator calculator3 = new RecursiveTableFailprobabilityCalculator(100,0.1,0.15);
-        RecursiveTableFailprobabilityCalculator calculator4 = new RecursiveTableFailprobabilityCalculator(100,0.2,0.05);
-        RecursiveTableFailprobabilityCalculator calculator5 = new RecursiveTableFailprobabilityCalculator(200,0.2,0.1);
+        RecursiveBlockMatrixFailprobabilityCalculator calculator1 = new RecursiveBlockMatrixFailprobabilityCalculator(100,0.1,0.05);
+        RecursiveBlockMatrixFailprobabilityCalculator calculator2 = new RecursiveBlockMatrixFailprobabilityCalculator(100,0.1,0.1);
+        RecursiveBlockMatrixFailprobabilityCalculator calculator3 = new RecursiveBlockMatrixFailprobabilityCalculator(100,0.1,0.15);
+        RecursiveBlockMatrixFailprobabilityCalculator calculator4 = new RecursiveBlockMatrixFailprobabilityCalculator(100,0.2,0.05);
+        RecursiveBlockMatrixFailprobabilityCalculator calculator5 = new RecursiveBlockMatrixFailprobabilityCalculator(200,0.2,0.1);
 
         boolean test1 = Math.abs(1-(calculator1.calculateFailProbability() / failProbMap.get(new RankingCaseParameterKey(100,0.1,0.05)))) < precisionBoundary;
         boolean test2 = Math.abs(1-(calculator2.calculateFailProbability() / failProbMap.get(new RankingCaseParameterKey(100,0.1,0.1)))) < precisionBoundary;

@@ -37,7 +37,7 @@ public class RecursiveTableFailprobabilityCalculator {
             successProb += currentTrial;
         }
 
-        return 1-successProb;
+        return successProb == 0 ? 0 : 1-successProb;
     }
 
     private ArrayList<ArrayList<Integer>> findLegalAssignments(int numCandidates, ArrayList<Integer> blockSizes){

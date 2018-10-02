@@ -13,6 +13,7 @@ public class RecursiveNumericFailprobabilityCalculator {
     private int[] mTable;
     private DataFrame auxMTable;
     private HashMap<BinomDistKey, Double> pmfCache;
+    private double successProb;
 
 
     public RecursiveNumericFailprobabilityCalculator(int k, double p, double alpha) {
@@ -23,6 +24,7 @@ public class RecursiveNumericFailprobabilityCalculator {
         this.p = p;
         this.alpha = alpha;
         this.pmfCache = new HashMap<>();
+        this.successProb = 0;
     }
 
     public double calculateFailProbability() {
@@ -31,7 +33,7 @@ public class RecursiveNumericFailprobabilityCalculator {
         blockSizes = sublist(blockSizes, 1, blockSizes.size());
         double possibilities = findLegalAssignments(maxProtected, blockSizes);
 
-        return possibilities;
+        return this.successProb == 0 ? 0 : 1-this.successProb;
     }
 
     private double findLegalAssignments(int numCandidates, ArrayList<Integer> blockSizes) {
@@ -61,6 +63,9 @@ public class RecursiveNumericFailprobabilityCalculator {
                 double suffixes = findLegalAssignmentsAux(newPrefix, newRemainingCandidates, newRemainingBlockSizes, currentBlockNumber + 1, candidatesAssignedSoFar + itemsThisBlock);
 
                 assignments = assignments + newPrefix * suffixes;
+                if(blockSizes.size()== 1){
+                    this.successProb+=newPrefix;
+                }
             }
             return assignments;
         }

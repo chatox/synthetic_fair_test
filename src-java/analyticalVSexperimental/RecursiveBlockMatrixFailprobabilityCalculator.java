@@ -13,8 +13,8 @@ public class RecursiveBlockMatrixFailprobabilityCalculator {
     private int[] mTable;
     private DataFrame auxMTable;
     private HashMap<BinomDistKey, Double> pmfCache;
-    private DataFrame blockMatrix;
-    private int height=0;
+    private ArrayList<SuccessProbBlockMatrixKey> blockMatrixKeys;
+    private int trialNumber = 0;
 
 
     public RecursiveBlockMatrixFailprobabilityCalculator(int k, double p, double alpha) {
@@ -25,7 +25,7 @@ public class RecursiveBlockMatrixFailprobabilityCalculator {
         this.p = p;
         this.alpha = alpha;
         this.pmfCache = new HashMap<>();
-        blockMatrix = new DataFrame("value", "block");
+        this.blockMatrixKeys = new ArrayList<>();
 
     }
 
@@ -33,20 +33,43 @@ public class RecursiveBlockMatrixFailprobabilityCalculator {
         int maxProtected = auxMTable.getSumOf("block");
         ArrayList<Integer> blockSizes = auxMTable.getColumn("block");
         blockSizes = sublist(blockSizes, 1, blockSizes.size());
-        double possibilities = findLegalAssignments(maxProtected, blockSizes);
+        findLegalAssignments(maxProtected, blockSizes);
+        Integer[][] blockMatrix = new Integer[trialNumber][blockSizes.size()];
 
-        return possibilities;
+        for (SuccessProbBlockMatrixKey key : blockMatrixKeys) {
+            blockMatrix[key.getTrialNumber()][key.getBlocknumber() - 1] = key.getCandidatesThisBlock();
+        }
+
+        for (int i = 0; i < trialNumber; i++) {
+            for (int j = 0; j < blockSizes.size(); j++) {
+                if (blockMatrix[i][j] == null){
+                    blockMatrix[i][j] = blockMatrix[i-1][j];
+                }
+            }
+        }
+        double successProbability = 0;
+        for(int i = 0; i<trialNumber; i++){
+            double currentTrial = 1;
+            for(int j = 0; j<blockSizes.size(); j++){
+                currentTrial = currentTrial*pmfCache.get(new BinomDistKey(blockSizes.get(j),blockMatrix[i][j]));
+            }
+            successProbability += currentTrial;
+        }
+
+        return 1-successProbability;
     }
 
-    private double findLegalAssignments(int numCandidates, ArrayList<Integer> blockSizes) {
+    private void findLegalAssignments(int numCandidates, ArrayList<Integer> blockSizes) {
         double prefix = 1;
-        return findLegalAssignmentsAux(prefix, numCandidates, blockSizes, 1, 0);
+        for(int i=1; i<=blockSizes.get(0); i++){
+            findLegalAssignmentsAux(numCandidates-i, blockSizes, 2, i);
+        }
     }
 
-    private double findLegalAssignmentsAux(double prefix, int numCandidates, ArrayList<Integer> blockSizes, int currentBlockNumber, int candidatesAssignedSoFar) {
+    private void findLegalAssignmentsAux(int numCandidates, ArrayList<Integer> blockSizes, int currentBlockNumber, int candidatesAssignedSoFar) {
         if (blockSizes.size() == 0) {
-            height++;
-            return 1;
+            trialNumber++;
+            return;
 
         } else {
             int minNeededThisBlock = currentBlockNumber - candidatesAssignedSoFar;
@@ -63,14 +86,11 @@ public class RecursiveBlockMatrixFailprobabilityCalculator {
                     BinomialDistribution binomialDistribution = new BinomialDistribution(maxPossibleThisBlock, p);
                     pmfCache.put(new BinomDistKey(maxPossibleThisBlock, itemsThisBlock), binomialDistribution.probability(itemsThisBlock));
                 }
-                double newPrefix = prefix * pmfCache.get(new BinomDistKey(maxPossibleThisBlock, itemsThisBlock));
-                blockMatrix.put(height,itemsThisBlock,currentBlockNumber);
 
-                double suffixes = findLegalAssignmentsAux(newPrefix, newRemainingCandidates, newRemainingBlockSizes, currentBlockNumber + 1, candidatesAssignedSoFar + itemsThisBlock);
-
-                //assignments = assignments + newPrefix * suffixes;
+                blockMatrixKeys.add(new SuccessProbBlockMatrixKey(currentBlockNumber, trialNumber, itemsThisBlock));
+                findLegalAssignmentsAux(newRemainingCandidates, newRemainingBlockSizes, currentBlockNumber + 1, candidatesAssignedSoFar + itemsThisBlock);
             }
-            return assignments;
+            return;
         }
     }
 
