@@ -3,45 +3,32 @@ package analyticalVSexperimental;
 import org.apache.commons.math3.distribution.BinomialDistribution;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
-public class RecursiveNumericFailprobabilityCalculator {
+public class RecursiveNumericFailprobabilityCalculator extends FailprobabilityCalculator {
 
-    private int k;
-    private double p;
-    private double alpha;
-    private int[] mTable;
-    private DataFrame auxMTable;
-    private HashMap<BinomDistKey, Double> pmfCache;
     private double successProb;
 
-
     public RecursiveNumericFailprobabilityCalculator(int k, double p, double alpha) {
-        MTableGenerator generator = new MTableGenerator(k, p, alpha);
-        this.mTable = generator.getMTable();
-        this.auxMTable = generator.getAuxMTable();
-        this.k = k;
-        this.p = p;
-        this.alpha = alpha;
-        this.pmfCache = new HashMap<>();
+        super(k, p, alpha);
         this.successProb = 0;
     }
 
-    public double calculateFailProbability() {
+    @Override
+    public double calculateFailprobability() {
         int maxProtected = auxMTable.getSumOf("block");
         ArrayList<Integer> blockSizes = auxMTable.getColumn("block");
         blockSizes = sublist(blockSizes, 1, blockSizes.size());
         double possibilities = findLegalAssignments(maxProtected, blockSizes);
 
-        return this.successProb == 0 ? 0 : 1-this.successProb;
+        return this.successProb == 0 ? 0 : 1 - this.successProb;
     }
 
-    private double findLegalAssignments(int numCandidates, ArrayList<Integer> blockSizes) {
+    public double findLegalAssignments(int numCandidates, ArrayList<Integer> blockSizes) {
         double prefix = 1;
         return findLegalAssignmentsAux(prefix, numCandidates, blockSizes, 1, 0);
     }
 
-    private double findLegalAssignmentsAux(double prefix, int numCandidates, ArrayList<Integer> blockSizes, int currentBlockNumber, int candidatesAssignedSoFar) {
+    public double findLegalAssignmentsAux(double prefix, int numCandidates, ArrayList<Integer> blockSizes, int currentBlockNumber, int candidatesAssignedSoFar) {
         if (blockSizes.size() == 0) {
             return 1;
         } else {
@@ -63,20 +50,12 @@ public class RecursiveNumericFailprobabilityCalculator {
                 double suffixes = findLegalAssignmentsAux(newPrefix, newRemainingCandidates, newRemainingBlockSizes, currentBlockNumber + 1, candidatesAssignedSoFar + itemsThisBlock);
 
                 assignments = assignments + newPrefix * suffixes;
-                if(blockSizes.size()== 1){
-                    this.successProb+=newPrefix;
+                if (blockSizes.size() == 1) {
+                    this.successProb += newPrefix;
                 }
             }
             return assignments;
         }
-    }
-
-    private ArrayList<Integer> sublist(ArrayList<Integer> array, int startIndex, int endIndex) {
-        ArrayList<Integer> sublist = new ArrayList<>();
-        for (int i = startIndex; i < endIndex; i++) {
-            sublist.add(array.get(i));
-        }
-        return sublist;
     }
 
 

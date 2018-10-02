@@ -11,13 +11,13 @@ public class Main {
 
 //        RecursiveTableFailprobabilityCalculator calculator1 = new RecursiveTableFailprobabilityCalculator(k,p,alpha);
 //        System.out.println("Table-Recursive");
-//        System.out.println(calculator1.calculateFailProbability());
+//        System.out.println(calculator1.calculateFailprobability());
         RecursiveNumericFailprobabilityCalculator calculator = new RecursiveNumericFailprobabilityCalculator(k,p,alpha);
         System.out.println("Numeric-Recursive");
-        System.out.println(calculator.calculateFailProbability());
+        System.out.println(calculator.calculateFailprobability());
 
 //         RecursiveBlockMatrixFailprobabilityCalculator calculator = new RecursiveBlockMatrixFailprobabilityCalculator(k,p,alpha);
-//        System.out.println(calculator.calculateFailProbability());
+//        System.out.println(calculator.calculateFailprobability());
 
     }
 }
