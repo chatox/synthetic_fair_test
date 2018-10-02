@@ -1,7 +1,5 @@
 package analyticalVSexperimental;
 
-import org.apache.commons.math3.distribution.BinomialDistribution;
-
 import java.util.ArrayList;
 
 public class RecursiveNumericFailprobabilityCalculator extends FailprobabilityCalculator {
@@ -18,7 +16,7 @@ public class RecursiveNumericFailprobabilityCalculator extends FailprobabilityCa
         int maxProtected = auxMTable.getSumOf("block");
         ArrayList<Integer> blockSizes = auxMTable.getColumn("block");
         blockSizes = sublist(blockSizes, 1, blockSizes.size());
-        double possibilities = findLegalAssignments(maxProtected, blockSizes);
+        findLegalAssignments(maxProtected, blockSizes);
 
         return this.successProb == 0 ? 0 : 1 - this.successProb;
     }
@@ -38,15 +36,11 @@ public class RecursiveNumericFailprobabilityCalculator extends FailprobabilityCa
             }
             int maxPossibleThisBlock = Math.min(blockSizes.get(0), numCandidates);
             double assignments = 0;
-
             ArrayList<Integer> newRemainingBlockSizes = sublist(blockSizes, 1, blockSizes.size());
             for (int itemsThisBlock = minNeededThisBlock; itemsThisBlock <= maxPossibleThisBlock; itemsThisBlock++) {
                 int newRemainingCandidates = numCandidates - itemsThisBlock;
-                if (pmfCache.get(new BinomDistKey(maxPossibleThisBlock, itemsThisBlock)) == null) {
-                    BinomialDistribution binomialDistribution = new BinomialDistribution(maxPossibleThisBlock, p);
-                    pmfCache.put(new BinomDistKey(maxPossibleThisBlock, itemsThisBlock), binomialDistribution.probability(itemsThisBlock));
-                }
-                double newPrefix = prefix * pmfCache.get(new BinomDistKey(maxPossibleThisBlock, itemsThisBlock));
+
+                double newPrefix = prefix * getFromPmfCache(new BinomDistKey(maxPossibleThisBlock, itemsThisBlock));
                 double suffixes = findLegalAssignmentsAux(newPrefix, newRemainingCandidates, newRemainingBlockSizes, currentBlockNumber + 1, candidatesAssignedSoFar + itemsThisBlock);
 
                 assignments = assignments + newPrefix * suffixes;

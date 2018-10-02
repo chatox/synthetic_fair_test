@@ -20,8 +20,7 @@ public class RecursiveTableFailprobabilityCalculator extends FailprobabilityCalc
         for (ArrayList<Integer> possability : possibilities) {
             double currentTrial = 1;
             for (int i = 0; i < possability.size(); i++) {
-                BinomialDistribution binomialDistribution = new BinomialDistribution(blockSizes.get(i), p);
-                currentTrial = currentTrial * binomialDistribution.probability(possability.get(i));
+                currentTrial = currentTrial * getFromPmfCache(new BinomDistKey(blockSizes.get(i), possability.get(i)));
             }
             successProb += currentTrial;
         }

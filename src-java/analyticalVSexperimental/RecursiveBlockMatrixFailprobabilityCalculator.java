@@ -40,7 +40,7 @@ public class RecursiveBlockMatrixFailprobabilityCalculator extends Failprobabili
         for (int i = 0; i < trialNumber; i++) {
             double currentTrial = 1;
             for (int j = 0; j < blockSizes.size(); j++) {
-                currentTrial = currentTrial * pmfCache.get(new BinomDistKey(blockSizes.get(j), blockMatrix[i][j]));
+                currentTrial = currentTrial * getFromPmfCache(new BinomDistKey(blockSizes.get(j), blockMatrix[i][j]));
             }
             successProbability += currentTrial;
         }
@@ -55,28 +55,20 @@ public class RecursiveBlockMatrixFailprobabilityCalculator extends Failprobabili
     private void findLegalAssignmentsAux(int numCandidates, ArrayList<Integer> blockSizes, int currentBlockNumber, int candidatesAssignedSoFar) {
         if (blockSizes.size() == 0) {
             trialNumber++;
-            return;
-
         } else {
             int minNeededThisBlock = currentBlockNumber - candidatesAssignedSoFar;
             if (minNeededThisBlock < 0) {
                 minNeededThisBlock = 0;
             }
             int maxPossibleThisBlock = Math.min(blockSizes.get(0), numCandidates);
-            double assignments = 0;
 
             ArrayList<Integer> newRemainingBlockSizes = sublist(blockSizes, 1, blockSizes.size());
             for (int itemsThisBlock = minNeededThisBlock; itemsThisBlock <= maxPossibleThisBlock; itemsThisBlock++) {
                 int newRemainingCandidates = numCandidates - itemsThisBlock;
-                if (pmfCache.get(new BinomDistKey(maxPossibleThisBlock, itemsThisBlock)) == null) {
-                    BinomialDistribution binomialDistribution = new BinomialDistribution(maxPossibleThisBlock, p);
-                    pmfCache.put(new BinomDistKey(maxPossibleThisBlock, itemsThisBlock), binomialDistribution.probability(itemsThisBlock));
-                }
 
                 blockMatrixKeys.add(new SuccessProbBlockMatrixKey(currentBlockNumber, trialNumber, itemsThisBlock));
                 findLegalAssignmentsAux(newRemainingCandidates, newRemainingBlockSizes, currentBlockNumber + 1, candidatesAssignedSoFar + itemsThisBlock);
             }
-            return;
         }
     }
 
