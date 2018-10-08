@@ -111,7 +111,7 @@ public class MTableMultiTester {
             }
         }
         if(mTable.length-lastPosition>1){//TODO discuss with chato
-            table.put(mTable.length-1,mTable.length-1,(mTable.length-lastPosition));
+            //table.put(mTable.length,mTable.length,(mTable.length-(lastPosition+1)));
         }
         table.resolveNullEntries();
         return table;
@@ -144,27 +144,17 @@ public class MTableMultiTester {
                 currentTrial = pmfCache.get(blockLength);
             } else {
                 currentTrial = new ArrayList<>();
-                //this has to be done to simulate an arrayList of the blocklength-size
-                for (int j = 0; j <= blockLength; j++) {
-                    currentTrial.add(null);
-                }
                 BinomialDistribution binomDist = new BinomialDistribution(blockLength, p);
                 for (int i = 0; i <= blockLength; i++) {
-                    //enter the pmf value for position i in a block of blockLength size
-                    currentTrial.set(i, binomDist.probability(i));
+                    currentTrial.add(binomDist.probability(i));
                 }
-
-                //insert empty lists so that we have the current trial inserted on the right position
-
                 pmfCache.put(blockLength, currentTrial);
             }
             //initialize with zeroes
             double[] newSuccessObtainedProb = new double[maxProtected];
             for (int i = 0; i <= blockLength; i++) {
-                //System.out.println(blockLength);
                 //shifts all values to the right for i positions (like python.roll)
                 //multiplies the current value with the currentTrial of the right position
-
                 double[] increase = increase(i, successObtainedProb, currentTrial);
                 //store the result
                 newSuccessObtainedProb = addEntryWise(increase, newSuccessObtainedProb);
