@@ -26,7 +26,8 @@ public abstract class FailprobabilityCalculator {
 
     abstract double calculateFailprobability();
 
-    double getFromPmfCache(BinomDistKey key){
+    double getFromPmfCache(int trials, int successes){
+        BinomDistKey key = new BinomDistKey(trials,successes);
         if(pmfCache.containsKey(key)){
             return pmfCache.get(key);
         }else{

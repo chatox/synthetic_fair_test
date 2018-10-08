@@ -40,7 +40,7 @@ public class RecursiveBlockMatrixFailprobabilityCalculator extends Failprobabili
         for (int i = 0; i < trialNumber; i++) {
             double currentTrial = 1;
             for (int j = 0; j < blockSizes.size(); j++) {
-                currentTrial = currentTrial * getFromPmfCache(new BinomDistKey(blockSizes.get(j), blockMatrix[i][j]));
+                currentTrial = currentTrial * getFromPmfCache(blockSizes.get(j), blockMatrix[i][j]);
             }
             successProbability += currentTrial;
         }
