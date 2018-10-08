@@ -4,6 +4,7 @@ import analyticalVSexperimental.MTableGenerator;
 import org.apache.commons.math3.distribution.BinomialDistribution;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 
 public class MTableMultiTester {
@@ -43,15 +44,6 @@ public class MTableMultiTester {
         }
         for (int i = 0; i < mtable1.length; i++) {
             if (mtable1[i] != mTable2[i]) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    public boolean everyArrayEntryIsZero(int[] array) {
-        for (int i : array) {
-            if (i != 0) {
                 return false;
             }
         }
@@ -118,7 +110,9 @@ public class MTableMultiTester {
                 throw new RuntimeException("Inconsistent mtable");
             }
         }
-        //table.put(mTable.length,mTable.length,(mTable.length-lastPosition)-1);
+        if(mTable.length-lastPosition>1){//TODO discuss with chato
+            table.put(mTable.length-1,mTable.length-1,(mTable.length-lastPosition));
+        }
         table.resolveNullEntries();
         return table;
     }
@@ -129,32 +123,24 @@ public class MTableMultiTester {
      * @return The probability of rejecting a fair ranking
      */
     public double computeFailureProbability(int[] mTable) {
+        if (mTable[mTable.length - 1] == 0) {
+            return 0;
+        }
         DataFrame auxMTable = computeAuxTMTable(mTable);
         int maxProtected = auxMTable.getLengthOf("inv") - 1;
-        if (maxProtected == -1) {
-            return 0;
-        }
         int minProtected = 1;
         double successProbability = 0;
-        if (minProtected == maxProtected) {
-            return 0;
-        }
         ArrayList<Double> currentTrial;
-
         double[] successObtainedProb = new double[maxProtected];
-        successObtainedProb = fillWithZeros(successObtainedProb);
         successObtainedProb[0] = 1.0;
-        //Cache for the probability Mass Function for every trial
-        //a trial is a block and every list in pmfCache is the pmf of a block of
-        //a certain size (pmfCache.get(2) is a list of the probability mass function values
-        // of a block of the size 2)
-        ArrayList<ArrayList<Double>> pmfCache = new ArrayList<>();
-        ArrayList<ArrayList<String>> pmfCacheFormula = new ArrayList<>();
+        HashMap<Integer, ArrayList<Double>> pmfCache = new HashMap<>();
 
         while (minProtected <= maxProtected) {
             //get the current blockLength from auxMTable
+
             int blockLength = auxMTable.at(minProtected, "block");
-            if (blockLength < pmfCache.size() && pmfCache.get(blockLength) != null) {
+            System.out.println(blockLength);
+            if (pmfCache.get(blockLength) != null) {
                 currentTrial = pmfCache.get(blockLength);
             } else {
                 currentTrial = new ArrayList<>();
@@ -169,12 +155,13 @@ public class MTableMultiTester {
                 }
 
                 //insert empty lists so that we have the current trial inserted on the right position
-                pmfCache = adjustPmfCache(pmfCache, blockLength);
-                pmfCache.set(blockLength, currentTrial);
+
+                pmfCache.put(blockLength, currentTrial);
             }
             //initialize with zeroes
-            double[] newSuccessObtainedProb = fillWithZeros(new double[maxProtected]);
+            double[] newSuccessObtainedProb = new double[maxProtected];
             for (int i = 0; i <= blockLength; i++) {
+                //System.out.println(blockLength);
                 //shifts all values to the right for i positions (like python.roll)
                 //multiplies the current value with the currentTrial of the right position
 
@@ -182,7 +169,9 @@ public class MTableMultiTester {
                 //store the result
                 newSuccessObtainedProb = addEntryWise(increase, newSuccessObtainedProb);
             }
+
             newSuccessObtainedProb[minProtected - 1] = 0;
+
 
             successObtainedProb = newSuccessObtainedProb;
             successProbability = sum(successObtainedProb);
@@ -194,24 +183,6 @@ public class MTableMultiTester {
 
     }
 
-    private ArrayList<ArrayList<Double>> adjustPmfCache(ArrayList<ArrayList<Double>> pmfCache, int blocklength) {
-        if (pmfCache.size() <= blocklength) {
-            for (int i = pmfCache.size(); i <= blocklength; i++) {
-                pmfCache.add(null);
-            }
-        }
-        return pmfCache;
-    }
-
-    //For Debugging
-    private ArrayList<ArrayList<String>> adjustPmfCacheFormula(ArrayList<ArrayList<String>> pmfCache, int blocklength) {
-        if (pmfCache.size() <= blocklength) {
-            for (int i = pmfCache.size(); i <= blocklength; i++) {
-                pmfCache.add(null);
-            }
-        }
-        return pmfCache;
-    }
 
     private double[] increase(int i, double[] successObtainedProb, ArrayList<Double> currentTrial) {
         double[] shifted = shiftToRight(successObtainedProb, i);
@@ -228,14 +199,6 @@ public class MTableMultiTester {
             sum[i] = arrayOne[i] + arrayTwo[i];
         }
         return sum;
-    }
-
-    private double[] fillWithZeros(double[] array) {
-        for (int i = 0; i < array.length; i++) {
-            array[i] = 0;
-        }
-
-        return array;
     }
 
     /**

@@ -18,6 +18,9 @@ public class Main {
 //        RecursiveBlockMatrixFailprobabilityCalculator calculator = new RecursiveBlockMatrixFailprobabilityCalculator(k,p,alpha);
 //        System.out.println("BlockMatrix-Recursive");
 //        System.out.println(calculator.calculateFailprobability());
+        MTableGenerator generator = new MTableGenerator(k,p,alpha);
+        MTableMultiTester mTableMultiTester = new MTableMultiTester(k,p,alpha);
+        System.out.println(mTableMultiTester.computeFailureProbability(generator.getMTable()));
 
 
 
