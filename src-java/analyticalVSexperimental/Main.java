@@ -5,26 +5,23 @@ import java.io.FileNotFoundException;
 public class Main {
 
     public static void main(String[] args) throws FileNotFoundException {
-        double p = 0.9;
-        int k = 10;
-        double alpha = 0.1;
+        double[] pValues = {0.8};
+        int k=10;
+        double[] alphaValues = {0.1};
 
-//        RecursiveTableFailprobabilityCalculator calculator1 = new RecursiveTableFailprobabilityCalculator(k,p,alpha);
-//        System.out.println("Table-Recursive");
-//        System.out.println(calculator1.calculateFailprobability());
-        RecursiveNumericFailprobabilityCalculator calculator2 = new RecursiveNumericFailprobabilityCalculator(k,p,alpha);
-        System.out.println("Numeric-Recursive");
-        System.out.println(calculator2.calculateFailprobability());
-//        RecursiveBlockMatrixFailprobabilityCalculator calculator = new RecursiveBlockMatrixFailprobabilityCalculator(k,p,alpha);
-//        System.out.println("BlockMatrix-Recursive");
-//        System.out.println(calculator.calculateFailprobability());
-
-        
-        MTableGenerator generator = new MTableGenerator(k,p,alpha);
-        MTableMultiTester mTableMultiTester = new MTableMultiTester(k,p,alpha);
-        System.out.println(mTableMultiTester.computeFailureProbability(generator.getMTable()));
-
-
-
+        for(double p : pValues){
+            for(double alpha : alphaValues){
+                RecursiveNumericFailprobabilityCalculator failprobabilityCalculator = new RecursiveNumericFailprobabilityCalculator(k,p,alpha);
+                MTableFailProbPair adjustedPair = failprobabilityCalculator.adjustAlpha();
+                int[] mtable = adjustedPair.getmTable();
+                String table = "";
+                System.out.println(k+"_"+p+"_"+alpha);
+                for(int i : mtable){
+                    table+=""+i+", ";
+                }
+                System.out.println(table);
+            }
+        }
+        System.out.println("rdy");
     }
 }

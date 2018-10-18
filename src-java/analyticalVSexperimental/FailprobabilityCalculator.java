@@ -15,16 +15,14 @@ public abstract class FailprobabilityCalculator {
     HashMap<BinomDistKey, Double> pmfCache;
 
     public FailprobabilityCalculator(int k, double p, double alpha) {
-        MTableGenerator generator = new MTableGenerator(k, p, alpha);
-        this.mTable = generator.getMTable();
-        this.auxMTable = generator.getAuxMTable();
+
         this.k = k;
         this.p = p;
         this.alpha = alpha;
         this.pmfCache = new HashMap<>();
     }
 
-    abstract double calculateFailprobability();
+    abstract double calculateFailprobability(int[] mtable, double alpha);
 
     double getFromPmfCache(int trials, int successes){
         BinomDistKey key = new BinomDistKey(trials,successes);

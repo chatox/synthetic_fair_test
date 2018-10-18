@@ -10,7 +10,10 @@ public class RecursiveTableFailprobabilityCalculator extends FailprobabilityCalc
         super(k, p, alpha);
     }
 
-    public double calculateFailprobability() {
+    public double calculateFailprobability(int[] mtable, double alpha) {
+        MTableGenerator generator = new MTableGenerator(k, p, alpha);
+        this.mTable = mtable;
+        this.auxMTable = generator.getAuxMTable();
         int maxProtected = auxMTable.getSumOf("block");
         ArrayList<Integer> blockSizes = auxMTable.getColumn("block");
         blockSizes = sublist(blockSizes, 1, blockSizes.size());
