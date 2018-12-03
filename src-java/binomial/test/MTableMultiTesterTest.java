@@ -1,7 +1,7 @@
-package test;
+package binomial.test;
 
-import analyticalVSexperimental.MTableGenerator;
-import analyticalVSexperimental.MTableMultiTester;
+import binomial.analyticalVSexperimental.MTableGenerator;
+import binomial.analyticalVSexperimental.MTableMultiTester;
 import junit.framework.TestCase;
 import org.junit.Before;
 import org.junit.Test;

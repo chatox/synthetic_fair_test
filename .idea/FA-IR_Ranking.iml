@@ -11,7 +11,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src-java" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/out" />
     </content>
-    <orderEntry type="jdk" jdkName="10" jdkType="JavaSDK" />
+    <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="commons-math3-3.6" level="project" />
     <orderEntry type="module-library">
@@ -33,5 +33,6 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="commons-math3-3.6.1" level="project" />
   </component>
 </module>

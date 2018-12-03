@@ -1,4 +1,4 @@
-package analyticalVSexperimental;
+package binomial;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -20,47 +20,6 @@ public class CSVWriter {
         pw.close();
     }
 
-    public void writeMTableFailProbPairAndSimulationFailProbPairToCSV(ArrayList<MTableFailProbPair> analytical, ArrayList<Double> experimental) throws FileNotFoundException {
-        String filename="newAnalyticalAlgorithm.csv";
-        PrintWriter pw = new PrintWriter(new File ("C:\\Users\\tsuehr\\Desktop\\failProbs\\" + filename));
-
-        StringBuilder sb = new StringBuilder();
-
-        sb.append("k");
-        sb.append(',');
-        sb.append("p");
-        sb.append(",");
-        sb.append("alpha");
-        sb.append(",");
-        sb.append("massOfMTable");
-        sb.append(",");
-        sb.append("failProbAnalytical");
-        sb.append(",");
-        sb.append("failProbSimulation");
-        sb.append(",");
-        sb.append('\n');
-
-        for (int i=0; i<analytical.size(); i++) {
-            MTableFailProbPair analyticalPair = analytical.get(i);
-            sb.append(analyticalPair.getK());
-            sb.append(',');
-            sb.append(analyticalPair.getP());
-            sb.append(',');
-            sb.append(analyticalPair.getAlpha());
-            sb.append(',');
-            sb.append(analyticalPair.getMassOfMTable());
-            sb.append(',');
-            sb.append(analyticalPair.getFailProb());
-            sb.append(',');
-            sb.append(experimental.get(i));
-            sb.append('\n');
-        }
-
-        pw.write(sb.toString());
-        pw.close();
-    }
-
-
     public void writeRankingToCSV(int k, double p, double alpha, ArrayList<Boolean> ranking) throws FileNotFoundException {
         String filename = "ranking_" + k + "_" + p + "_" + alpha + ".csv";
         //String filename = "hello.csv";
@@ -81,7 +40,7 @@ public class CSVWriter {
 
     public double getPropotionFromCSVFile(int k, double p, double alpha) throws IOException {
         String filename = "ranking_" + k + "_" + p + "_" + alpha + ".csv";
-        String csvFile = "C:\\Users\\Tom\\Desktop\\CIT\\Work\\synth-fair-test-java\\csvFiles\\java-csv\\" + filename;
+        String csvFile = "C:\\Users\\Tom\\Desktop\\CIT\\Work\\synth-fair-binomial.test-java\\csvFiles\\java-csv\\" + filename;
         BufferedReader br = null;
         String line = "";
         String cvsSplitBy = ";";
@@ -101,8 +60,8 @@ public class CSVWriter {
 
     public boolean mTableIsEqual(int k, double p, double alpha) throws IOException {
         String filename = "mtable_" + k + "_" + p + "_" + alpha + ".csv";
-        String csvFileJava = "C:\\Users\\Tom\\Desktop\\CIT\\Work\\synth-fair-test-java\\csvFiles\\java-csv\\" + filename;
-        String csvFilePython = "C:\\Users\\Tom\\Desktop\\CIT\\Work\\synth-fair-test-java\\csvFiles\\csv-python\\" + filename;
+        String csvFileJava = "C:\\Users\\Tom\\Desktop\\CIT\\Work\\synth-fair-binomial.test-java\\csvFiles\\java-csv\\" + filename;
+        String csvFilePython = "C:\\Users\\Tom\\Desktop\\CIT\\Work\\synth-fair-binomial.test-java\\csvFiles\\csv-python\\" + filename;
         BufferedReader brJava = null;
         BufferedReader brPython = null;
         String line = "";

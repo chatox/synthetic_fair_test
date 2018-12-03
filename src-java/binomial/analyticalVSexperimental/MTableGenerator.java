@@ -1,4 +1,4 @@
-package analyticalVSexperimental;
+package binomial.analyticalVSexperimental;
 
 import org.apache.commons.math3.distribution.BinomialDistribution;
 

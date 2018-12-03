@@ -1,6 +1,4 @@
-package analyticalVSexperimental;
-
-import org.apache.commons.math3.distribution.BinomialDistribution;
+package binomial.analyticalVSexperimental;
 
 import java.util.ArrayList;
 

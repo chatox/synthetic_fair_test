@@ -1,6 +1,5 @@
-package analyticalVSexperimental;
+package binomial.analyticalVSexperimental;
 
-import analyticalVSexperimental.MTableGenerator;
 import org.apache.commons.math3.distribution.BinomialDistribution;
 
 import java.util.ArrayList;
@@ -21,7 +20,7 @@ public class MTableMultiTester {
         Algorithm 1 of the k fair ranking Paper
         @param k the size of the ranking to produce
         @param p the expected proportion of protected elements
-        @param alpha the significance for each individual test
+        @param alpha the significance for each individual binomial.test
         @return the probability of rejecting a fair ranking
      */
 

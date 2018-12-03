@@ -1,7 +1,6 @@
-package test;
+package binomial.test;
 
-import analyticalVSexperimental.RecursiveBlockMatrixFailprobabilityCalculator;
-import junit.framework.TestCase;
+import binomial.analyticalVSexperimental.RecursiveBlockMatrixFailprobabilityCalculator;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -83,7 +82,7 @@ public class RecursiveBlockMatrixFailprobabilityCalculatorTest {
     }
 
 
-    //TODO Divide test into smaller parts
+    //TODO Divide binomial.test into smaller parts
     @Test
     public void runRecursiveTableFailprobCalculatorWithHighK(){
         RecursiveBlockMatrixFailprobabilityCalculator calculator1 = new RecursiveBlockMatrixFailprobabilityCalculator(100,0.1,0.05);

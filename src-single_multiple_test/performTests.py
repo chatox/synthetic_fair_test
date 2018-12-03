@@ -132,7 +132,7 @@ def get_counter(p, ranking):
   
 
 '''
-performs single test.
+performs single binomial.test.
 '''
 def single_test(k, counter, minimum_targets):
     singleTest = np.zeros(k)
@@ -143,7 +143,7 @@ def single_test(k, counter, minimum_targets):
     return singleTest
 
 '''
-performs multiple test.
+performs multiple binomial.test.
 '''
 def multiple_test(k, counter, minimum_targets):
     multipleTest = 0
@@ -156,7 +156,7 @@ def multiple_test(k, counter, minimum_targets):
     return multipleTest
 
 '''
-Performs single test with multinomial cdf.
+Performs single binomial.test with multinomial cdf.
 Not complete and still in process.
 '''
 def single_test_multinom(k, counter, p, alpha):
@@ -171,7 +171,7 @@ def single_test_multinom(k, counter, p, alpha):
     return singleTest
 
 '''
-Performs multiple test with multinomial cdf.
+Performs multiple binomial.test with multinomial cdf.
 Not complete and still in process
 '''
 def multiple_test_multinom(k, counter, p, alpha):
@@ -187,7 +187,7 @@ def multiple_test_multinom(k, counter, p, alpha):
     return multipleTest
 
 '''
-Saves the k-vector computed from single test (binom) as a table
+Saves the k-vector computed from single binomial.test (binom) as a table
 '''
 def single_test_2_table (singleTest, multipleTest, p, N, alpha) :
     df = pd.DataFrame(data=(np.array(singleTest)).astype(int))
@@ -197,7 +197,7 @@ def single_test_2_table (singleTest, multipleTest, p, N, alpha) :
                +str(multipleTest)+".html")
 
 '''
-Saves the k-vector computed from single test (multinom) as a table
+Saves the k-vector computed from single binomial.test (multinom) as a table
 '''
 def single_test_2_table_multinom (singleTest, multipleTest, p, N, alpha) :
     df = pd.DataFrame(data=(np.array(singleTest)).astype(int))
@@ -207,7 +207,7 @@ def single_test_2_table_multinom (singleTest, multipleTest, p, N, alpha) :
                +str(multipleTest)+".html")
  
 '''
-Performs both single and multiple test based on binomial cdf
+Performs both single and multiple binomial.test based on binomial cdf
 N : Number of rankings to be tested
 k : size of the rankings
 p : array of p values of each group (including the unprotected group), which should sum upto 1
@@ -229,19 +229,19 @@ def perform_tests (p, k, N, alpha):
         # count the number of each group at each prefix of the ranking
         counter = get_counter(p, ranking)
                 
-        # perform single test
+        # perform single binomial.test
         singleTest += single_test(k, counter, minimum_targets)
         
-        # perform multiple test
+        # perform multiple binomial.test
         multipleTest += multiple_test(k, counter, minimum_targets)
     
-    # save result of the single test as a table
+    # save result of the single binomial.test as a table
     single_test_2_table (singleTest, multipleTest, p, N, alpha)  
     
     return singleTest, multipleTest
 
 '''
-Performs both single and multiple test based on multinom cdf
+Performs both single and multiple binomial.test based on multinom cdf
 Not complete. Still being processed
 N : Number of rankings to be tested
 k : size of the rankings
@@ -264,19 +264,19 @@ def perform_tests_multinom (p, k, N, alpha):
         # count the number of each group at each prefix of the ranking
         counter = get_counter(p, ranking)
         
-        # perform single test
+        # perform single binomial.test
         singleTest += single_test_multinom(k, counter, p, alpha)
         
-        # perform multiple test
+        # perform multiple binomial.test
         multipleTest += multiple_test_multinom(k, counter, p, alpha)
     
-    # save result of the single test as a table
+    # save result of the single binomial.test as a table
     single_test_2_table_multinom (singleTest, multipleTest, p, N, alpha)
     
     return singleTest, multipleTest
 
 
-# Example test
+# Example binomial.test
 p = [0.5, 0.5]
 k = 1000
 N = 10000

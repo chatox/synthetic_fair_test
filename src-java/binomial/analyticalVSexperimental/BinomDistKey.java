@@ -1,4 +1,4 @@
-package analyticalVSexperimental;
+package binomial.analyticalVSexperimental;
 
 public class BinomDistKey {
 

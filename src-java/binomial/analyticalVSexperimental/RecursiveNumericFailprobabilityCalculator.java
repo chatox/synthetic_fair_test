@@ -1,4 +1,4 @@
-package analyticalVSexperimental;
+package binomial.analyticalVSexperimental;
 
 import java.util.ArrayList;
 import java.util.HashMap;

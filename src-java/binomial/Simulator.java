@@ -1,10 +1,7 @@
-package analyticalVSexperimental;
+package binomial;
 
 import org.apache.commons.math3.distribution.BinomialDistribution;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -114,7 +111,7 @@ public class Simulator {
         double alpha = 0.05;
         for(double p : pValues){
             Simulator simulator = new Simulator(10000, k, p, alpha);
-            //CSVWriter writer = new CSVWriter();
+            //binomial.CSVWriter writer = new binomial.CSVWriter();
             //System.out.println(writer.getPropotionFromCSVFile(1500,p,0.05));
             System.out.println(simulator.run());
             //System.out.println(writer.mTableIsEqual(k, p, alpha));

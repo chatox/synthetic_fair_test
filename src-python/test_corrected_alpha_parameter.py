@@ -42,7 +42,7 @@ class AlphaAdjustment:
             required at each position
         """
         mtable = pd.DataFrame(columns=["m"])
-#         mtable.loc[0] = 0  # test should not fail at the first position so we require no protected candidate at position 1
+#         mtable.loc[0] = 0  # binomial.test should not fail at the first position so we require no protected candidate at position 1
         for i in range(1, self.n + 1):
             if i % 2000 == 0:
                 print("Computing m: {:.0f} of {:.0f}".format(i, self.n))
@@ -134,13 +134,13 @@ class AlphaAdjustment:
 
 class FairnessInRankingsTester():
     """
-    implementation of the statistical significance test that decides if a ranking has a fair representation
+    implementation of the statistical significance binomial.test that decides if a ranking has a fair representation
     and ordering of protected candidates with respect to non-protected ones.
-    The test is based on the cumulative distribution function of a binomial distribution, i.e. on a
+    The binomial.test is based on the cumulative distribution function of a binomial distribution, i.e. on a
     Bernoulli process which we believe is fair.
     A ranking is accepted as fair, if it fairly represents protected candidates over all prefixes of
     the ranking.
-    To fairly represent the protected group in a prefix the test compares the actual number of protected
+    To fairly represent the protected group in a prefix the binomial.test compares the actual number of protected
     candidates in the given ranking prefix to the number that would be obtained with a probability of
     p by random Bernoulli trials. If these numbers do not differ too much, the fair representation
     condition accepts this prefix. If this holds for every prefix, the entire ranking is accepted
@@ -244,7 +244,7 @@ class FairnessInRankingsTester():
         return mtableAsList
 
 
-# Perform test
+# Perform binomial.test
 
 testerCATrue = FairnessInRankingsTester(minProp=0.5, alpha=0.01, k=1000, correctedAlpha=True)
 testerCAFalse = FairnessInRankingsTester(minProp=0.5, alpha=0.01, k=1000, correctedAlpha=False)

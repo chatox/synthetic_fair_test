@@ -1,4 +1,4 @@
-package test;
+package binomial.test;
 
 public class RankingCaseParameterKey {
 
