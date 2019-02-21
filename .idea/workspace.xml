@@ -2,136 +2,107 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="60e81048-2371-49d3-8cf7-ab70d7119f9b" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/commons_math3_3_6_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src-java/binomial/analyticalVSexperimental/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src-java/multinomial/MultinomialSimulator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/colt_1_2_0.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/FA-IR_Ranking.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/FA-IR_Ranking.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/commons_math3_3_6_1.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-java/CSVWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src-java/binomial/CSVWriter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-java/Simulator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src-java/binomial/Simulator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-java/analyticalVSexperimental/BinomDistKey.java" beforeDir="false" afterPath="$PROJECT_DIR$/src-java/binomial/analyticalVSexperimental/BinomDistKey.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-java/analyticalVSexperimental/CSVWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src-java/binomial/analyticalVSexperimental/CSVWriter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-java/analyticalVSexperimental/DataFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src-java/binomial/analyticalVSexperimental/DataFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-java/analyticalVSexperimental/FailprobCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src-java/binomial/analyticalVSexperimental/FailprobCalculator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-java/analyticalVSexperimental/FailprobabilityCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src-java/binomial/analyticalVSexperimental/FailprobabilityCalculator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-java/analyticalVSexperimental/LegalAssignmentKey.java" beforeDir="false" afterPath="$PROJECT_DIR$/src-java/binomial/analyticalVSexperimental/LegalAssignmentKey.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-java/analyticalVSexperimental/MTableFailProbPair.java" beforeDir="false" afterPath="$PROJECT_DIR$/src-java/binomial/analyticalVSexperimental/MTableFailProbPair.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-java/analyticalVSexperimental/MTableGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src-java/binomial/analyticalVSexperimental/MTableGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-java/analyticalVSexperimental/MTableMultiTester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src-java/binomial/analyticalVSexperimental/MTableMultiTester.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-java/analyticalVSexperimental/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-java/analyticalVSexperimental/RecursiveBlockMatrixFailprobabilityCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src-java/binomial/analyticalVSexperimental/RecursiveBlockMatrixFailprobabilityCalculator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-java/analyticalVSexperimental/RecursiveNumericFailprobabilityCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src-java/binomial/analyticalVSexperimental/RecursiveNumericFailprobabilityCalculator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-java/analyticalVSexperimental/RecursiveTableFailprobabilityCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src-java/binomial/analyticalVSexperimental/RecursiveTableFailprobabilityCalculator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-java/analyticalVSexperimental/Simulator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src-java/binomial/analyticalVSexperimental/Simulator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-java/analyticalVSexperimental/SuccessProbBlockMatrixKey.java" beforeDir="false" afterPath="$PROJECT_DIR$/src-java/binomial/analyticalVSexperimental/SuccessProbBlockMatrixKey.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-java/test/MTableMultiTesterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src-java/binomial/test/MTableMultiTesterTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-java/test/RankingCaseParameterKey.java" beforeDir="false" afterPath="$PROJECT_DIR$/src-java/binomial/test/RankingCaseParameterKey.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-java/test/RecursiveBlockMatrixFailprobabilityCalculatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src-java/binomial/test/RecursiveBlockMatrixFailprobabilityCalculatorTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-java/test/RecursiveNumericFailprobabilityCalculatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src-java/binomial/test/RecursiveNumericFailprobabilityCalculatorTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-java/test/RecursiveTableFailprobabilityCalculatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src-java/binomial/test/RecursiveTableFailprobabilityCalculatorTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-python/test_corrected_alpha_parameter.py" beforeDir="false" afterPath="$PROJECT_DIR$/src-python/test_corrected_alpha_parameter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-single_multiple_test/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src-single_multiple_test/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-single_multiple_test/performTests.py" beforeDir="false" afterPath="$PROJECT_DIR$/src-single_multiple_test/performTests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FA-IR_Ranking/CSVWriter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FA-IR_Ranking/Simulator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FA-IR_Ranking/analyticalVSexperimental/BinomDistKey.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FA-IR_Ranking/analyticalVSexperimental/CSVWriter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FA-IR_Ranking/analyticalVSexperimental/DataFrame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FA-IR_Ranking/analyticalVSexperimental/FailprobCalculator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FA-IR_Ranking/analyticalVSexperimental/FailprobabilityCalculator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FA-IR_Ranking/analyticalVSexperimental/LegalAssignmentKey.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FA-IR_Ranking/analyticalVSexperimental/MTableFailProbPair.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FA-IR_Ranking/analyticalVSexperimental/MTableGenerator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FA-IR_Ranking/analyticalVSexperimental/MTableMultiTester.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FA-IR_Ranking/analyticalVSexperimental/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FA-IR_Ranking/analyticalVSexperimental/RecursiveBlockMatrixFailprobabilityCalculator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FA-IR_Ranking/analyticalVSexperimental/RecursiveNumericFailprobabilityCalculator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FA-IR_Ranking/analyticalVSexperimental/RecursiveTableFailprobabilityCalculator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FA-IR_Ranking/analyticalVSexperimental/Simulator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FA-IR_Ranking/analyticalVSexperimental/SuccessProbBlockMatrixKey.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FA-IR_Ranking/test/MTableMultiTesterTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FA-IR_Ranking/test/RankingCaseParameterKey.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FA-IR_Ranking/test/RecursiveBlockMatrixFailprobabilityCalculatorTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FA-IR_Ranking/test/RecursiveNumericFailprobabilityCalculatorTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FA-IR_Ranking/test/RecursiveTableFailprobabilityCalculatorTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src-java/binomial/analyticalVSexperimental/MTableGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src-java/binomial/analyticalVSexperimental/MTableGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src-java/binomial/analyticalVSexperimental/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src-java/binomial/analyticalVSexperimental/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src-java/binomial/analyticalVSexperimental/Simulator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src-java/binomial/analyticalVSexperimental/Simulator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src-java/multinomial/MultinomialSimulator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src-java/multinomial/MultinomialSimulator.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FUSProjectUsageTrigger">
-    <session id="-50350077">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="8" />
-          <entry key="project.open.time.1" value="4" />
-          <entry key="project.open.time.2" value="1" />
-          <entry key="project.open.time.29" value="1" />
-          <entry key="project.open.time.42" value="1" />
-          <entry key="project.open.time.43" value="1" />
-          <entry key="project.open.time.45" value="1" />
-          <entry key="project.open.time.55" value="1" />
-          <entry key="project.open.time.59" value="1" />
-          <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="12" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="java" value="74" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="JAVA" value="74" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="dummy" value="107" />
-          <entry key="java" value="11491" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="JAVA" value="11491" />
-          <entry key="PLAIN_TEXT" value="107" />
-        </counts>
-      </usages-collector>
-    </session>
-  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src-java/binomial/analyticalVSexperimental/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="67" lean-forward="true" selection-start-line="12" selection-start-column="67" selection-end-line="12" selection-end-column="67" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RecursiveNumericFailprobabilityCalculator.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src-java/binomial/analyticalVSexperimental/RecursiveNumericFailprobabilityCalculator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-340">
-              <caret line="23" column="61" selection-start-line="23" selection-start-column="61" selection-end-line="23" selection-end-column="61" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CSVWriter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src-java/binomial/CSVWriter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Simulator.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src-java/binomial/Simulator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="121" lean-forward="true" selection-start-line="9" selection-end-line="121" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MultinomialSimulator.java" pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src-java/multinomial/MultinomialSimulator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="31" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
+            <state relative-caret-position="276">
+              <caret line="131" column="51" lean-forward="true" selection-start-line="131" selection-start-column="51" selection-end-line="131" selection-end-column="51" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src-java/multinomial/util/TreeNode.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src-java/multinomial/util/TreeNodeIter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src-java/binomial/analyticalVSexperimental/RecursiveNumericFailprobabilityCalculator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1190">
+              <caret line="70" column="61" selection-start-line="70" selection-start-column="61" selection-end-line="70" selection-end-column="61" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#417#418#0" expanded="true" />
+                <element signature="e#451#452#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src-java/binomial/analyticalVSexperimental/MTableFailProbPair.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="21" column="30" lean-forward="true" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src-java/binomial/analyticalVSexperimental/MTableGenerator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="476">
+              <caret line="28" column="21" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -185,7 +156,15 @@
         <option value="$PROJECT_DIR$/src-java/analyticalVSexperimental/RecursiveNumericFailprobabilityCalculator.java" />
         <option value="$PROJECT_DIR$/src-java/analyticalVSexperimental/Main.java" />
         <option value="$PROJECT_DIR$/src-java/analyticalVSexperimental/Simulator.java" />
+        <option value="$PROJECT_DIR$/src-java/binomial/analyticalVSexperimental/RecursiveNumericFailprobabilityCalculator.java" />
+        <option value="$PROJECT_DIR$/src-java/binomial/analyticalVSexperimental/MTableGenerator.java" />
+        <option value="$PROJECT_DIR$/src-java/binomial/analyticalVSexperimental/Main.java" />
         <option value="$PROJECT_DIR$/src-java/binomial/analyticalVSexperimental/Simulator.java" />
+        <option value="$PROJECT_DIR$/src-java/multinomial/util/TreeNodeIter.java" />
+        <option value="$PROJECT_DIR$/src-java/multinomial/util/SampleData.java" />
+        <option value="$PROJECT_DIR$/src-java/multinomial/util/SampleSearching.java" />
+        <option value="$PROJECT_DIR$/src-java/multinomial/util/SampleIterating.java" />
+        <option value="$PROJECT_DIR$/src-java/multinomial/util/TreeNode.java" />
         <option value="$PROJECT_DIR$/src-java/multinomial/MultinomialSimulator.java" />
       </list>
     </option>
@@ -195,20 +174,11 @@
       <facet id="FA-IR_Ranking/invalid/Python" />
     </ignored-facets>
   </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
-  </component>
-  <component name="NodePackageJsonFileManager">
-    <packageJsonPaths />
-  </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-48" />
-    <option name="y" value="4" />
-    <option name="width" value="1386" />
-    <option name="height" value="788" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -266,31 +236,37 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="synthetic_fair_test" type="b2602c69:ProjectViewProjectNode" />
-              <item name="synthetic_fair_test" type="462c0819:PsiDirectoryNode" />
+              <item name="syntheticFairTest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="syntheticFairTest" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="synthetic_fair_test" type="b2602c69:ProjectViewProjectNode" />
-              <item name="synthetic_fair_test" type="462c0819:PsiDirectoryNode" />
+              <item name="syntheticFairTest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="syntheticFairTest" type="462c0819:PsiDirectoryNode" />
               <item name="src-java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="synthetic_fair_test" type="b2602c69:ProjectViewProjectNode" />
-              <item name="synthetic_fair_test" type="462c0819:PsiDirectoryNode" />
+              <item name="syntheticFairTest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="syntheticFairTest" type="462c0819:PsiDirectoryNode" />
               <item name="src-java" type="462c0819:PsiDirectoryNode" />
               <item name="multinomial" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="syntheticFairTest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="syntheticFairTest" type="462c0819:PsiDirectoryNode" />
+              <item name="src-java" type="462c0819:PsiDirectoryNode" />
+              <item name="multinomial" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -299,8 +275,8 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539873150835" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/commons-math3-3.6.1/commons-math3-3.6.1.jar!/" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550790938723" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/ssj/ssj-3.3.1.jar!/" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -323,12 +299,12 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Simulator">
-    <configuration default="true" type="Applet" factoryName="Applet">
+  <component name="RunManager" selected="Application.MultinomialSimulator">
+    <configuration default="true" type="Applet">
       <option name="HEIGHT" value="0" />
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <option name="WIDTH" value="0" />
-      <method>
+      <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
@@ -342,6 +318,23 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MultinomialSimulator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="multinomial.MultinomialSimulator" />
+      <module name="FA-IR_Ranking" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="multinomial.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="Simulator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="binomial.analyticalVSexperimental.Simulator" />
@@ -353,10 +346,13 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <method>
+      <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
@@ -368,20 +364,15 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="binomial.test" />
       <option name="MAIN_CLASS_NAME" value="binomial.test.RecursiveNumericFailprobabilityCalculatorTest" />
       <option name="METHOD_NAME" value="runRecursiveTableFailprobCalculatorWithHighK" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="RecursiveNumericFailprobabilityCalculatorTest.runRecursiveTableFailprobCalculatorWithLowKAndNonZeroMTables" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="FA-IR_Ranking" />
@@ -391,111 +382,55 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="binomial.test" />
       <option name="MAIN_CLASS_NAME" value="binomial.test.RecursiveNumericFailprobabilityCalculatorTest" />
       <option name="METHOD_NAME" value="runRecursiveTableFailprobCalculatorWithLowKAndNonZeroMTables" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
-    </configuration>
-    <configuration name="RecursiveNumericFailprobabilityCalculatorTest.runRecursiveTableFailprobCalculatorWithLowKAndZeroMTables" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="FA-IR_Ranking" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="binomial.test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="binomial.test" />
-      <option name="MAIN_CLASS_NAME" value="binomial.test.RecursiveNumericFailprobabilityCalculatorTest" />
-      <option name="METHOD_NAME" value="runRecursiveTableFailprobCalculatorWithLowKAndZeroMTables" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
-      <method>
+      <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="TestNG" factoryName="TestNG">
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="GROUP_NAME" />
-      <option name="TEST_OBJECT" value="CLASS" />
+    <configuration default="true" type="TestNG">
       <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
       <properties />
       <listeners />
-      <method>
+      <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
       <option name="PROGRAM_PARAMETERS" />
-      <predefined_log_file id="idea.log" enabled="true" />
-      <method>
+      <predefined_log_file enabled="true" id="idea.log" />
+      <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.RecursiveNumericFailprobabilityCalculatorTest.runRecursiveTableFailprobCalculatorWithLowKAndZeroMTables" />
       <item itemvalue="Application.Main" />
+      <item itemvalue="Application.Simulator" />
       <item itemvalue="JUnit.RecursiveNumericFailprobabilityCalculatorTest.runRecursiveTableFailprobCalculatorWithLowKAndNonZeroMTables" />
       <item itemvalue="JUnit.RecursiveNumericFailprobabilityCalculatorTest.runRecursiveTableFailprobCalculatorWithHighK" />
-      <item itemvalue="Application.Simulator" />
+      <item itemvalue="Application.MultinomialSimulator" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.MultinomialSimulator" />
         <item itemvalue="Application.Simulator" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.RecursiveNumericFailprobabilityCalculatorTest.runRecursiveTableFailprobCalculatorWithHighK" />
         <item itemvalue="JUnit.RecursiveNumericFailprobabilityCalculatorTest.runRecursiveTableFailprobCalculatorWithLowKAndNonZeroMTables" />
-        <item itemvalue="JUnit.RecursiveNumericFailprobabilityCalculatorTest.runRecursiveTableFailprobCalculatorWithLowKAndZeroMTables" />
       </list>
     </recent_temporary>
   </component>
@@ -546,6 +481,17 @@
       <workItem from="1539863852606" duration="4661000" />
       <workItem from="1539869231200" duration="656000" />
       <workItem from="1543850277910" duration="3815000" />
+      <workItem from="1549540445254" duration="4145000" />
+      <workItem from="1549807995829" duration="622000" />
+      <workItem from="1549809677250" duration="1748000" />
+      <workItem from="1549888823515" duration="1936000" />
+      <workItem from="1549892935293" duration="656000" />
+      <workItem from="1550005337655" duration="23000" />
+      <workItem from="1550005446924" duration="30000" />
+      <workItem from="1550006423350" duration="4783000" />
+      <workItem from="1550225728058" duration="4065000" />
+      <workItem from="1550780263625" duration="681000" />
+      <workItem from="1550780963422" duration="10011000" />
     </task>
     <servers />
   </component>
@@ -582,49 +528,82 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="135811000" />
+    <option name="totallyTimeSpent" value="164511000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.32981783" />
-      <window_info anchor="right" id="Palette&#9;" order="8" />
-      <window_info id="Image Layers" order="2" />
-      <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" weight="0.3290938" />
-      <window_info anchor="right" id="Maven Projects" order="9" />
-      <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.28298888" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32750398" />
-      <window_info id="Capture Tool" order="5" />
-      <window_info id="Designer" order="3" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22401172" />
-      <window_info anchor="right" id="Database" order="7" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3290938" />
-      <window_info anchor="right" id="SciView" order="10" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25266525" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
-      <window_info anchor="right" id="Theme Preview" order="6" />
+      <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.29050815" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3290938" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.27056277" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.2900433" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32750398" />
+      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" weight="0.3290938" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.32981783" />
+      <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="right" id="Data View" order="5" />
+      <window_info anchor="right" id="Theme Preview" order="6" />
+      <window_info anchor="right" id="Database" order="7" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+      <window_info anchor="right" id="Maven Projects" order="9" />
+      <window_info anchor="right" id="SciView" order="10" />
+      <window_info anchor="right" id="Maven" order="11" />
     </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22654584" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Message" order="1" />
+      <window_info anchor="bottom" id="Find" order="2" weight="0.3290938" />
+      <window_info active="true" anchor="bottom" id="Run" order="3" visible="true" weight="0.28246754" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.2900433" />
+      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32750398" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.3290938" />
+      <window_info anchor="bottom" id="Version Control" order="10" />
+      <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.32981783" />
+      <window_info anchor="right" id="Maven" order="0" />
+      <window_info anchor="right" id="Commander" order="1" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
+      <window_info anchor="right" id="Data View" order="6" />
+      <window_info anchor="right" id="Theme Preview" order="7" />
+      <window_info anchor="right" id="Database" order="8" />
+      <window_info anchor="right" id="Palette&#9;" order="9" />
+      <window_info anchor="right" id="Maven Projects" order="10" />
+      <window_info anchor="right" id="SciView" order="11" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
-  </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -647,49 +626,27 @@
           <properties />
           <option name="timeStamp" value="15" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src-java/binomial/analyticalVSexperimental/Main.java</url>
+          <line>30</line>
+          <properties />
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src-java/multinomial/MultinomialSimulator.java</url>
+          <line>54</line>
+          <properties />
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="this.auxMTable" language="JAVA" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src-java/binomial/analyticalVSexperimental/RecursiveNumericFailprobabilityCalculator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="23" column="61" selection-start-line="23" selection-start-column="61" selection-end-line="23" selection-end-column="61" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src-java/binomial/analyticalVSexperimental/DataFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="45" column="5" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src-java/binomial/analyticalVSexperimental/MTableMultiTester.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1734">
-          <caret line="106" column="52" selection-start-line="106" selection-start-column="52" selection-end-line="106" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src-java/binomial/analyticalVSexperimental/MTableGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="39" column="7" selection-start-line="39" selection-start-column="7" selection-end-line="39" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src-java/binomial/analyticalVSexperimental/MTableFailProbPair.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="29" column="5" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main.py" />
     <entry file="file://$PROJECT_DIR$/test/test_ranker/Test_test_fairness_in_rankings.py" />
     <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/numpy/core/numeric.py" />
     <entry file="file://$PROJECT_DIR$/src/evaluator/failProbabilityYangStoyanovich.py" />
@@ -704,13 +661,6 @@
     <entry file="file://$PROJECT_DIR$/src/dataset_creator/yangStoyanovichMethod.py" />
     <entry file="file://$PROJECT_DIR$/src/post_processing_methods/fair_ranker/alpha_adjustment.py" />
     <entry file="file://$PROJECT_DIR$/src/post_processing_methods/fair_ranker/simulation.py" />
-    <entry file="file://$PROJECT_DIR$/src-python/simulation_yang_stoyanovich.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="771">
-          <caret line="84" selection-start-line="84" selection-end-line="84" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src-python/test_corrected_alpha_parameter.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="839">
@@ -821,30 +771,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src-java/binomial/analyticalVSexperimental/MTableGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="39" column="7" selection-start-line="39" selection-start-column="7" selection-end-line="39" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src-java/binomial/analyticalVSexperimental/MTableFailProbPair.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="29" column="5" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src-java/binomial/analyticalVSexperimental/RecursiveNumericFailprobabilityCalculator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-340">
-          <caret line="23" column="61" selection-start-line="23" selection-start-column="61" selection-end-line="23" selection-end-column="61" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src-java/binomial/analyticalVSexperimental/FailprobCalculator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2210">
@@ -855,20 +781,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src-java/binomial/analyticalVSexperimental/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="67" lean-forward="true" selection-start-line="12" selection-start-column="67" selection-end-line="12" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src-java/binomial/analyticalVSexperimental/Simulator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="25" column="31" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src-java/binomial/CSVWriter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -876,17 +788,109 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src-java/binomial/analyticalVSexperimental/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="35" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src-java/binomial/analyticalVSexperimental/RecursiveNumericFailprobabilityCalculator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1190">
+          <caret line="70" column="61" selection-start-line="70" selection-start-column="61" selection-end-line="70" selection-end-column="61" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#417#418#0" expanded="true" />
+            <element signature="e#451#452#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src-python/simulation_yang_stoyanovich.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src-java/multinomial/util/SampleIterating.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="35" lean-forward="true" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src-java/binomial/analyticalVSexperimental/Simulator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="71" column="18" selection-start-line="71" selection-start-column="18" selection-end-line="71" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src-java/binomial/analyticalVSexperimental/MTableFailProbPair.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="30" lean-forward="true" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src-java/multinomial/util/SampleData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="58" selection-start-line="15" selection-start-column="58" selection-end-line="15" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src-java/multinomial/util/SampleSearching.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="49" lean-forward="true" selection-start-line="17" selection-start-column="49" selection-end-line="17" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src-java/multinomial/util/TreeNodeIter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src-java/binomial/analyticalVSexperimental/MTableGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="28" column="21" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/ssj/ssj-3.3.1.jar!/umontreal/ssj/probdistmulti/MultinomialDist.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="318">
+          <caret line="44" column="46" selection-start-line="44" selection-start-column="46" selection-end-line="44" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src-java/multinomial/util/TreeNode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src-java/binomial/Simulator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="121" lean-forward="true" selection-start-line="9" selection-end-line="121" />
+        <state relative-caret-position="319">
+          <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="37" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src-java/multinomial/MultinomialSimulator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="31" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
+        <state relative-caret-position="276">
+          <caret line="131" column="51" lean-forward="true" selection-start-line="131" selection-start-column="51" selection-end-line="131" selection-end-column="51" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -933,7 +937,7 @@
       </state>
       <state key="GlobalLibrariesConfigurable.UI">
         <settings>
-          <last-edited>Python 3.6 (venv) interpreter library</last-edited>
+          <last-edited>Python 3.6 (plotsByMeike) (2) interpreter library</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -945,7 +949,7 @@
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
-          <last-edited>9</last-edited>
+          <last-edited>1.8</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -962,7 +966,6 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
@@ -970,7 +973,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>commons-math3-3.6.1</last-edited>
+          <last-edited>colt-1.2.0</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

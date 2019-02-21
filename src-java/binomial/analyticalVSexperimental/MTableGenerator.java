@@ -26,8 +26,8 @@ public class MTableGenerator {
 
     private int[] computeMTable() {
         int[] table = new int[this.n+1];
-
-        for (int i = 0; i < this.n+1; i++) {
+        table[0] = 0;
+        for (int i = 1; i < this.n+1; i++) {
             table[i] = m(i);
         }
         return table;
