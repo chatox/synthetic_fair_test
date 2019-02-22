@@ -142,7 +142,7 @@ public class MultinomialSimulator {
 //        double[] p = {1.0 / 3.0, 1.0 / 3.0, 1.0 / 3.0};
         double[] p = {0.6,0.15,0.15,0.1};
         int[] x = {3,1,0,0};
-        System.out.println(MultinomialDist.cdf(4,p,x));
+        System.out.println(MultinomialDist.cdf(2,p,x));
 //        MultinomialSimulator simulator = new MultinomialSimulator(10000, 30, p, 0.15);
 //        simulator.run();
 
