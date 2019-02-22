@@ -102,25 +102,23 @@ public class MultinomialSimulator {
             ArrayList<TreeNode> intermediatePossibilities = new ArrayList<>();
             for (TreeNode<int[]> t : openPossibilities) {
                 int[] dist = t.data;
-                if (fairRepresentationCondition(position, dist)) {
-                    TreeNode<int[]> tnode = t.addChild(dist);
-                    intermediatePossibilities.add(tnode);
 
-                } else {
-                    for (int i = 0; i < dist.length; i++) {
-                        int[] temp = new int[dist.length];
-                        for (int c = 0; c < dist.length; c++) {
-                            temp[c] = dist[c];
-                        }
-                        temp[i]++;
-                        if (fairRepresentationCondition(position, temp)) {
-                            TreeNode<int[]> tnode = t.addChild(temp);
-//                        tnode.signature = i;
-                            intermediatePossibilities.add(tnode);
-                        }
+                for (int i = 0; i < dist.length; i++) {
+                    int[] temp = new int[dist.length];
+                    System.arraycopy(dist, 0, temp, 0, dist.length);
+                    temp[i]++;
+                    if (fairRepresentationCondition(position, temp)) {
+                        TreeNode<int[]> tnode = t.addChild(temp);
+                        intermediatePossibilities.add(tnode);
                     }
                 }
+                if(intermediatePossibilities.size()==0){
+                    dist[0]++;
+                    TreeNode<int[]> tnode = t.addChild(dist);
+                    intermediatePossibilities.add(tnode);
+                }
             }
+
             openPossibilities = intermediatePossibilities;
             position++;
             System.out.println(position);
@@ -130,7 +128,7 @@ public class MultinomialSimulator {
 
     public boolean fairRepresentationCondition(int k, int[] x) {
         if (MultinomialDist.cdf(k, p, x) > alpha) {
-            System.out.println("FRC: "+k+", "+MultinomialDist.cdf(k,p,x));
+            System.out.println("FRC: " + k + ", " + MultinomialDist.cdf(k, p, x));
             return true;
         }
         return false;
@@ -139,12 +137,12 @@ public class MultinomialSimulator {
 
 
     public static void main(String[] args) throws Exception {
-//        double[] p = {1.0 / 3.0, 1.0 / 3.0, 1.0 / 3.0};
-        double[] p = {0.6,0.15,0.15,0.1};
-        int[] x = {3,1,0,0};
-        System.out.println(MultinomialDist.cdf(2,p,x));
-//        MultinomialSimulator simulator = new MultinomialSimulator(10000, 30, p, 0.15);
-//        simulator.run();
+        double[] p = {1.0 / 3.0, 1.0 / 3.0, 1.0 / 3.0};
+//        double[] p = {0.6, 0.15, 0.15, 0.1};
+//        int[] x = {3, 0, 2};
+//        System.out.println(MultinomialDist.cdf(5, p, x));
+        MultinomialSimulator simulator = new MultinomialSimulator(10000, 100, p, 0.1);
+        simulator.run();
 
     }
 
