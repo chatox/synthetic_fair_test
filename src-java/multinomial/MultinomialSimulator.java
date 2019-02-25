@@ -1,12 +1,21 @@
 package multinomial;
 
-import binomial.Simulator;
-import multinomial.util.TreeNode;
-import org.apache.commons.math3.distribution.BinomialDistribution;
+import multinomial.util.*;
+import org.abego.treelayout.TreeForTreeLayout;
+import org.abego.treelayout.TreeLayout;
+import org.abego.treelayout.util.DefaultConfiguration;
 import umontreal.ssj.probdistmulti.MultinomialDist;
 
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class MultinomialSimulator {
 
@@ -92,58 +101,103 @@ public class MultinomialSimulator {
         return 1 - (double) successes / runs;
     }
 
+
     public TreeNode<int[]> computeMultinomialMtables() {
-        int[] currentProtectedCount = new int[p.length];
+        int[] currentProtectedCount = new int[this.p.length];
         TreeNode<int[]> root = new TreeNode<>(currentProtectedCount);
         ArrayList<TreeNode> openPossibilities = new ArrayList<>();
         openPossibilities.add(root);
-        int position = 1;
-        while (openPossibilities.size() > 0 && position <= k) {
+        while (openPossibilities.size() > 0) {
             ArrayList<TreeNode> intermediatePossibilities = new ArrayList<>();
             for (TreeNode<int[]> t : openPossibilities) {
-                int[] dist = t.data;
-
-                for (int i = 0; i < dist.length; i++) {
-                    int[] temp = new int[dist.length];
-                    System.arraycopy(dist, 0, temp, 0, dist.length);
-                    temp[i]++;
-                    if (fairRepresentationCondition(position, temp)) {
-                        TreeNode<int[]> tnode = t.addChild(temp);
-                        intermediatePossibilities.add(tnode);
-                    }
-                }
-                if(intermediatePossibilities.size()==0){
-                    dist[0]++;
-                    TreeNode<int[]> tnode = t.addChild(dist);
-                    intermediatePossibilities.add(tnode);
-                }
+                inverseMultinomialCDF(t);
+                intermediatePossibilities.addAll(t.children);
             }
-
             openPossibilities = intermediatePossibilities;
-            position++;
-            System.out.println(position);
         }
         return root;
     }
 
-    public boolean fairRepresentationCondition(int k, int[] x) {
-        if (MultinomialDist.cdf(k, p, x) > alpha) {
-            System.out.println("FRC: " + k + ", " + MultinomialDist.cdf(k, p, x));
-            return true;
-        }
-        return false;
 
+    public void inverseMultinomialCDF(TreeNode<int[]> currentNode){
+        int trials = currentNode.getLevel()+1;
+        if(trials>this.k){
+            return;
+        }
+        int[] minProportions = new int[currentNode.data.length];
+        System.arraycopy(currentNode.data, 0, minProportions, 0, currentNode.data.length);
+        minProportions[0]++;
+        double mcdf = MultinomialDist.cdf(trials,this.p,minProportions);
+        if(mcdf > alpha){
+            TreeNode<int[]> child = currentNode.addChild(minProportions);
+            child.cdf = mcdf;
+        }else{
+            for(int i=1; i<this.p.length; i++){
+                int[] temp = new int[minProportions.length];
+                System.arraycopy(minProportions, 0, temp, 0, minProportions.length);
+                temp[i]++;
+                double mcdfTemp = MultinomialDist.cdf(trials,this.p,temp);
+                if(mcdfTemp>alpha){
+                    TreeNode<int[]> child =currentNode.addChild(temp);
+                    child.cdf = mcdfTemp;
+                }
+            }
+        }
     }
 
 
     public static void main(String[] args) throws Exception {
         double[] p = {1.0 / 3.0, 1.0 / 3.0, 1.0 / 3.0};
-//        double[] p = {0.6, 0.15, 0.15, 0.1};
-//        int[] x = {3, 0, 2};
-//        System.out.println(MultinomialDist.cdf(5, p, x));
-        MultinomialSimulator simulator = new MultinomialSimulator(10000, 100, p, 0.1);
-        simulator.run();
+//        double[] p2 = {0.6,0.15,0.15,0.1};
+////        int[] node1 = {5,0,1};
+////        int[] node2 = {1,1,0};
+////        int[] node3 = {0,0,0,1};
+////        int[] node4 = {1,1,1};
+////        //int[]= {k, 0, 0 }
+////        //cdf wert in node speichern
+////        System.out.println(MultinomialDist.cdf(5, p, node1)); // x oder weniger
+        MultinomialSimulator simulator = new MultinomialSimulator(10000,10,p,0.01);
+        System.out.println(simulator.run());
 
+        String treeName = "test";
+        TreeForTreeLayout<NodeDisplayWrapper> tree = MultinomialMtableTreeVisualizer.convertTree(simulator.multinomialMtable);
+
+        // setup the tree layout configuration
+        double gapBetweenLevels = 50;
+        double gapBetweenNodes = 10;
+        DefaultConfiguration<NodeDisplayWrapper> configuration = new DefaultConfiguration<>(
+                gapBetweenLevels, gapBetweenNodes);
+
+        // create the NodeExtentProvider for TextInBox nodes
+        NodeDisplayWrapperNodeExtentProvider nodeExtentProvider = new NodeDisplayWrapperNodeExtentProvider();
+
+        // create the layout
+        TreeLayout<NodeDisplayWrapper> treeLayout = new TreeLayout<>(tree,
+                nodeExtentProvider, configuration);
+
+        // Create a panel that draws the nodes and edges and show the panel
+        NodeDisplayWrapperTreePane panel = new NodeDisplayWrapperTreePane(treeLayout);
+        showInDialog(panel);
+
+    }
+
+    private static void showInDialog(JComponent panel) {
+        JDialog dialog = new JDialog();
+        Container contentPane = dialog.getContentPane();
+        ((JComponent) contentPane).setBorder(BorderFactory.createEmptyBorder(
+                10, 10, 10, 10));
+        contentPane.add(panel);
+        dialog.pack();
+        dialog.setLocationRelativeTo(null);
+        dialog.setVisible(true);
+        BufferedImage image = new BufferedImage(panel.getWidth(), panel.getHeight(), BufferedImage.TYPE_INT_ARGB);
+        Graphics g = image.getGraphics();
+        panel.paint(g);
+        try {
+            ImageIO.write(image, "png", new File("C:\\Users\\Tom\\Desktop\\CIT\\image.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(JComponent.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
 

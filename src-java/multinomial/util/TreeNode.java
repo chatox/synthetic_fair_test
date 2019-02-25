@@ -9,6 +9,7 @@ public class TreeNode<T> implements Iterable<TreeNode<T>> {
 	public T data;
 	public TreeNode<T> parent;
 	public List<TreeNode<T>> children;
+	public double cdf;
 
 	public boolean isRoot() {
 		return parent == null;
