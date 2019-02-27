@@ -1,6 +1,6 @@
-# FA*IR testing repository
+# INTERNAL USE ONLY
 
-This repository contains code in Python and Java to apply the "FA*IR" algorithm to a synthetic dataset generated using the Yang-Stoyanovich method.
+DEVELOPMENT REPOSITORY FOR MULTINOMIAL FAIR CODE.
 
 It was created by Tom Sühr and Carlos Castillo.
 
