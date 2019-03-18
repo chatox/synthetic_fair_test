@@ -1,5 +1,7 @@
 package binomial.analyticalVSexperimental;
 
+import org.apache.commons.math3.distribution.BinomialDistribution;
+
 import java.io.FileNotFoundException;
 
 public class Main {
@@ -9,8 +11,20 @@ public class Main {
         int k=10;
         double[] alphaValues = {0.01,0.05,0.1,0.15};
 
-        Simulator sim = new Simulator(100000,10,0.2,0.15);
-        System.out.println(sim.run());
+//        Simulator sim = new Simulator(100000,10,0.2,0.15);
+//        System.out.println(sim.run());
+
+        MTableGenerator generator = new MTableGenerator(10,0.5,0.05);
+        for(int i : generator.getMTable()){
+            System.out.println(i);
+
+        }
+
+        for(int j = 1; j<=k; j++){
+            BinomialDistribution dist = new BinomialDistribution(j, 1.0/3.0);
+            System.out.println(dist.inverseCumulativeProbability(0.1));
+            System.out.println(dist.cumulativeProbability(j));
+        }
 
 //        RecursiveNumericFailprobabilityCalculator calculator = new RecursiveNumericFailprobabilityCalculator(10,0.3,0.05);
 //        System.out.println(calculator.adjustAlpha().getFailProb());

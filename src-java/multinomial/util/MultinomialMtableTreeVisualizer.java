@@ -10,7 +10,7 @@ public class MultinomialMtableTreeVisualizer {
     static final int width = 70;
     static final int height = 50;
 
-    public static TreeForTreeLayout<NodeDisplayWrapper> convertTree(TreeNode<int[]> root){
+    public static TreeForTreeLayout<NodeDisplayWrapper> convertTree(TreeNode<int[]> root, int k){
 
 
         ArrayList<TreeNode<int[]>> children = new ArrayList<>();
