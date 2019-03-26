@@ -2,6 +2,7 @@ package binomial.analyticalVSexperimental;
 
 import org.apache.commons.math3.distribution.BinomialDistribution;
 
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -55,7 +56,7 @@ public class Simulator {
             return false;
         } else {
             int protectedFound = 0;
-            for (int i = 0; i < mtable.length - 1; i++) {
+            for (int i = 0; i < mtable.length; i++) {
                 if (ranking.get(i)) {
                     protectedFound++;
                 }
@@ -94,27 +95,34 @@ public class Simulator {
                 successes++;
             }
             if ((i % 200) == 0) {
-                System.out.println("p=" + p + ", alpha=" + alpha + ", k=" + k + " -- completed " + i + "/" + runs + " trials -- Fail prob.=" + ((double) (i - successes) / i));
+//                System.out.println("p=" + p + ", alpha=" + alpha + ", k=" + k + " -- completed " + i + "/" + runs + " trials -- Fail prob.=" + ((double) (i - successes) / i));
             }
         }
-        System.out.println("----"+k+"----"+p+"----------"+alpha+"--------");
-        System.out.println(1 - (double) successes / runs);
+//        System.out.println("----"+k+"----"+p+"----------"+alpha+"--------");
+//        System.out.println(1 - (double) successes / runs);
 
         return 1 - (double) successes / runs;
     }
 
 
     public static void main(String[] args) throws Exception {
-        Double[] pValues = {0.8};
+//        ArrayList<Double> results = new ArrayList<>();
+        Double[] pValues = {0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ,0.7,0.8,0.9};
+        int[] kValues= {10, 20, 50, 100, 200};
+        double[] alphaValues = {0.01,0.05, 0.1, 0.15};
+        PrintWriter pw = new PrintWriter("C:\\Users\\Tom\\Desktop\\results.csv");
+        pw.write("k,p,alpha,failprob"+'\n');
+        for(int k : kValues){
+            for(double p : pValues){
+                for(double alpha : alphaValues){
+                    Simulator simulator = new Simulator(10000, k, p, alpha);
+                    double result = simulator.run();
+                    System.out.println(result);
+                    pw.write(""+k+","+p+","+alpha+","+result+'\n');
+//                    results.add(result);
+                }
+            }
 
-        int k= 15;
-        double alpha = 0.15;
-        for(double p : pValues){
-            Simulator simulator = new Simulator(10000, k, p, alpha);
-            //binomial.CSVWriter writer = new binomial.CSVWriter();
-            //System.out.println(writer.getPropotionFromCSVFile(1500,p,0.05));
-            System.out.println(simulator.run());
-            //System.out.println(writer.mTableIsEqual(k, p, alpha));
         }
 
     }

@@ -33,6 +33,7 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" name="commons-math3-3.6.1" level="project" />
+    <orderEntry type="library" name="colt-1.2.0" level="project" />
+    <orderEntry type="library" name="org.abego.treelayout.core-1.0.3" level="project" />
   </component>
 </module>
