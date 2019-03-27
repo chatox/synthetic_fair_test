@@ -26,6 +26,7 @@ public class MultinomialSimulator {
     private double alpha;
     private TreeNode<int[]> multinomialMtable;
     private MCDFCache mcdfCache;
+    private HashMap<Integer,Double> failprobOnLevel;
 
 
     public MultinomialSimulator(int runs, int k, double[] p, double alpha) {
@@ -34,6 +35,7 @@ public class MultinomialSimulator {
         this.p = p;
         this.alpha = alpha;
         this.mcdfCache = new MCDFCache(k,p,alpha);
+        this.failprobOnLevel = new HashMap<>();
     }
 
     private ArrayList<Integer> createRanking(int k) {
@@ -176,28 +178,45 @@ public class MultinomialSimulator {
         ArrayList<TreeNode<int[]>> openPossibilities = new ArrayList<>();
         openPossibilities.add(root);
         double currentTime = System.nanoTime();
-        int currentLevel = 1;
+        double failprob = 0;
+        double succProb = 1-failprob;
+        failprobOnLevel.put(0,failprob);
+        int currentLevel = 0;
         while (openPossibilities.size() > 0) {
             ArrayList<TreeNode<int[]>> intermediatePossibilities = new ArrayList<>();
             ArrayList<TreeNode> validPossibilities = new ArrayList<>();
             HashMap<int[],TreeNode<int[]>> seenSoFar = new HashMap<>();
             for (TreeNode<int[]> t : openPossibilities) {
-                if (seenSoFar.get(t.data)!=null) {
+                if (seenSoFar.get(t.data)==null) {
                     seenSoFar.put(t.data,t);
                     validPossibilities.add(t);
                 }else{
-                    TreeNode<int[]> node = seenSoFar.get(t.data);
-                    node.weight += t.weight;
+                    seenSoFar.get(t.data).weight +=t.weight-1;
                 }
-
             }
+            double failProbThisLevel = 0;
+            DiscontFactorCache dcfCache = new DiscontFactorCache(this.p);
+
             for (TreeNode<int[]> t : validPossibilities) {
+                if(currentLevel>2){
+                    dcfCache.push(t);
+                    int[] converted = t.parent.get(0).data;
+                    converted[0]++;
+                    failProbThisLevel += mcdfCache.mcdf(converted)*t.weight*succProb;
+                }
                 inverseMultinomialCDF(t);
                 intermediatePossibilities.addAll(t.children);
             }
-
+            if(currentLevel>2){
+                double discontFactor = dcfCache.calculateDiscontFactor();
+                failProbThisLevel = failProbThisLevel*discontFactor;
+            }
+            failprobOnLevel.put(currentLevel,failProbThisLevel);
+            failprob = failProbThisLevel;
+            succProb = 1-failprob;
             openPossibilities = intermediatePossibilities;
-            System.out.println((System.nanoTime() - currentTime) / (1000000000) + ";" + currentLevel + ";" + (Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()) / (double) (1024 * 1024));
+            System.out.println("lvl: "+currentLevel +" --- "+failprob);
+            //System.out.println((System.nanoTime() - currentTime) / (1000000000) + ";" + currentLevel + ";" + (Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()) / (double) (1024 * 1024));
             currentLevel ++;
             currentTime = System.nanoTime();
             System.gc();
@@ -205,6 +224,7 @@ public class MultinomialSimulator {
         this.multinomialMtable = root;
         return root;
     }
+
 
     public void inverseMultinomialCDF(TreeNode<int[]> currentNode) {
         int trials = currentNode.getLevel() + 1;
@@ -279,8 +299,6 @@ public class MultinomialSimulator {
     public static void main(String[] args) throws Exception {
         double[] p = {1.0 / 3.0, 1.0 / 3.0, 1.0 / 3.0};
         int k = 500;
-        MultinomialSimulator simulator = new MultinomialSimulator(10000,250,p,0.1);
-        simulator.computeMultinomialMtables();
         ////////////////////////////////////////////////////////////////////////////////////
         //level 1, 2 failprob = 0;
 
@@ -441,7 +459,8 @@ public class MultinomialSimulator {
         System.out.println("Level 7 "+failProbOnLevel7);
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
+        MultinomialSimulator simulator = new MultinomialSimulator(10000,7,p,0.1);
+        simulator.computeMultinomialMtables();
         //save and mark nodes which are counted x times like weights
 
 //        simulator.readNodes("C:\\Users\\Tom\\Desktop\\CIT\\mtable500\\");
