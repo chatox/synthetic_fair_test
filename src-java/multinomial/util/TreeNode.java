@@ -6,7 +6,7 @@ import java.util.*;
 public class TreeNode<T> implements Iterable<TreeNode<T>>, Serializable {
 
     public T data;
-    public List<TreeNode<T>> parent;
+    public TreeNode<T> parent;
     public List<TreeNode<T>> children;
     public double cdf;
     public int id;
@@ -60,7 +60,7 @@ public class TreeNode<T> implements Iterable<TreeNode<T>>, Serializable {
     }
 
     public boolean isRoot() {
-        return parent.size() == 0;
+        return parent == null;
     }
 
     public boolean isLeaf() {
@@ -73,7 +73,6 @@ public class TreeNode<T> implements Iterable<TreeNode<T>>, Serializable {
         this.id = ID;
         ID++;
         this.data = data;
-        this.parent = new LinkedList<TreeNode<T>>();
         this.children = new LinkedList<TreeNode<T>>();
         this.elementsIndex = new LinkedList<TreeNode<T>>();
         this.elementsIndex.add(this);
@@ -81,14 +80,14 @@ public class TreeNode<T> implements Iterable<TreeNode<T>>, Serializable {
 
     public TreeNode<T> addChild(T child) {
         TreeNode<T> childNode = new TreeNode<T>(child);
-        childNode.parent.add(this);
+        childNode.parent = this;
         this.children.add(childNode);
         this.registerChildForSearch(childNode);
         return childNode;
     }
 
     public TreeNode<T> addChild(TreeNode<T> child) {
-        child.parent.add(this);
+        child.parent = this;
         this.children.add(child);
         return child;
     }
@@ -97,7 +96,7 @@ public class TreeNode<T> implements Iterable<TreeNode<T>>, Serializable {
         if (this.isRoot())
             return 0;
         else
-            return parent.get(0).getLevel() + 1;
+            return parent.getLevel() + 1;
     }
 
     private void registerChildForSearch(TreeNode<T> node) {

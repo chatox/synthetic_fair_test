@@ -32,7 +32,7 @@ public class FairnessTestGraph {
                 if(t.children.size()==0 && t.getLevel()<k){
                     for(TreeNode<int[]> n : currentLevelChildren){
                         if(isSameSignature(t.data,n.data) && t.id != n.id){
-                            t.parent.get(0).addChild(n);
+                            t.parent.addChild(n);
                             t.disconnect();
                         }
                     }
