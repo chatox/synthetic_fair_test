@@ -74,13 +74,13 @@ public class RecursiveNumericFailprobabilityCalculator extends FailprobabilityCa
     }
 
     @Override
-    double calculateFailprobability(int[] mtable, double alpha) {
+    public double calculateFailprobability(int[] mtable, double alpha) {
         if (mtable[mtable.length - 1] == 0) {
             return 0;
         }
         MTableGenerator generator = new MTableGenerator(k, p, alpha);
         this.mTable = mtable;
-        this.auxMTable = generator.getAuxMTable();
+        this.auxMTable = generator.computeAuxMTable(mtable);
         int maxProtected = auxMTable.getSumOf("block");
         ArrayList<Integer> blockSizes = auxMTable.getColumn("block");
         blockSizes = sublist(blockSizes, 1, blockSizes.size());

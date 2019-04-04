@@ -96,6 +96,41 @@ public class MultinomialSimulator {
         return true;
     }
 
+    public double testSingleMultinomialTable(int[]p1 , int[] p2){
+        int successes = 0;
+        for (int i = 0; i < runs; i++) {
+//            if (i % 200 == 0) {
+//                System.out.println("----" + k + "----" + p[0] + "----------" + alpha + "--------"+(1-(double)successes/runs));
+//            }
+            ArrayList<Integer> ranking = createRanking(k);
+//            boolean test = test(ranking);
+//            boolean test = testRankingWithMCDF(ranking);
+            boolean test = singleTest(p1,p2,ranking);
+            if (test) {
+                successes++;
+            }
+        }
+
+        return 1 - (double) successes / runs;
+    }
+
+    public boolean singleTest(int[] p1, int[] p2, ArrayList<Integer> ranking){
+        int p1Seen = 0;
+        int p2Seen = 0;
+        for(int j=0; j<ranking.size(); j++){
+            if(ranking.get(j)==1){
+                p1Seen++;
+            }
+            if(ranking.get(j)==2){
+                p2Seen++;
+            }
+            if(p1[j]>p1Seen || p2[j]>p2Seen){
+                return false;
+            }
+        }
+        return true;
+    }
+
     public boolean testWithLazyMtable(ArrayList<Integer> ranking) {
         ArrayList<TreeNode> possibleWayDown = new ArrayList<>(multinomialMtable.children);
         int[] seenSoFar = new int[p.length];
@@ -176,9 +211,6 @@ public class MultinomialSimulator {
         ArrayList<TreeNode<int[]>> openPossibilities = new ArrayList<>();
         openPossibilities.add(root);
         double currentTime = System.nanoTime();
-        double failprob = 0;
-        double succProb = 1-failprob;
-        failprobOnLevel.put(0,failprob);
         int currentLevel = 0;
         while (openPossibilities.size() > 0) {
             ArrayList<TreeNode<int[]>> intermediatePossibilities = new ArrayList<>();
@@ -192,44 +224,12 @@ public class MultinomialSimulator {
                     seenSoFar.get(t.data).weight +=t.weight;
                 }
             }
-            double failProbThisLevel = 0;
-            DiscontFactorCache dcfCache = new DiscontFactorCache(this.p);
-            ArrayList<int[]> convertedNodes = new ArrayList<>();
-            ArrayList<int[]> parents = new ArrayList<>();
-            ArrayList<Integer> parentIds = new ArrayList<>();
             for (TreeNode<int[]> t : validPossibilities) {
-                if(currentLevel>2){
-                    if(!parentIds.contains(t.parent.id)){
-                        for(int i=0; i<t.parent.weight; i++){
-                            parents.add(t.parent.data);
-                        }
-                        parentIds.add(t.parent.id);
-                    }
-                    for(int i=0; i<t.weight; i++){
-                        int[] converted = new int[t.parent.data.length];
-                        System.arraycopy(t.parent.data,0,converted,0,t.parent.data.length);
-                        converted[0] = currentLevel;
-                        convertedNodes.add(converted);
-                    }
-                    int[] converted = new int[t.parent.data.length];
-                    System.arraycopy(t.parent.data,0,converted,0,t.parent.data.length);
-                    converted[0] = currentLevel;
-                    failProbThisLevel += mcdfCache.mcdf(converted)*t.weight*succProb;
-                }
                 inverseMultinomialCDF(t);
                 intermediatePossibilities.addAll(t.children);
             }
 //            System.out.println(parents.size() + "///" +convertedNodes.size());
-            if(currentLevel>2){
-                double discontFactor = dcfCache.calculateDiscontFactor(parents,convertedNodes);
-                failProbThisLevel = failProbThisLevel*discontFactor;
-//                System.out.println("discontFactor: "+discontFactor);
-            }
-            failprobOnLevel.put(currentLevel,failProbThisLevel);
-            failprob = failProbThisLevel;
-            succProb = 1-failprob;
             openPossibilities = intermediatePossibilities;
-            System.out.println("lvl: "+currentLevel +" --- "+failprob);
             //System.out.println((System.nanoTime() - currentTime) / (1000000000) + ";" + currentLevel + ";" + (Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()) / (double) (1024 * 1024));
             currentLevel ++;
             currentTime = System.nanoTime();

@@ -55,6 +55,23 @@ public class MTableGenerator {
         return table;
     }
 
+    public DataFrame computeAuxMTable(int[] mTable){
+        DataFrame table = new DataFrame("inv", "block");
+        int lastMSeen = 0;
+        int lastPosition = 0;
+        for (int position = 1; position < mTable.length; position++) {
+            if (mTable[position] == lastMSeen + 1) {
+                lastMSeen += 1;
+                table.put(position, position, (position - lastPosition));
+                lastPosition = position;
+            } else if (mTable[position] != lastMSeen) {
+                throw new RuntimeException("Inconsistent mtable");
+            }
+        }
+        table.resolveNullEntries();
+        return table;
+    }
+
     private Integer m(int k) {
 
         BinomialDistribution dist = new BinomialDistribution(k, p);
