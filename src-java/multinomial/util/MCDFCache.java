@@ -141,15 +141,18 @@ public class MCDFCache {
         int[] mtable4Ip1 =      {0,0,1,2};
         int[] mtable4Ip2 =      {0,0,0,0};
         double failprobAExp = simulator.testSingleMultinomialTable(mtable4Ip1,mtable4Ip2);
+        System.out.println("path1="+failprobAExp);
         int[] mtable4Ip1c =      {0,0,0,1,2};
         int[] mtable4Ip2c =      {0,0,0,0,0};
         double failprobAp1 = calculator.calculateFailprobability(mtable4Ip1c,0.1);
+        System.out.println("A P1 "+failprobAp1);
         double failprobAp2 = calculator.calculateFailprobability(mtable4Ip2c, 0.1);
         double failprobAAna = (failprobAp1 * failprobAp2) + ((1-failprobAp1)*failprobAp2) + (failprobAp1 * (1-failprobAp2));
         //B
         int[] mtable4IVp1 =     {0,0,0,0};
         int[] mtable4IVp2 =     {0,0,1,2};
         double failprobBExp = simulator.testSingleMultinomialTable(mtable4IVp1,mtable4IVp2);
+        System.out.println("path4="+failprobBExp);
         int[] mtable4IVp1c =     {0,0,0,0,0};
         int[] mtable4IVp2c =     {0,0,0,1,2};
         double failprobBp1 = calculator.calculateFailprobability(mtable4IVp1c,0.1);
@@ -159,15 +162,18 @@ public class MCDFCache {
         int[] mtable4IIp1 =     {0,0,1,1};
         int[] mtable4IIp2 =     {0,0,0,1};
         double failprobCExp = simulator.testSingleMultinomialTable(mtable4IIp1,mtable4IIp2);
+        System.out.println("path2="+failprobCExp);
         int[] mtable4IIp1c =     {0,0,0,1,1};
         int[] mtable4IIp2c =     {0,0,0,0,1};
         double failprobCp1 = calculator.calculateFailprobability(mtable4IIp1c,0.1);
         double failprobCp2 = calculator.calculateFailprobability(mtable4IIp2c, 0.1);
+        System.out.println("Analytical Path 2: P1="+failprobCp1 + "/// P2="+failprobCp2);
         double failprobCAna = (failprobCp1 * failprobCp2) + ((1-failprobCp1)*failprobCp2) + (failprobCp1 * (1-failprobCp2));
         //D
         int[] mtable4VIp1 =     {0,0,0,1};
         int[] mtable4VIp2 =     {0,0,1,1};
         double failprobDExp = simulator.testSingleMultinomialTable(mtable4VIp1,mtable4VIp2);
+        System.out.println("path3="+failprobDExp);
         int[] mtable4VIp1c =     {0,0,0,0,1};
         int[] mtable4VIp2c =     {0,0,0,1,1};
         double failprobDp1 = calculator.calculateFailprobability(mtable4VIp1c,0.1);
@@ -279,10 +285,16 @@ public class MCDFCache {
                 +(failprob6Exp-failprob6Ana)+(failprob7Exp-failprob7Ana)+(failprob8Exp-failprob8Ana))/8d;
         double level4Average = ((failprobCExp-failprobCAna)+ (failprobDExp-failprobDAna))/2d;
         double level5Average = ((failprobIIexp-failprobII)+(failprobIIIexp-failprobIII)+(failprobVexp-failprobV)+(failprobVIexp-failprobVI))/4d;
-//        System.out.println(failprobAExp-failprobAAna);
-//        System.out.println(failprobBExp-failprobBAna);
+        System.out.println(failprobAExp-failprobAAna);
+        System.out.println(failprobBExp-failprobBAna);
         System.out.println(failprobCExp-failprobCAna);
         System.out.println(failprobDExp-failprobDAna);
+
+        double failprobk4 = failprobAExp + failprobBExp + failprobCExp + failprobDExp - failprobAExp*failprobBExp - failprobAExp * failprobCExp - failprobAExp * failprobDExp - failprobBExp*failprobCExp
+                -failprobBExp * failprobDExp - failprobCExp * failprobDExp;
+        System.out.println("Formula k4 "+failprobk4);
+
+
 //        System.out.println(failprobIexp-failprobI);
         System.out.println(failprobIIexp-failprobII);
         System.out.println(failprobIIIexp-failprobIII);
