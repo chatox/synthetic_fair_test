@@ -31,6 +31,27 @@ public class MCDFCache {
         return mcdfCache.get(signature);
     }
 
+    public double getFailprobOnLevelAndNotBefore(int[] start, int[]end){
+        int[] diff = new int[p.length];
+        for(int i=0; i<end.length; i++){
+            diff[i] = end[i]-start[i];
+        }
+        if(MultinomialSimulator.countProtected(diff) == 0){
+            return 0;
+        }else{
+            for(int i=1; i<diff.length; i++){
+                if(diff[i]>0){
+                    diff[i]--;
+                }
+            }
+            return mcdf(diff);
+        }
+    }
+
+    public double failprob(ArrayList<TreeNode<int[]>> nodes){
+        return 0;
+    }
+
     public static void main(String[] args){
         double[] p = {1.0/3.0,1.0/3.0,1.0/3.0};
         int k = 5;

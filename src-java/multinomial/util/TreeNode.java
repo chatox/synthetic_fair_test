@@ -6,9 +6,11 @@ import java.util.*;
 public class TreeNode<T> implements Iterable<TreeNode<T>>, Serializable {
 
     public T data;
+    public int[][] multinomialMtable;
     public TreeNode<T> parent;
     public List<TreeNode<T>> children;
     public double cdf;
+    public double pmf = 1.0;
     public int id;
     public static int ID = 0;
     public int weight = 1;
