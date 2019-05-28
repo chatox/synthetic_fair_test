@@ -1,5 +1,6 @@
 package multinomial;
 
+import binomial.analyticalVSexperimental.MTableGenerator;
 import multinomial.util.*;
 import umontreal.ssj.probdistmulti.MultinomialDist;
 
@@ -215,31 +216,43 @@ public class MultinomialSimulator {
         while (openPossibilities.size() > 0) {
             ArrayList<TreeNode<int[]>> intermediatePossibilities = new ArrayList<>();
             ArrayList<TreeNode<int[]>> validPossibilities = new ArrayList<>();
-            HashMap<int[], TreeNode<int[]>> seenSoFar = new HashMap<>();
+//            HashMap<int[], TreeNode<int[]>> seenSoFar = new HashMap<>();
+            ArrayList<int[]> seenSoFar = new ArrayList<>();
             for (TreeNode<int[]> t : openPossibilities) {
-                if (seenSoFar.get(t.data) == null) {
-                    seenSoFar.put(t.data, t);
+                if (!containsSignature(seenSoFar, t.data)) {
+//                    seenSoFar.put(t.data, t);
                     validPossibilities.add(t);
-                } else {
-                    seenSoFar.get(t.data).weight += t.weight;
+
                 }
+//                } else {
+//                    seenSoFar.get(t.data).weight += t.weight;
+//                }
             }
-            ArrayList<TreeNode<int[]>> failurePossibilities = new ArrayList<>();
+//            ArrayList<TreeNode<int[]>> failurePossibilities = new ArrayList<>();
             for (TreeNode<int[]> t : validPossibilities) {
-                boolean moreProtected = inverseMultinomialCDF(t);
+                inverseMultinomialCDF(t);
                 intermediatePossibilities.addAll(t.children);
-                if (moreProtected) {
-                    failurePossibilities.add(t);
-                }
+//                if (moreProtected) {
+//                    failurePossibilities.add(t);
+//                }
             }
 
             currentLevel++;
-            ArrayList<int[]> distinctFailurePossibilities = new ArrayList<>();
-            for(TreeNode<int[]> arr : failurePossibilities){
-                if(!containsSignature(distinctFailurePossibilities,arr.data)){
-                    distinctFailurePossibilities.add(arr.data);
-                }
-            }
+//            System.out.println(currentLevel);
+//            ArrayList<int[]> distinctFailurePossibilities = new ArrayList<>();
+//            for(TreeNode<int[]> arr : failurePossibilities){
+//                if(!containsSignature(distinctFailurePossibilities,arr.data)){
+//                    distinctFailurePossibilities.add(arr.data);
+//                }
+//            }
+
+//            int finalCurrentLevel = currentLevel;
+//            failprobSoFar += distinctFailurePossibilities.stream().mapToDouble(a->{
+//                int[] diff = new int[a.length];
+//                System.arraycopy(a, 0, diff, 0, a.length);
+//                diff[0]=diff[0]-countProtected(a);
+//                return MultinomialDist.prob(finalCurrentLevel-1,p,diff)*p[0];
+//            }).sum();
 
 
             openPossibilities = intermediatePossibilities;
@@ -249,35 +262,35 @@ public class MultinomialSimulator {
         return root;
     }
 
-    private boolean containsSignature(ArrayList<int[]> list, int[] sig){
-        for(int[] a : list){
+    private boolean containsSignature(ArrayList<int[]> list, int[] sig) {
+        for (int[] a : list) {
             int found = 0;
-            for(int i=0; i<a.length; i++){
-                if(a[i] == sig[i]){
+            for (int i = 0; i < a.length; i++) {
+                if (a[i] == sig[i]) {
                     found++;
-                }else{
+                } else {
                     break;
                 }
             }
-            if(found == sig.length){
+            if (found == sig.length) {
                 return true;
             }
         }
         return false;
     }
 
-    public static int countProtected(int[] sig){
+    public static int countProtected(int[] sig) {
         int sum = 0;
-        for(int i=1; i<sig.length; i++){
+        for (int i = 1; i < sig.length; i++) {
             sum += sig[i];
         }
         return sum;
     }
 
-    public boolean inverseMultinomialCDF(TreeNode<int[]> currentNode) {
+    public void inverseMultinomialCDF(TreeNode<int[]> currentNode) {
         int trials = currentNode.getLevel() + 1;
         if (trials > this.k) {
-            return false;
+            return;
         }
         int[] minProportions = new int[currentNode.data.length];
         System.arraycopy(currentNode.data, 0, minProportions, 0, currentNode.data.length);
@@ -286,15 +299,15 @@ public class MultinomialSimulator {
         if (mcdf > alpha) {
             int[] data = new int[minProportions.length];
             int[][] multinomialMtable = new int[trials][minProportions.length];
-            System.arraycopy(currentNode.multinomialMtable,0,multinomialMtable,0,currentNode.multinomialMtable.length);
+//            System.arraycopy(currentNode.multinomialMtable,0,multinomialMtable,0,currentNode.multinomialMtable.length);
             System.arraycopy(minProportions, 0, data, 0, minProportions.length);
-            multinomialMtable[trials-1] = data;
+//            multinomialMtable[trials-1] = data;
             TreeNode<int[]> child = currentNode.addChild(data);
-            child.cdf = mcdf;
-            child.weight = currentNode.weight;
-            child.pmf = child.pmf * p[0];
-            child.multinomialMtable = multinomialMtable;
-            return false;
+//            child.cdf = mcdf;
+//            child.weight = currentNode.weight;
+//            child.pmf = child.pmf * p[0];
+//            child.multinomialMtable = multinomialMtable;
+
         } else {
             for (int i = 1; i < this.p.length; i++) {
                 int[] temp = new int[minProportions.length];
@@ -303,16 +316,15 @@ public class MultinomialSimulator {
                 double mcdfTemp = mcdfCache.mcdf(temp);
                 if (mcdfTemp > alpha) {
                     int[][] multinomialMtable = new int[trials][minProportions.length];
-                    System.arraycopy(currentNode.multinomialMtable,0,multinomialMtable,0,currentNode.multinomialMtable.length);
-                    multinomialMtable[trials-1] = temp;
+//                    System.arraycopy(currentNode.multinomialMtable,0,multinomialMtable,0,currentNode.multinomialMtable.length);
+//                    multinomialMtable[trials-1] = temp;
                     TreeNode<int[]> child = currentNode.addChild(temp);
-                    child.cdf = mcdfTemp;
-                    child.weight = currentNode.weight;
-                    child.pmf = child.pmf * p[i];
-                    child.multinomialMtable = multinomialMtable;
+//                    child.cdf = mcdfTemp;
+//                    child.weight = currentNode.weight;
+//                    child.pmf = child.pmf * p[i];
+//                    child.multinomialMtable = multinomialMtable;
                 }
             }
-            return true;
         }
     }
 
@@ -357,325 +369,69 @@ public class MultinomialSimulator {
         }
     }
 
+    public static double adjustAlpha(int k, double[] p, double alpha,double alphaOld, double tolerance) {
+        double aMin = 0;
+        double aMax = alpha;
+        double aMid = (aMin + aMax) / 2.0;
+
+        MultinomialMTableFailProbPair min = new MultinomialMTableFailProbPair(k, p, aMin);
+        MultinomialMTableFailProbPair mid = new MultinomialMTableFailProbPair(k, p, aMid);
+        MultinomialMTableFailProbPair max = new MultinomialMTableFailProbPair(k, p, aMax);
+        int counter = 0;
+        if(Math.abs(max.getFailprob()-alphaOld)<=tolerance){
+            return alpha;
+        }
+        while (true) {
+            if (mid.getFailprob() < alphaOld) {
+                aMin = aMid;
+                min = new MultinomialMTableFailProbPair(k, p, aMin);
+            } else if (mid.getFailprob() > alphaOld) {
+                aMax = aMid;
+                max = new MultinomialMTableFailProbPair(k, p, aMax);
+            }
+            aMid = (aMin + aMax) / 2.0;
+            mid = new MultinomialMTableFailProbPair(k,p,aMid);
+
+            double midDiff = Math.abs(mid.getFailprob()-alphaOld);
+            double maxDiff = Math.abs(max.getFailprob()-alphaOld);
+            double minDiff = Math.abs(min.getFailprob()-alphaOld);
+//            System.out.println("Min:" + min.getFailprob());
+//            System.out.println("Mid:" + mid.getFailprob());
+//            System.out.println("Max:" + max.getFailprob());
+
+            if(midDiff<= tolerance){
+                System.out.println("MID:Failprob: "+ mid.getFailprob()+" ; k: "+k);
+                return mid.getAlpha();
+            }
+            if(minDiff<=tolerance){
+                System.out.println("MIN:Failprob: "+ min.getFailprob()+" ; k: "+k);
+                return min.getAlpha();
+            }
+            if(maxDiff<=tolerance){
+                System.out.println("MAX:Failprob: "+ max.getFailprob()+" ; k: "+k);
+                return max.getAlpha();
+            }
+            System.out.println(counter++);
+        }
+    }
+
 
     public static void main(String[] args) throws Exception {
         double[] p = {1.0 / 3.0, 1.0 / 3.0, 1.0 / 3.0};
-        int k = 104;
+        int k = 10;
         int[] end1 = {3, 1, 0};
-        int[] start1 = {1,0,0};
+        int[] start1 = {1, 0, 0};
+        int kTarget = 50;
+        double alpha = 0.05;
+        double alphaOld = 0.05;
 
-        //blocksize-failures * EXACTLY #protected(k)-1
-
-
-//        System.out.println(MultinomialDist.prob(3,p,a));
-//        MultinomialSimulator simulator = new MultinomialSimulator(10000, k, p, 0.1);
-//        simulator.computeMultinomialMtables();
-//        double failprobOnLevel2 = 0;
-//        int[] n1 = {3, 1, 0};
-//        int[] n2 = {3, 0, 1};
-//        int[] n1Converted = {3, 0, 0};
-//        int[] n2Converted = {3, 0, 0};
-//
-//        double failprobOnLevel3 = MultinomialDist.prob(3, p, n1Converted) + failprobOnLevel2;
-//        System.out.println(failprobOnLevel3);
-//        int[] n3Converted = {2, 1, 0};
-//        int[] n4Converted = {4, 1, 0};
-//        int[] n5Converted = {2, 0, 1};
-//        int[] n6Converted = {4, 0, 1};
-//
-//        double failprobOnLevel4 = failprobOnLevel2 + failprobOnLevel3 + (MultinomialDist.prob(3,p,n3Converted)*(1.0/3.0)+MultinomialDist.prob(3,p,n5Converted)*(1.0/3.0));
-//
-//        System.out.println(failprobOnLevel4);
-
-
-//        ////////////////////////////////////////////////////////////////////////////////////
-//        //level 1, 2 failprob = 0;
-//
-//        double failprobOnLevel2 = 0;
-//        double succProbOnLevel2 = 1-failprobOnLevel2;
-//
-//        //NodesOnLevel 3
-//
-//        int[] n1 = {3,1,0};
-//        int[] n2 = {3,0,1};
-//        //Parent from level 2
-//        int[] parent = {2,0,0};
-//        //wird zu
-//        int[] n1Converted = {3,0,0};
-//        int[] n2Converted = {3,0,0};
-//        // 1 gleiches Paar = 1/1
-//        double failprobOnLevel3 = 0.5*( succProbOnLevel2* MultinomialDist.cdf(3,p,n1Converted) + succProbOnLevel2* MultinomialDist.cdf(3,p,n2Converted));
-//        double succProbOnLevel3 = 1-failprobOnLevel3;
-//        System.out.println("Level 3 " + failprobOnLevel3);
-//        //NodesOnLevel 4
-//        int[] n3 = {4,2,0};
-//        int[] n4 = {4,1,1};
-//        int[] n5 = {4,1,1};
-//        int[] n6 = {4,0,2};
-//        //Parents from level 3
-//        int[] p1 = {3,1,0};
-//        int[] p2 = {3,0,1};
-//        //wird zu
-//        int[] n3Converted = {4,1,0};
-//        int[] n4Converted = {4,1,0};
-//        int[] n5Converted = {4,0,1};
-//        int[] n6Converted = {4,0,1};
-//        //2 gleiche Paare = 1/2
-//        double failprobOnLevel4 = 0.5*succProbOnLevel3*MultinomialDist.cdf(4,p,n3Converted)
-//                + 0.5*succProbOnLevel3 * MultinomialDist.cdf(4,p,n4Converted)
-//                + 0.5*succProbOnLevel3 * MultinomialDist.cdf(4,p,n5Converted)
-//                + 0.5*succProbOnLevel3 * MultinomialDist.cdf(4,p,n6Converted);
-//        double succProbOnLevel4 = 1-failprobOnLevel4;
-//        System.out.println("Level 4 " + failprobOnLevel4);
-//        //NodesOnLevel 5
-//        int[] n7 = {5,3,0};
-//        int[] n8 = {5,2,1};
-//        int[] n9 = {5,1,1};
-//        int[] n10 = {5,1,1};
-//        int[] n11 = {5,1,2};
-//        int[] n12 = {5,0,3};
-//        //Parents from level 4
-//        int[] p3 = {4,2,0};
-//        int[] p4 = {4,1,1};
-//        int[] p5 = {4,1,1};
-//        int[] p6 = {4,0,2};
-//        //wird zu
-//        int[] n7Converted = {5,2,0};
-//        int[] n8Converted = {5,2,0};
-//        int[] n9Converted = {5,1,1};
-//        int[] n10Converted = {5,1,1};
-//        int[] n11Converted = {5,0,2};
-//        int[] n12Converted = {5,0,2};
-//        //Ein gleiches Parent Paar / drei gleiche Paare Converted = 1/3
-//        double failProbOnLevel5 = (1.0/3.0)*(succProbOnLevel4*MultinomialDist.cdf(5,p,n7Converted)
-//                + succProbOnLevel4*MultinomialDist.cdf(5,p,n8Converted)
-//                + succProbOnLevel4*MultinomialDist.cdf(5,p,n9Converted)
-//                + succProbOnLevel4*MultinomialDist.cdf(5,p,n10Converted)
-//                + succProbOnLevel4*MultinomialDist.cdf(5,p,n11Converted)
-//                + succProbOnLevel4*MultinomialDist.cdf(5,p,n12Converted));
-//        double succProbOnLevel5 = 1-failProbOnLevel5;
-//        System.out.println("Level 5 " + failProbOnLevel5);
-//        //NodesOnLevel 6
-//        int[] n13 = {6,3,1};
-//        int[] n14 = {6,2,1};
-//        int[] n15 = {6,2,1};
-//        int[] n16 = {6,1,2};
-//        int[] n17 = {6,2,1};
-//        int[] n18 = {6,1,2};
-//        int[] n19 = {6,1,2};
-//        int[] n20 = {6,1,3};
-//        //Parents from level 5
-//        int[] p7 = {5,3,0};
-//        int[] p8 = {5,2,1};
-//        int[] p9 = {5,1,1};
-//        int[] p10 = {5,1,1};
-//        int[] p11 = {5,1,2};
-//        int[] p12 = {5,0,3};
-//        //wird zu
-//        int[] n13Converted = {6,3,0};
-//        int[] n14Converted = {6,2,1};
-//        int[] n15Converted = {6,1,1};
-//        int[] n16Converted = {6,1,1};
-//        int[] n17Converted = {6,1,1};
-//        int[] n18Converted = {6,1,1};
-//        int[] n19Converted = {6,1,2};
-//        int[] n20Converted = {6,0,3};
-//        //Ein gleiches Parent Paar /zwei gleiche Paare in Converted = 1/2
-//        double failProbOnLevel6 =0.5*(succProbOnLevel5*MultinomialDist.cdf(6,p,n13Converted)
-//                + succProbOnLevel5*MultinomialDist.cdf(6,p,n14Converted)
-//                + succProbOnLevel5*MultinomialDist.cdf(6,p,n15Converted)
-//                + succProbOnLevel5*MultinomialDist.cdf(6,p,n16Converted)
-//                + succProbOnLevel5*MultinomialDist.cdf(6,p,n17Converted)
-//                + succProbOnLevel5*MultinomialDist.cdf(6,p,n18Converted)
-//                + succProbOnLevel5*MultinomialDist.cdf(6,p,n19Converted)
-//                + succProbOnLevel5*MultinomialDist.cdf(6,p,n20Converted));
-//        double succProbOnLevel6 = 1-failProbOnLevel6;
-//        System.out.println("Level 6 " + failProbOnLevel6);
-//        //NodesOnLevel 7
-//        int[] n21 = {7,3,1};
-//        int[] n22 = {7,3,1};
-//        int[] n23 = {7,2,2};
-//        int[] n24 = {7,3,1};
-//        int[] n25 = {7,2,2};
-//        int[] n26 = {7,2,2};
-//        int[] n27 = {7,1,3};
-//        int[] n28 = {7,3,1};
-//        int[] n29 = {7,2,2};
-//        int[] n30 = {7,2,2};
-//        int[] n31 = {7,1,3};
-//        int[] n32 = {7,2,2};
-//        int[] n33 = {7,1,3};
-//        int[] n34 = {7,1,3};
-//        //Parents from level 6
-//        int[] p13 = {6,3,1};
-//        int[] p14 = {6,2,1};
-//        int[] p15 = {6,2,1};
-//        int[] p16 = {6,1,2};
-//        int[] p17 = {6,2,1};
-//        int[] p18 = {6,1,2};
-//        int[] p19 = {6,1,2};
-//        int[] p20 = {6,1,3};
-//        //wird zu
-//        int[] n21Converted = {7,3,1};
-//
-//        int[] n22Converted = {7,2,1};
-//        int[] n23Converted = {7,2,1};
-//
-//        int[] n24Converted = {7,2,1};
-//        int[] n25Converted = {7,2,1};
-//
-//        int[] n26Converted = {7,1,2};
-//        int[] n27Converted = {7,1,2};
-//
-//        int[] n28Converted = {7,2,1};
-//        int[] n29Converted = {7,2,1};
-//
-//        int[] n30Converted = {7,1,2};
-//        int[] n31Converted = {7,1,2};
-//
-//        int[] n32Converted = {7,1,2};
-//        int[] n33Converted = {7,1,2};
-//
-//        int[] n34Converted = {7,1,3};
-//
-//        //Zwei gleiche Parent Paar /6 gleiche Paare Converted = 2/6
-//        double failProbOnLevel7 = (2.0/6.0) * (succProbOnLevel6*MultinomialDist.cdf(7,p,n21Converted) + succProbOnLevel6*MultinomialDist.cdf(7,p,n22Converted)
-//                + succProbOnLevel6*MultinomialDist.cdf(7,p,n23Converted)
-//                + succProbOnLevel6*MultinomialDist.cdf(7,p,n24Converted)+ succProbOnLevel6*MultinomialDist.cdf(7,p,n25Converted)+ succProbOnLevel6*MultinomialDist.cdf(7,p,n26Converted)
-//                + succProbOnLevel6*MultinomialDist.cdf(7,p,n27Converted)+ succProbOnLevel6*MultinomialDist.cdf(7,p,n28Converted)+ succProbOnLevel6*MultinomialDist.cdf(7,p,n29Converted)
-//                + succProbOnLevel6*MultinomialDist.cdf(7,p,n30Converted)+ succProbOnLevel6*MultinomialDist.cdf(7,p,n31Converted)+ succProbOnLevel6*MultinomialDist.cdf(7,p,n32Converted)
-//                + succProbOnLevel6*MultinomialDist.cdf(7,p,n33Converted)+ succProbOnLevel6*MultinomialDist.cdf(7,p,n34Converted));
-//        System.out.println("Level 7 "+failProbOnLevel7);
-//        //NodesOnLevel8
-//        int[] n35 = {8,4,1};
-//        int[] n36 = {8,3,2};
-//        int[] n37 = {8,4,1};
-//        int[] n38 = {8,3,2};
-//        int[] n39 = {8,2,2};
-//        int[] n40 = {8,4,1};
-//        int[] n41 = {8,3,2};
-//        int[] n42 = {8,2,2};
-//        int[] n43 = {8,2,2};
-//        int[] n44 = {8,2,3};
-//        int[] n45 = {8,1,4};
-//        int[] n46 = {8,4,1};
-//        int[] n47 = {8,3,2};
-//        int[] n48 = {8,2,2};
-//        int[] n49 = {8,2,2};
-//        int[] n50 = {8,2,3};
-//        int[] n51 = {8,1,4};
-//        int[] n52 = {8,2,2};
-//        int[] n53 = {8,2,3};
-//        int[] n54 = {8,1,4};
-//        int[] n55 = {8,2,3};
-//        int[] n56 = {8,1,4};
-//        //Parents from level 7
-//        int[] p21 = {7,3,1};
-//        int[] p22 = {7,3,1};
-//
-//        int[] p32 = {7,2,2};
-//        int[] p23 = {7,2,2};
-//
-//        int[] p28 = {7,3,1};
-//        int[] p24 = {7,3,1};
-//
-//        int[] p25 = {7,2,2};
-//        int[] p26 = {7,2,2};
-//
-//        int[] p27 = {7,1,3};
-//        int[] p31 = {7,1,3};
-//
-//        int[] p29 = {7,2,2};
-//        int[] p30 = {7,2,2};
-//
-//        int[] p33 = {7,1,3};
-//        int[] p34 = {7,1,3};
-//        //wird zu
-//        int[] c1 = {8,3,1};
-//        int[] c2 = {8,3,1};
-//
-//        int[] c3 = {8,3,1};
-//        int[] c4 = {8,3,1};
-//
-//        int[] c6 = {8,3,1};
-//        int[] c7 = {8,3,1};
-//
-//        int[] c12 = {8,3,1};
-//        int[] c13 = {8,3,1};
-//
-//        int[] c5 = {8,2,2};
-//        int[] c18 = {8,2,2};
-//
-//        int[] c8 = {8,2,2};
-//        int[] c9 = {8,2,2};
-//
-//        int[] c14 = {8,2,2};
-//        int[] c15 = {8,2,2};
-//
-//        int[] c10 = {8,1,3};
-//        int[] c11 = {8,1,3};
-//
-//        int[] c16 = {8,1,3};
-//        int[] c17 = {8,1,3};
-//
-//        int[] c19 = {8,1,3};
-//        int[] c20 = {8,1,3};
-//
-//        int[] c21 = {8,1,3};
-//        int[] c22 = {8,1,3};
-//
-//        double succProbOnLevel7 = 1-failProbOnLevel7;
-//
-//        double failProbOnLevel8 = (7.0/11.0) * (succProbOnLevel7*MultinomialDist.cdf(8,p,c1) + succProbOnLevel7*MultinomialDist.cdf(8,p,c2)
-//                + succProbOnLevel7*MultinomialDist.cdf(8,p,c3)
-//                + succProbOnLevel7*MultinomialDist.cdf(8,p,c4)+ succProbOnLevel7*MultinomialDist.cdf(8,p,c5)+ succProbOnLevel7*MultinomialDist.cdf(8,p,c6)
-//                + succProbOnLevel7*MultinomialDist.cdf(8,p,c7)+ succProbOnLevel7*MultinomialDist.cdf(8,p,c8)+ succProbOnLevel7*MultinomialDist.cdf(8,p,c9)
-//                + succProbOnLevel7*MultinomialDist.cdf(8,p,c10)+ succProbOnLevel7*MultinomialDist.cdf(8,p,c11)+ succProbOnLevel7*MultinomialDist.cdf(8,p,c12)
-//                + succProbOnLevel7*MultinomialDist.cdf(8,p,c13)+ succProbOnLevel7*MultinomialDist.cdf(8,p,c14)+ succProbOnLevel7*MultinomialDist.cdf(8,p,c15)
-//                + succProbOnLevel7*MultinomialDist.cdf(8,p,c16)+ succProbOnLevel7*MultinomialDist.cdf(8,p,c17)+ succProbOnLevel7*MultinomialDist.cdf(8,p,c18)
-//                + succProbOnLevel7*MultinomialDist.cdf(8,p,c19)+ succProbOnLevel7*MultinomialDist.cdf(8,p,c20)+ succProbOnLevel7*MultinomialDist.cdf(8,p,c21)
-//                + succProbOnLevel7*MultinomialDist.cdf(8,p,c22));
-//
-//        System.out.println("Level 8 "+failProbOnLevel8);
-//
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-//        MultinomialSimulator simulator = new MultinomialSimulator(10000, 17, p, 0.1);
-//        simulator.computeMultinomialMtables();
-        //save and mark nodes which are counted x times like weights
-
-//        simulator.readNodes("C:\\Users\\Tom\\Desktop\\CIT\\mtable500\\");
-//        simulator.computeMultinomialMtables();
-//        System.out.println(simulator.run());
-//        simulator.writeNodesToFile("C:\\Users\\Tom\\Desktop\\CIT\\mtable500\\");
-//        for(int i=1; i<=k; i++){
-//            System.out.println(i+";"+simulator.run(i));
-//        }
-//            String treeName = "test";
-//            MultinomialSimulator simulator = new MultinomialSimulator(10000, 10, p, 0.1);
-//            simulator.run();
-//            TreeForTreeLayout<NodeDisplayWrapper> tree = MultinomialMtableTreeVisualizer.convertTree(simulator.multinomialMtable, 10);
-//
-//            // setup the tree layout configuration
-//            double gapBetweenLevels = 50;
-//            double gapBetweenNodes = 10;
-//            DefaultConfiguration<NodeDisplayWrapper> configuration = new DefaultConfiguration<>(
-//                    gapBetweenLevels, gapBetweenNodes);
-//
-//            // create the NodeExtentProvider for TextInBox nodes
-//            NodeDisplayWrapperNodeExtentProvider nodeExtentProvider = new NodeDisplayWrapperNodeExtentProvider();
-//
-//            // create the layout
-//            TreeLayout<NodeDisplayWrapper> treeLayout = new TreeLayout<>(tree,
-//                    nodeExtentProvider, configuration);
-//
-//            // Create a panel that draws the nodes and edges and show the panel
-//            NodeDisplayWrapperTreePane panel = new NodeDisplayWrapperTreePane(treeLayout);
-//            showInDialog(panel);
-
-
-//            oi.close();
-//            fi.close();
+        //bottleneck is mtable creation
+        //start with binomial adjusted alpha as aMax
+        while(k < kTarget){
+            alpha = MultinomialSimulator.adjustAlpha(k,p,alpha,alphaOld,0.005);
+            k=k+5;
+        }
+        System.out.println("final alpha: "+alpha);
 
     }
 
