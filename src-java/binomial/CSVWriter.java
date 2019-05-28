@@ -20,6 +20,13 @@ public class CSVWriter {
         pw.close();
     }
 
+    public void writePlotToCSV(String data, String title) throws FileNotFoundException {
+        String filename = title+".csv";
+        PrintWriter pw = new PrintWriter(new File("C:\\Users\\Tom\\Desktop\\" + filename));
+        pw.write(data);
+        pw.close();
+    }
+
     public void writeRankingToCSV(int k, double p, double alpha, ArrayList<Boolean> ranking) throws FileNotFoundException {
         String filename = "ranking_" + k + "_" + p + "_" + alpha + ".csv";
         //String filename = "hello.csv";

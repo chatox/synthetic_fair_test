@@ -1,5 +1,6 @@
 package multinomial;
 
+import binomial.CSVWriter;
 import binomial.analyticalVSexperimental.MTableGenerator;
 import multinomial.util.*;
 import umontreal.ssj.probdistmulti.MultinomialDist;
@@ -25,16 +26,15 @@ public class MultinomialSimulator {
     private double alpha;
     private TreeNode<int[]> multinomialMtable;
     private MCDFCache mcdfCache;
-    private HashMap<Integer, Double> failprobOnLevel;
 
 
-    public MultinomialSimulator(int runs, int k, double[] p, double alpha) {
+    public MultinomialSimulator(int runs, int k, double[] p, double alpha, MCDFCache mcdfCache) {
         this.runs = runs;
         this.k = k;
         this.p = p;
         this.alpha = alpha;
-        this.mcdfCache = new MCDFCache(k, p, alpha);
-        this.failprobOnLevel = new HashMap<>();
+        this.mcdfCache = mcdfCache;
+
     }
 
     private ArrayList<Integer> createRanking(int k) {
@@ -191,28 +191,11 @@ public class MultinomialSimulator {
         return 1 - (double) successes / runs;
     }
 
-    private boolean containsSignature(HashMap<int[], TreeNode<int[]>> list, int[] arr) {
-        for (int[] sig : list.keySet()) {
-            int counter = 0;
-            for (int i = 0; i < sig.length; i++) {
-                if (sig[i] == arr[i]) {
-                    counter++;
-                }
-            }
-            if (counter == sig.length) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public TreeNode<int[]> computeMultinomialMtables() {
+    public TreeNode<int[]> computeMultinomialMTree() {
         int[] currentProtectedCount = new int[this.p.length];
         TreeNode<int[]> root = new TreeNode<>(currentProtectedCount);
         ArrayList<TreeNode<int[]>> openPossibilities = new ArrayList<>();
         openPossibilities.add(root);
-        int currentLevel = 0;
-        double failprobSoFar = 0;
         while (openPossibilities.size() > 0) {
             ArrayList<TreeNode<int[]>> intermediatePossibilities = new ArrayList<>();
             ArrayList<TreeNode<int[]>> validPossibilities = new ArrayList<>();
@@ -237,7 +220,6 @@ public class MultinomialSimulator {
 //                }
             }
 
-            currentLevel++;
 //            System.out.println(currentLevel);
 //            ArrayList<int[]> distinctFailurePossibilities = new ArrayList<>();
 //            for(TreeNode<int[]> arr : failurePossibilities){
@@ -328,110 +310,94 @@ public class MultinomialSimulator {
         }
     }
 
-    public void readNodes(String path) throws IOException, ClassNotFoundException {
-        File directory = new File(path);
-        String filePrefix = "node_";
-        int numberOfNodes = directory.list().length;
+    public static double adjustAlpha(int k, double[] p, double alpha, double alphaOld, double tolerance, MCDFCache mcdfCache) {
 
-        HashMap<Integer, NodeWriteObject> nodes = new HashMap<>();
-        for (int i = 0; i < numberOfNodes; i++) {
-            FileInputStream fi = new FileInputStream(directory + "\\" + filePrefix + i);
-            ObjectInputStream oi = new ObjectInputStream(fi);
-            NodeWriteObject node = (NodeWriteObject) oi.readObject();
-            nodes.put(node.id, node);
-            oi.close();
-            fi.close();
-        }
-
-        this.multinomialMtable = TreeNode.recreateTreeNode(nodes);
-
-
-    }
-
-    public void writeNodesToFile(String path) throws Exception {
-        ArrayList<TreeNode<int[]>> nodesOnCurrentLevel = new ArrayList<>();
-        nodesOnCurrentLevel.add(this.multinomialMtable);
-        while (nodesOnCurrentLevel.size() > 0) {
-            ArrayList<TreeNode<int[]>> nextLevel = new ArrayList<>();
-            for (TreeNode<int[]> t : nodesOnCurrentLevel) {
-                NodeWriteObject node = new NodeWriteObject(t);
-                FileOutputStream f = new FileOutputStream(new File(path + "node_" + node.id));
-                ObjectOutputStream o = new ObjectOutputStream(f);
-
-                // Write objects to file
-                o.writeObject(node);
-
-                o.close();
-                f.close();
-                nextLevel.addAll(t.children);
-            }
-            nodesOnCurrentLevel = nextLevel;
-        }
-    }
-
-    public static double adjustAlpha(int k, double[] p, double alpha,double alphaOld, double tolerance) {
         double aMin = 0;
         double aMax = alpha;
         double aMid = (aMin + aMax) / 2.0;
 
-        MultinomialMTableFailProbPair min = new MultinomialMTableFailProbPair(k, p, aMin);
-        MultinomialMTableFailProbPair mid = new MultinomialMTableFailProbPair(k, p, aMid);
-        MultinomialMTableFailProbPair max = new MultinomialMTableFailProbPair(k, p, aMax);
+        MultinomialMTableFailProbPair min = new MultinomialMTableFailProbPair(k, p, aMin, mcdfCache);
+        MultinomialMTableFailProbPair mid = new MultinomialMTableFailProbPair(k, p, aMid, mcdfCache);
+        MultinomialMTableFailProbPair max = new MultinomialMTableFailProbPair(k, p, aMax, mcdfCache);
         int counter = 0;
-        if(Math.abs(max.getFailprob()-alphaOld)<=tolerance){
+        if (Math.abs(max.getFailprob() - alphaOld) <= tolerance) {
             return alpha;
         }
         while (true) {
+            boolean trigger = false;
+            char side = '0';
             if (mid.getFailprob() < alphaOld) {
                 aMin = aMid;
-                min = new MultinomialMTableFailProbPair(k, p, aMin);
+                trigger = true;
+                side = 'l';
             } else if (mid.getFailprob() > alphaOld) {
                 aMax = aMid;
-                max = new MultinomialMTableFailProbPair(k, p, aMax);
+                trigger = true;
+                side = 'r';
             }
-            aMid = (aMin + aMax) / 2.0;
-            mid = new MultinomialMTableFailProbPair(k,p,aMid);
+            if (trigger && side == 'l') {
+                min = new MultinomialMTableFailProbPair(k, p, aMin, mcdfCache);
+                aMid = (aMin + aMax) / 2.0;
+                mid = new MultinomialMTableFailProbPair(k, p, aMid, mcdfCache);
+            } else if (trigger && side == 'r') {
+                max = new MultinomialMTableFailProbPair(k, p, aMax, mcdfCache);
+                aMid = (aMin + aMax) / 2.0;
+                mid = new MultinomialMTableFailProbPair(k, p, aMid, mcdfCache);
+            }
 
-            double midDiff = Math.abs(mid.getFailprob()-alphaOld);
-            double maxDiff = Math.abs(max.getFailprob()-alphaOld);
-            double minDiff = Math.abs(min.getFailprob()-alphaOld);
+            double midDiff = Math.abs(mid.getFailprob() - alphaOld);
+            double maxDiff = Math.abs(max.getFailprob() - alphaOld);
+            double minDiff = Math.abs(min.getFailprob() - alphaOld);
 //            System.out.println("Min:" + min.getFailprob());
 //            System.out.println("Mid:" + mid.getFailprob());
 //            System.out.println("Max:" + max.getFailprob());
 
-            if(midDiff<= tolerance){
-                System.out.println("MID:Failprob: "+ mid.getFailprob()+" ; k: "+k);
+            if (midDiff <= tolerance) {
+                System.out.println("MID:Failprob: " + mid.getFailprob() + " ; k: " + k);
                 return mid.getAlpha();
             }
-            if(minDiff<=tolerance){
-                System.out.println("MIN:Failprob: "+ min.getFailprob()+" ; k: "+k);
+            if (minDiff <= tolerance) {
+                System.out.println("MIN:Failprob: " + min.getFailprob() + " ; k: " + k);
                 return min.getAlpha();
             }
-            if(maxDiff<=tolerance){
-                System.out.println("MAX:Failprob: "+ max.getFailprob()+" ; k: "+k);
+            if (maxDiff <= tolerance) {
+                System.out.println("MAX:Failprob: " + max.getFailprob() + " ; k: " + k);
                 return max.getAlpha();
             }
-            System.out.println(counter++);
+            System.out.println("midDiff: " + midDiff + "--" + counter++);
         }
     }
 
 
     public static void main(String[] args) throws Exception {
-        double[] p = {1.0 / 3.0, 1.0 / 3.0, 1.0 / 3.0};
+        double[] p = {0.6, 0.2, 0.2};
         int k = 10;
-        int[] end1 = {3, 1, 0};
-        int[] start1 = {1, 0, 0};
-        int kTarget = 50;
-        double alpha = 0.05;
-        double alphaOld = 0.05;
-
+        int kTarget = 150;
+        double alpha = 0.1;
+        double alphaOld = 0.1;
+        MCDFCache mcdfCache = new MCDFCache(p);
         //bottleneck is mtable creation
         //start with binomial adjusted alpha as aMax
-        while(k < kTarget){
-            alpha = MultinomialSimulator.adjustAlpha(k,p,alpha,alphaOld,0.005);
-            k=k+5;
+        CSVWriter writer = new CSVWriter();
+        StringBuilder sb = new StringBuilder();
+        sb.append("x;y" + '\n');
+        String title = "FailprobIncreaseWithK_060202_01";
+        alpha = MultinomialSimulator.adjustAlpha(k, p, alpha, alphaOld, 0.005, mcdfCache);
+        MultinomialMTableFailProbPair pair = new MultinomialMTableFailProbPair(k, p, alpha, mcdfCache);
+        sb.append("" + k + ";" + pair.getFailprob() + '\n');
+        k++;
+        while (k <= kTarget) {
+            pair = new MultinomialMTableFailProbPair(k, p, alpha, mcdfCache);
+            sb.append("" + k + ";" + pair.getFailprob() + '\n');
+            k++;
+            System.out.println(k);
+//            alpha = MultinomialSimulator.adjustAlpha(k, p, alpha, alphaOld, 0.005, mcdfCache);
+//            k++;
         }
-        System.out.println("final alpha: "+alpha);
+        writer.writePlotToCSV(sb.toString(), title);
+
+
+        System.out.println("final alpha: " + alpha);
 
     }
 
