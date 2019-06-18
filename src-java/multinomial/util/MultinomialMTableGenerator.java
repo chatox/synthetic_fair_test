@@ -14,6 +14,7 @@ public class MultinomialMTableGenerator {
     private MCDFCache mcdfCache;
     private HashMap<Integer,ArrayList<int[]>> mtable;
     private ArrayList<int[]> hasAMirror = new ArrayList<>();
+    public static int cores = 8;
 
     public MultinomialMTableGenerator(int k, double[] p, double alpha, MCDFCache mcdfCache) {
         this.k = k;
@@ -46,13 +47,13 @@ public class MultinomialMTableGenerator {
             if(currentLevel.size()>=15){
 //                long start = System.nanoTime();
                 int size = currentLevel.size();
-                int part = currentLevel.size()/8;
-                ExecutorService pool = Executors.newFixedThreadPool(8);
+                int part = currentLevel.size()/cores;
+                ExecutorService pool = Executors.newFixedThreadPool(cores);
                 Set<Future<ArrayList<int[]>>> set = new HashSet<>();
-                for(int i = 0; i<8; i++){
+                for(int i = 0; i<cores; i++){
                     int min = i*part;
                     int max = 0;
-                    if(i==7){
+                    if(i==cores-1){
                         max = size;
                     }else{
                         max = (i+1)*part;

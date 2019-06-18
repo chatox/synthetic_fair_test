@@ -3,6 +3,9 @@ package multinomial;
 import binomial.CSVWriter;
 import binomial.analyticalVSexperimental.MTableGenerator;
 import multinomial.util.*;
+import org.apache.commons.math3.fitting.PolynomialCurveFitter;
+import org.apache.commons.math3.fitting.WeightedObservedPoints;
+import org.apache.commons.math3.stat.regression.SimpleRegression;
 import umontreal.ssj.probdistmulti.MultinomialDist;
 
 import javax.imageio.ImageIO;
@@ -10,10 +13,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Optional;
-import java.util.Random;
+import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -280,15 +280,8 @@ public class MultinomialSimulator {
         double mcdf = mcdfCache.mcdf(minProportions);
         if (mcdf > alpha) {
             int[] data = new int[minProportions.length];
-            int[][] multinomialMtable = new int[trials][minProportions.length];
-//            System.arraycopy(currentNode.multinomialMtable,0,multinomialMtable,0,currentNode.multinomialMtable.length);
             System.arraycopy(minProportions, 0, data, 0, minProportions.length);
-//            multinomialMtable[trials-1] = data;
             TreeNode<int[]> child = currentNode.addChild(data);
-//            child.cdf = mcdf;
-//            child.weight = currentNode.weight;
-//            child.pmf = child.pmf * p[0];
-//            child.multinomialMtable = multinomialMtable;
 
         } else {
             for (int i = 1; i < this.p.length; i++) {
@@ -297,31 +290,27 @@ public class MultinomialSimulator {
                 temp[i]++;
                 double mcdfTemp = mcdfCache.mcdf(temp);
                 if (mcdfTemp > alpha) {
-                    int[][] multinomialMtable = new int[trials][minProportions.length];
-//                    System.arraycopy(currentNode.multinomialMtable,0,multinomialMtable,0,currentNode.multinomialMtable.length);
-//                    multinomialMtable[trials-1] = temp;
                     TreeNode<int[]> child = currentNode.addChild(temp);
-//                    child.cdf = mcdfTemp;
-//                    child.weight = currentNode.weight;
-//                    child.pmf = child.pmf * p[i];
-//                    child.multinomialMtable = multinomialMtable;
                 }
             }
         }
     }
 
-    public static double adjustAlpha(int k, double[] p, double alpha, double alphaOld, double tolerance, MCDFCache mcdfCache) {
+    public static MultinomialMTableFailProbPair adjustAlpha(int k, double[] p, double alpha, double alphaOld, double tolerance, MCDFCache mcdfCache) {
 
         double aMin = 0;
         double aMax = alpha;
         double aMid = (aMin + aMax) / 2.0;
 
+        MultinomialMTableFailProbPair max = new MultinomialMTableFailProbPair(k, p, aMax, mcdfCache);
+        if (max.getFailprob() == 0) {
+            return max;
+        }
         MultinomialMTableFailProbPair min = new MultinomialMTableFailProbPair(k, p, aMin, mcdfCache);
         MultinomialMTableFailProbPair mid = new MultinomialMTableFailProbPair(k, p, aMid, mcdfCache);
-        MultinomialMTableFailProbPair max = new MultinomialMTableFailProbPair(k, p, aMax, mcdfCache);
-        int counter = 0;
+
         if (Math.abs(max.getFailprob() - alphaOld) <= tolerance) {
-            return alpha;
+            return max;
         }
         while (true) {
             boolean trigger = false;
@@ -348,76 +337,119 @@ public class MultinomialSimulator {
             double midDiff = Math.abs(mid.getFailprob() - alphaOld);
             double maxDiff = Math.abs(max.getFailprob() - alphaOld);
             double minDiff = Math.abs(min.getFailprob() - alphaOld);
-//            System.out.println("Min:" + min.getFailprob());
-//            System.out.println("Mid:" + mid.getFailprob());
-//            System.out.println("Max:" + max.getFailprob());
 
             if (midDiff <= tolerance) {
-                System.out.println("MID:Failprob: " + mid.getFailprob() + " ; k: " + k);
-                return mid.getAlpha();
+//                System.out.println("MID:Failprob: " + mid.getFailprob() + " ; k: " + k);
+                return mid;
             }
             if (minDiff <= tolerance) {
-                System.out.println("MIN:Failprob: " + min.getFailprob() + " ; k: " + k);
-                return min.getAlpha();
+//                System.out.println("MIN:Failprob: " + min.getFailprob() + " ; k: " + k);
+                return min;
             }
             if (maxDiff <= tolerance) {
-                System.out.println("MAX:Failprob: " + max.getFailprob() + " ; k: " + k);
-                return max.getAlpha();
+//                System.out.println("MAX:Failprob: " + max.getFailprob() + " ; k: " + k);
+                return max;
             }
-            System.out.println("midDiff: " + midDiff + "--" + counter++);
+//            System.out.println("midDiff: " + midDiff + "--" + counter++);
         }
+    }
+
+    private static int calculateStepSize(int k) {
+        if (k <= 10) {
+            return 0;
+        } else {
+            return k / 10;
+        }
+    }
+
+    public static MultinomialMTableFailProbPair binarySearchAlphaAdjustment(int kTarget, double[] p, double alpha) {
+        double originalAlpha = alpha;
+        MCDFCache mcdfCache = new MCDFCache(p);
+        int steps = calculateStepSize(kTarget);
+        MultinomialMTableFailProbPair pair = null;
+        int k = 10;
+        if (steps == 0) {
+            k = kTarget;
+        }
+        steps = 10;
+        while (k <= kTarget) {
+            pair = MultinomialSimulator.adjustAlpha(k, p, alpha, originalAlpha, 0.005, mcdfCache);
+            alpha = pair.getAlpha();
+            k += steps;
+        }
+        pair = MultinomialSimulator.adjustAlpha(kTarget, p, alpha, originalAlpha, 0.005, mcdfCache);
+
+        return pair;
+    }
+
+    public static MultinomialMTableFailProbPair regressionAlphaAdjustment(int kTarget, double[] p, double alpha, int trainingIterations) {
+        final WeightedObservedPoints obs = new WeightedObservedPoints();
+        double originalAlpha = alpha;
+        MCDFCache mcdfCache = new MCDFCache(p);
+        int steps = calculateStepSize(kTarget);
+        MultinomialMTableFailProbPair pair = null;
+        int k = 10;
+        if (steps == 0) {
+            k = kTarget;
+        }
+        steps = 10;
+        for (int i = 0; i < trainingIterations; i++) {
+            pair = MultinomialSimulator.adjustAlpha(k, p, alpha, originalAlpha, 0.005, mcdfCache);
+            alpha = pair.getAlpha();
+            obs.add(k, alpha);
+            if (k + steps <= kTarget) {
+                k += steps;
+            } else {
+                break;
+            }
+        }
+        if (k < kTarget) {
+            final PolynomialCurveFitter fitter = PolynomialCurveFitter.create(2);
+            final double[] coeff = fitter.fit(obs.toList());
+            double alphaPredict = coeff[0] + coeff[1] * kTarget + coeff[2] * (kTarget * kTarget);
+            pair = MultinomialSimulator.adjustAlpha(kTarget, p, alphaPredict, originalAlpha, 0.005, mcdfCache);
+        }
+
+        return pair;
+
     }
 
 
     public static void main(String[] args) throws Exception {
-        double[] p = {0.6, 0.2, 0.2};
-        int k = 10;
-        int kTarget = 150;
+        double[] p = {1.0 / 3.0, 1.0 / 3.0, 1.0 / 3.0};
+        int[] ks = {20,30,40,50,60,70,80,90,100,110,120,130,140,150,160,170,180,190,200,210,220,230,240,250};
         double alpha = 0.1;
-        double alphaOld = 0.1;
-        MCDFCache mcdfCache = new MCDFCache(p);
-        //bottleneck is mtable creation
-        //start with binomial adjusted alpha as aMax
+        MultinomialMTableFailProbPair pair = null;
         CSVWriter writer = new CSVWriter();
         StringBuilder sb = new StringBuilder();
-        sb.append("x;y" + '\n');
-        String title = "FailprobIncreaseWithK_060202_01";
-        alpha = MultinomialSimulator.adjustAlpha(k, p, alpha, alphaOld, 0.005, mcdfCache);
-        MultinomialMTableFailProbPair pair = new MultinomialMTableFailProbPair(k, p, alpha, mcdfCache);
-        sb.append("" + k + ";" + pair.getFailprob() + '\n');
-        k++;
-        while (k <= kTarget) {
-            pair = new MultinomialMTableFailProbPair(k, p, alpha, mcdfCache);
-            sb.append("" + k + ";" + pair.getFailprob() + '\n');
-            k++;
+        sb.append("k,adjustedAlpha,time" + '\n');
+        for (int k : ks) {
             System.out.println(k);
-//            alpha = MultinomialSimulator.adjustAlpha(k, p, alpha, alphaOld, 0.005, mcdfCache);
-//            k++;
+            long start = System.nanoTime();
+            pair = MultinomialSimulator.regressionAlphaAdjustment(k,p,alpha,6);
+            double end = (System.nanoTime() - start)/1000000000.0;
+            sb.append(k + ","+pair.getAlpha()+","+end+ '\n');
         }
-        writer.writePlotToCSV(sb.toString(), title);
+        writer.writePlotToCSV(sb.toString(), "regression_030303_01");
+        System.out.println("fin");
 
-
-        System.out.println("final alpha: " + alpha);
-
-    }
-
-    private static void showInDialog(JComponent panel) {
-        JDialog dialog = new JDialog();
-        Container contentPane = dialog.getContentPane();
-        ((JComponent) contentPane).setBorder(BorderFactory.createEmptyBorder(
-                10, 10, 10, 10));
-        contentPane.add(panel);
-        dialog.pack();
-        dialog.setLocationRelativeTo(null);
-        dialog.setVisible(true);
-        BufferedImage image = new BufferedImage(panel.getWidth(), panel.getHeight(), BufferedImage.TYPE_INT_ARGB);
-        Graphics g = image.getGraphics();
-        panel.paint(g);
-        try {
-            ImageIO.write(image, "png", new File("C:\\Users\\Tom\\Desktop\\CIT\\image.png"));
-        } catch (IOException ex) {
-            Logger.getLogger(JComponent.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//        BufferedReader reader = new BufferedReader(new FileReader("C:\\Users\\Tom\\Desktop\\data_030303_01.csv"));
+//        String line = reader.readLine();
+//        line = reader.readLine();
+//        final WeightedObservedPoints obs = new WeightedObservedPoints();
+//        while (line != null) {
+//            int k = Integer.parseInt(line.split(",")[0]);
+//            double a = Double.parseDouble(line.split(",")[1]);
+//            obs.add(k, a);
+//            line = reader.readLine();
+//        }
+//        final PolynomialCurveFitter fitter = PolynomialCurveFitter.create(2);
+//        final double[] coeff = fitter.fit(obs.toList());
+//        System.out.println("coef=" + Arrays.toString(coeff));
+//        System.out.println(coeff[0] + coeff[1] * 100 + coeff[2] * (100 * 100));
+//        double[] p = {1.0 / 3.0, 1.0 / 3.0, 1.0 / 3.0};
+//        System.out.println(MultinomialSimulator.binarySearchAlphaAdjustment(100, p, 0.1).getAlpha());
+//        System.out.println(""+regression.predict(120));
     }
 
 
