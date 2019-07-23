@@ -10,9 +10,16 @@ public class MultinomialMTableFailProbPair {
 
     private double failprob;
     private double alpha;
+    public double unadjustedAlpha;
+    public int iterations;
+    public int maxPreAdjustK;
     private double[] p;
     private int k;
+    private HashMap<Integer, ArrayList<int[]>> mtable;
+    private ArrayList<int[]> mirrors;
     private final int runs = 10000;
+    public double preAdjustmentTime;
+    public double finalAdjustmentTime;
 
 
     public MultinomialMTableFailProbPair(int k, double[] p, double alpha, MCDFCache mcdfCache) {
@@ -23,8 +30,8 @@ public class MultinomialMTableFailProbPair {
 //        this.failprob = simulator.run(k);
         try {
             MultinomialMTableGenerator generator = new MultinomialMTableGenerator(k,p,alpha,mcdfCache);
-            HashMap<Integer, ArrayList<int[]>> mtable = generator.getMtable();
-            ArrayList<int[]> mirrors = generator.getMirrors();
+            this.mtable = generator.getMtable();
+            this.mirrors = generator.getMirrors();
             this.failprob = new MultinomialFailprobCalculator(k,p,alpha,mtable,mirrors).getFailprob();
         } catch (ExecutionException e) {
             e.printStackTrace();
@@ -47,5 +54,11 @@ public class MultinomialMTableFailProbPair {
 
     public int getK() {
         return k;
+    }
+
+    public HashMap<Integer, ArrayList<int[]>> getMtable(){ return this.mtable;}
+
+    public ArrayList<int[]> getMirrors() {
+        return mirrors;
     }
 }

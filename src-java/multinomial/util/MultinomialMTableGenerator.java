@@ -14,7 +14,7 @@ public class MultinomialMTableGenerator {
     private MCDFCache mcdfCache;
     private HashMap<Integer,ArrayList<int[]>> mtable;
     private ArrayList<int[]> hasAMirror = new ArrayList<>();
-    public static int cores = 8;
+    public static int cores = 2;
 
     public MultinomialMTableGenerator(int k, double[] p, double alpha, MCDFCache mcdfCache) {
         this.k = k;

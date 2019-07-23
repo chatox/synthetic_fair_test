@@ -20,8 +20,8 @@ public class MultinomialFailprobCalculator {
         this.p = p;
         this.alpha = alpha;
         this.mtable = mtable;
-        this.failprob = run();
         this.mirrors = mirrors;
+        this.failprob = run();
     }
 
     private ArrayList<Integer> createRanking(int k) {

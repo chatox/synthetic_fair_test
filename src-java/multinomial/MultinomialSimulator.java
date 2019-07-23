@@ -4,6 +4,7 @@ import binomial.CSVWriter;
 import binomial.analyticalVSexperimental.MTableGenerator;
 import multinomial.util.*;
 import org.apache.commons.math3.fitting.PolynomialCurveFitter;
+import org.apache.commons.math3.fitting.WeightedObservedPoint;
 import org.apache.commons.math3.fitting.WeightedObservedPoints;
 import org.apache.commons.math3.stat.regression.SimpleRegression;
 import umontreal.ssj.probdistmulti.MultinomialDist;
@@ -350,7 +351,7 @@ public class MultinomialSimulator {
 //                System.out.println("MAX:Failprob: " + max.getFailprob() + " ; k: " + k);
                 return max;
             }
-//            System.out.println("midDiff: " + midDiff + "--" + counter++);
+//            System.out.println("midDiff: " + midDiff);
         }
     }
 
@@ -365,24 +366,68 @@ public class MultinomialSimulator {
     public static MultinomialMTableFailProbPair binarySearchAlphaAdjustment(int kTarget, double[] p, double alpha) {
         double originalAlpha = alpha;
         MCDFCache mcdfCache = new MCDFCache(p);
-        int steps = calculateStepSize(kTarget);
+//        int steps = calculateStepSize(kTarget);
         MultinomialMTableFailProbPair pair = null;
-        int k = 10;
-        if (steps == 0) {
-            k = kTarget;
-        }
-        steps = 10;
-        while (k <= kTarget) {
-            pair = MultinomialSimulator.adjustAlpha(k, p, alpha, originalAlpha, 0.005, mcdfCache);
-            alpha = pair.getAlpha();
-            k += steps;
-        }
+//        int k = 10;
+//        if (steps == 0) {
+//            k = kTarget;
+//        }
+//        steps = 10;
+//        while (k <= kTarget) {
+//            pair = MultinomialSimulator.adjustAlpha(k, p, alpha, originalAlpha, 0.005, mcdfCache);
+//            alpha = pair.getAlpha();
+//            k += steps;
+//        }
         pair = MultinomialSimulator.adjustAlpha(kTarget, p, alpha, originalAlpha, 0.005, mcdfCache);
 
         return pair;
     }
 
-    public static MultinomialMTableFailProbPair regressionAlphaAdjustment(int kTarget, double[] p, double alpha, int trainingIterations) {
+    public static MultinomialMTableFailProbPair regressionAlphaAdjustment(int kTarget, double[] p, double alpha, int maxPreAdjustK, int iterations) {
+        final WeightedObservedPoints obs = new WeightedObservedPoints();
+        double originalAlpha = alpha;
+        MCDFCache mcdfCache = new MCDFCache(p);
+        MultinomialMTableFailProbPair pair = null;
+        int k = 10;
+        int stepsize = Math.max(maxPreAdjustK / iterations, 1);
+        double startTime = System.nanoTime();
+        for (int i = 0; i < iterations; i++) {
+//            System.out.println(i);
+            pair = MultinomialSimulator.adjustAlpha(k, p, alpha, originalAlpha, 0.005, mcdfCache);
+            alpha = pair.getAlpha();
+            obs.add(k, alpha);
+            if (k <= maxPreAdjustK + stepsize && k + stepsize <= kTarget) {
+                k += stepsize;
+            } else {
+                break;
+            }
+        }
+        double duration = System.nanoTime() - startTime;
+        if (k < kTarget) {
+            obs.add(10000, 0.0);
+            obs.add(kTarget * 1000, 0.0);
+            final PolynomialCurveFitter fitter = PolynomialCurveFitter.create(2);
+            final double[] coeff = fitter.fit(obs.toList());
+            double alphaPredict = Math.max(0.0, coeff[0] + coeff[1] * kTarget + coeff[2] * (kTarget * kTarget));
+            double finalAdjustTimeStart = System.nanoTime();
+            pair = MultinomialSimulator.adjustAlpha(kTarget, p, alphaPredict, originalAlpha, 0.005, mcdfCache);
+            pair.finalAdjustmentTime = System.nanoTime() - finalAdjustTimeStart;
+            pair.preAdjustmentTime = duration;
+            pair.unadjustedAlpha = originalAlpha;
+            pair.iterations = iterations;
+            pair.maxPreAdjustK = maxPreAdjustK;
+        }else{
+            pair.finalAdjustmentTime = 0;
+            pair.preAdjustmentTime = duration;
+            pair.unadjustedAlpha = originalAlpha;
+            pair.iterations = iterations;
+            pair.maxPreAdjustK = maxPreAdjustK;
+        }
+        return pair;
+    }
+
+    public static String writeCoeffMatrix(int kTarget, double[] p, double alpha, int stepSize, int iterations) {
+        StringBuilder sb = new StringBuilder();
         final WeightedObservedPoints obs = new WeightedObservedPoints();
         double originalAlpha = alpha;
         MCDFCache mcdfCache = new MCDFCache(p);
@@ -392,13 +437,15 @@ public class MultinomialSimulator {
         if (steps == 0) {
             k = kTarget;
         }
-        steps = 10;
-        for (int i = 0; i < trainingIterations; i++) {
+        steps = stepSize;
+        for (int i = 0; i < iterations; i++) {
+//            System.out.println(i);
             pair = MultinomialSimulator.adjustAlpha(k, p, alpha, originalAlpha, 0.005, mcdfCache);
             alpha = pair.getAlpha();
             obs.add(k, alpha);
             if (k + steps <= kTarget) {
                 k += steps;
+//                steps++;
             } else {
                 break;
             }
@@ -406,50 +453,81 @@ public class MultinomialSimulator {
         if (k < kTarget) {
             final PolynomialCurveFitter fitter = PolynomialCurveFitter.create(2);
             final double[] coeff = fitter.fit(obs.toList());
-            double alphaPredict = coeff[0] + coeff[1] * kTarget + coeff[2] * (kTarget * kTarget);
-            pair = MultinomialSimulator.adjustAlpha(kTarget, p, alphaPredict, originalAlpha, 0.005, mcdfCache);
+            sb.append("" + coeff[0] + "," + coeff[1] + "," + coeff[2]);
+            double alphaPredict = Math.max(0.0, coeff[0] + coeff[1] * kTarget + coeff[2] * (kTarget * kTarget));
         }
+        return sb.toString();
+    }
 
-        return pair;
+    public static double calculateDCG(ArrayList<COMPASCandidate> ranking, int position) {
+        double sum = 0;
+        for (int i = 1; i <= position; i++) {
+            sum += (Math.pow(2, ranking.get(i - 1).getScore()) - 1) / MultinomialSimulator.log2(i + 1);
+        }
+        return sum;
+    }
+
+    public static double log2(double d) {
+        return Math.log(d) / Math.log(2.0);
+    }
+
+    public static String sigToString(int[] sig) {
+        String s = "(";
+        for (int i : sig) {
+            s += "" + i + ";";
+        }
+        s = s.substring(0, s.length() - 1);
+        s += ")";
+        return s;
+    }
+
+    public static void runtimeExperiment() throws FileNotFoundException {
+        int[] ks = {10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60};
+        int[] iterations = {5, 10, 15};
+        double[][] ps = {{1.0 / 3.0, 1.0 / 3.0, 1.0 / 3.0}, {0.4, 0.2, 0.4}};
+        double[] alphas = {0.05, 0.1, 0.15};
+        ArrayList<MultinomialMTableFailProbPair> experiments = new ArrayList<>();
+
+        for (int k : ks) {
+            for (double[] p : ps) {
+                for (double alpha : alphas) {
+                    System.out.println(k);
+                    experiments.addAll(exeCuteRuntimeExperimentRegression(k, alpha, p, iterations));
+                }
+            }
+        }
+        CSVWriter writer = new CSVWriter();
+        writer.writePlotToCSV(experimentDataToString(experiments),"fullRuntimeExperiment");
 
     }
 
+    public static String experimentDataToString(ArrayList<MultinomialMTableFailProbPair> experiments){
+        StringBuilder sb = new StringBuilder();
+        double billion = 1000000000.0;
+        sb.append("k,p1,p2,alpha,max_preadjust_k,iterations,adjustedAlpha,failprob,preadjustTime,finalAdjustTime"+'\n');
+        for(MultinomialMTableFailProbPair pair : experiments){
+            sb.append(""+pair.getK()+","+pair.getP()[1]+","+pair.getP()[2]+","+pair.unadjustedAlpha+","+pair.maxPreAdjustK
+                    +","+pair.iterations+","+pair.getAlpha()+","+pair.getFailprob()+","+pair.preAdjustmentTime/billion+","+pair.finalAdjustmentTime/billion+'\n');
+        }
+        return sb.toString();
+    }
+
+    public static ArrayList<MultinomialMTableFailProbPair> exeCuteRuntimeExperimentRegression(int k, double alpha, double[] p, int[] iterations) {
+        int minMaxPreAdjustk = 10;
+        ArrayList<MultinomialMTableFailProbPair> experiments = new ArrayList<>();
+
+        for (int preAdjustK = minMaxPreAdjustk; preAdjustK < k; preAdjustK+=5) {
+            for (int i : iterations) {
+                if (i < k) {
+                    experiments.add(MultinomialSimulator.regressionAlphaAdjustment(k, p, alpha, preAdjustK, i));
+                }
+            }
+        }
+        return experiments;
+    }
 
     public static void main(String[] args) throws Exception {
-        double[] p = {1.0 / 3.0, 1.0 / 3.0, 1.0 / 3.0};
-        int[] ks = {20,30,40,50,60,70,80,90,100,110,120,130,140,150,160,170,180,190,200,210,220,230,240,250};
-        double alpha = 0.1;
-        MultinomialMTableFailProbPair pair = null;
-        CSVWriter writer = new CSVWriter();
-        StringBuilder sb = new StringBuilder();
-        sb.append("k,adjustedAlpha,time" + '\n');
-        for (int k : ks) {
-            System.out.println(k);
-            long start = System.nanoTime();
-            pair = MultinomialSimulator.regressionAlphaAdjustment(k,p,alpha,6);
-            double end = (System.nanoTime() - start)/1000000000.0;
-            sb.append(k + ","+pair.getAlpha()+","+end+ '\n');
-        }
-        writer.writePlotToCSV(sb.toString(), "regression_030303_01");
-        System.out.println("fin");
-
-//        BufferedReader reader = new BufferedReader(new FileReader("C:\\Users\\Tom\\Desktop\\data_030303_01.csv"));
-//        String line = reader.readLine();
-//        line = reader.readLine();
-//        final WeightedObservedPoints obs = new WeightedObservedPoints();
-//        while (line != null) {
-//            int k = Integer.parseInt(line.split(",")[0]);
-//            double a = Double.parseDouble(line.split(",")[1]);
-//            obs.add(k, a);
-//            line = reader.readLine();
-//        }
-//        final PolynomialCurveFitter fitter = PolynomialCurveFitter.create(2);
-//        final double[] coeff = fitter.fit(obs.toList());
-//        System.out.println("coef=" + Arrays.toString(coeff));
-//        System.out.println(coeff[0] + coeff[1] * 100 + coeff[2] * (100 * 100));
-//        double[] p = {1.0 / 3.0, 1.0 / 3.0, 1.0 / 3.0};
-//        System.out.println(MultinomialSimulator.binarySearchAlphaAdjustment(100, p, 0.1).getAlpha());
-//        System.out.println(""+regression.predict(120));
+        runtimeExperiment();
     }
 
 

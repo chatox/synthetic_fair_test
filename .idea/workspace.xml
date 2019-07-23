@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="60e81048-2371-49d3-8cf7-ab70d7119f9b" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src-java/multinomial/COMPASCandidate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src-java/multinomial/MultinomialFairRanker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/multinomial plotting/multinomial plotting.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/multinomial plotting/multinomial plotting.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src-java/multinomial/MultinomialSimulator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src-java/multinomial/MultinomialSimulator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src-java/multinomial/util/MultinomialFailprobCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src-java/multinomial/util/MultinomialFailprobCalculator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src-java/multinomial/util/MultinomialMTableFailProbPair.java" beforeDir="false" afterPath="$PROJECT_DIR$/src-java/multinomial/util/MultinomialMTableFailProbPair.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src-java/multinomial/util/MultinomialMTableGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src-java/multinomial/util/MultinomialMTableGenerator.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,35 +36,16 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src-java/multinomial/MultinomialSimulator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-229">
-              <caret line="394" column="19" lean-forward="true" selection-start-line="394" selection-start-column="19" selection-end-line="394" selection-end-column="19" />
+            <state relative-caret-position="144">
+              <caret line="486" column="77" selection-start-line="486" selection-start-column="77" selection-end-line="486" selection-end-column="77" />
               <folding>
                 <element signature="method#computeMultinomialMTree#0;class#MultinomialSimulator#0" />
                 <element signature="method#countProtected#0;class#MultinomialSimulator#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src-java/multinomial/util/MultinomialMTableFailProbPair.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="335">
-              <caret line="24" column="66" lean-forward="true" selection-start-line="24" selection-start-column="66" selection-end-line="24" selection-end-column="66" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src-java/multinomial/util/MultinomialMTableGenerator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="32" lean-forward="true" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
-              <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="method#writeCoeffMatrix#0;class#MultinomialSimulator#0" />
+                <element signature="method#calculateDCG#0;class#MultinomialSimulator#0" />
+                <element signature="e#17453#17454#0" expanded="true" />
+                <element signature="e#17503#17504#0" expanded="true" />
+                <element signature="method#sigToString#0;class#MultinomialSimulator#0" />
               </folding>
             </state>
           </provider>
@@ -71,6 +56,18 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="391">
               <caret line="24" column="77" selection-start-line="24" selection-start-column="51" selection-end-line="24" selection-end-column="77" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src-java/multinomial/util/MultinomialMTableGenerator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -137,9 +134,11 @@
         <option value="$PROJECT_DIR$/src-java/multinomial/util/TreeNode.java" />
         <option value="$PROJECT_DIR$/src-java/multinomial/util/InverseMultinomialCDFThread.java" />
         <option value="$PROJECT_DIR$/src-java/multinomial/util/MCDFCache.java" />
-        <option value="$PROJECT_DIR$/src-java/multinomial/util/MultinomialMTableFailProbPair.java" />
         <option value="$PROJECT_DIR$/src-java/binomial/CSVWriter.java" />
+        <option value="$PROJECT_DIR$/src-java/multinomial/COMPASCandidate.java" />
         <option value="$PROJECT_DIR$/src-java/multinomial/util/MultinomialFailprobCalculator.java" />
+        <option value="$PROJECT_DIR$/src-java/multinomial/MultinomialFairRanker.java" />
+        <option value="$PROJECT_DIR$/src-java/multinomial/util/MultinomialMTableFailProbPair.java" />
         <option value="$PROJECT_DIR$/src-java/multinomial/util/MultinomialMTableGenerator.java" />
         <option value="$PROJECT_DIR$/src-java/multinomial/MultinomialSimulator.java" />
       </list>
@@ -151,7 +150,8 @@
     </ignored-facets>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="7" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
     <option name="width" value="1936" />
     <option name="height" value="1056" />
   </component>
@@ -160,7 +160,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -196,6 +195,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -205,7 +205,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1560876863008" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1563792843133" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/ssj/ssj-3.3.1.jar!/" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
@@ -272,7 +272,6 @@
     <configuration name="MultinomialSimulator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="multinomial.MultinomialSimulator" />
       <module name="FA-IR_Ranking" />
-      <option name="VM_PARAMETERS" value="-Xms1024m -Xmx2048m" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="multinomial.*" />
@@ -438,6 +437,18 @@
       <workItem from="1559035396128" duration="26867000" />
       <workItem from="1560333957059" duration="961000" />
       <workItem from="1560849955258" duration="20066000" />
+      <workItem from="1560886233061" duration="20000" />
+      <workItem from="1560887395464" duration="3307000" />
+      <workItem from="1560932206123" duration="15397000" />
+      <workItem from="1560949674501" duration="683000" />
+      <workItem from="1561757379777" duration="2417000" />
+      <workItem from="1562009953772" duration="5281000" />
+      <workItem from="1562057142223" duration="996000" />
+      <workItem from="1562067703323" duration="4908000" />
+      <workItem from="1563546997659" duration="2792000" />
+      <workItem from="1563726701561" duration="3775000" />
+      <workItem from="1563780303416" duration="4869000" />
+      <workItem from="1563891799962" duration="598000" />
     </task>
     <servers />
   </component>
@@ -474,7 +485,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="257348000" />
+    <option name="totallyTimeSpent" value="302391000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -488,7 +499,7 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13272922" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14925373" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -497,7 +508,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32900432" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.26948053" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.25757575" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.47402596" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -523,7 +534,7 @@
       <window_info anchor="right" id="SciView" order="11" />
     </layout>
     <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13272922" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14765458" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -531,8 +542,8 @@
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3290938" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.26948053" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32900432" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.25757575" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.47402596" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -552,7 +563,7 @@
       <window_info anchor="right" id="Capture Analysis" order="5" />
       <window_info anchor="right" id="Data View" order="6" />
       <window_info anchor="right" id="Theme Preview" order="7" />
-      <window_info anchor="right" id="Database" order="8" />
+      <window_info anchor="right" id="Database" order="8" weight="0.32995737" />
       <window_info anchor="right" id="Palette&#9;" order="9" />
       <window_info anchor="right" id="Maven Projects" order="10" />
       <window_info anchor="right" id="SciView" order="11" />
@@ -594,12 +605,6 @@
           <properties />
           <option name="timeStamp" value="26" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src-java/multinomial/util/MultinomialFailprobCalculator.java</url>
-          <line>51</line>
-          <properties />
-          <option name="timeStamp" value="29" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
@@ -610,25 +615,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src-java/binomial/analyticalVSexperimental/LegalAssignmentKey.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="36" column="47" lean-forward="true" selection-start-line="36" selection-start-column="47" selection-end-line="36" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src-java/binomial/analyticalVSexperimental/FailprobabilityCalculator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="11" column="16" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src-java/binomial/test/RecursiveNumericFailprobabilityCalculatorTest.java" />
-    <entry file="file://$PROJECT_DIR$/src-java/binomial/test/RecursiveBlockMatrixFailprobabilityCalculatorTest.java" />
-    <entry file="file://$PROJECT_DIR$/src-java/binomial/test/RankingCaseParameterKey.java" />
-    <entry file="file://$PROJECT_DIR$/src-java/binomial/test/MTableMultiTesterTest.java" />
-    <entry file="file://$PROJECT_DIR$/src-java/binomial/test/RecursiveTableFailprobabilityCalculatorTest.java" />
     <entry file="file://$PROJECT_DIR$/src-java/binomial/analyticalVSexperimental/DataFrame.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="765">
@@ -870,26 +856,102 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src-java/multinomial/util/MultinomialMTableFailProbPair.java">
+    <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/java.base/java/lang/Double.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="335">
-          <caret line="24" column="66" lean-forward="true" selection-start-line="24" selection-start-column="66" selection-end-line="24" selection-end-column="66" />
+        <state relative-caret-position="221">
+          <caret line="1019" column="20" lean-forward="true" selection-start-line="1019" selection-start-column="20" selection-end-line="1019" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/java.base/java/lang/Math.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="369">
+          <caret line="310" column="25" selection-start-line="310" selection-start-column="25" selection-end-line="310" selection-end-column="25" />
+          <folding>
+            <element signature="e#11799#11800#0" expanded="true" />
+            <element signature="e#11880#11881#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../../../quicksort/commons-math3-3.6.1/commons-math3-3.6.1-sources.jar!/org/apache/commons/math3/fitting/WeightedObservedPoints.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../../../quicksort/commons-math3-3.6.1/commons-math3-3.6.1-sources.jar!/org/apache/commons/math3/fitting/AbstractCurveFitter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="51" column="22" selection-start-line="51" selection-start-column="22" selection-end-line="51" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../../../quicksort/commons-math3-3.6.1/commons-math3-3.6.1-sources.jar!/org/apache/commons/math3/fitting/PolynomialCurveFitter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="38" column="50" selection-start-line="38" selection-start-column="50" selection-end-line="38" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src-java/multinomial/MultinomialFairRanker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3094">
+          <caret line="189" column="124" selection-start-line="189" selection-start-column="124" selection-end-line="189" selection-end-column="124" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src-java/multinomial/COMPASCandidate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+          <folding>
+            <element signature="e#411#412#0" expanded="true" />
+            <element signature="e#436#437#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src-java/multinomial/util/MultinomialFailprobCalculator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="17" column="11" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="11" />
+        <state relative-caret-position="833">
+          <caret line="51" selection-start-line="51" selection-end-line="51" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#3450#3451#0" expanded="true" />
             <element signature="e#3481#3482#0" expanded="true" />
             <element signature="e#3513#3514#0" expanded="true" />
             <element signature="e#3541#3542#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src-java/multinomial/util/MultinomialMTableFailProbPair.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="29" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src-java/multinomial/MultinomialSimulator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="486" column="77" selection-start-line="486" selection-start-column="77" selection-end-line="486" selection-end-column="77" />
+          <folding>
+            <element signature="method#computeMultinomialMTree#0;class#MultinomialSimulator#0" />
+            <element signature="method#countProtected#0;class#MultinomialSimulator#0" />
+            <element signature="method#writeCoeffMatrix#0;class#MultinomialSimulator#0" />
+            <element signature="method#calculateDCG#0;class#MultinomialSimulator#0" />
+            <element signature="e#17453#17454#0" expanded="true" />
+            <element signature="e#17503#17504#0" expanded="true" />
+            <element signature="method#sigToString#0;class#MultinomialSimulator#0" />
           </folding>
         </state>
       </provider>
@@ -903,21 +965,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src-java/multinomial/util/MultinomialMTableGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="32" lean-forward="true" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
+        <state relative-caret-position="204">
+          <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src-java/multinomial/MultinomialSimulator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-229">
-          <caret line="394" column="19" lean-forward="true" selection-start-line="394" selection-start-column="19" selection-end-line="394" selection-end-column="19" />
-          <folding>
-            <element signature="method#computeMultinomialMTree#0;class#MultinomialSimulator#0" />
-            <element signature="method#countProtected#0;class#MultinomialSimulator#0" />
           </folding>
         </state>
       </provider>
