@@ -1,9 +1,13 @@
 package multinomial.util;
 
+import binomial.CSVWriter;
 import binomial.analyticalVSexperimental.RecursiveNumericFailprobabilityCalculator;
 import multinomial.MultinomialSimulator;
 import umontreal.ssj.probdistmulti.MultinomialDist;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 

@@ -7,6 +7,8 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.*;
 
 public class MultinomialFairRanker {
@@ -22,8 +24,10 @@ public class MultinomialFairRanker {
     }
 
     public ArrayList<COMPASCandidate> readCompasData() throws IOException {
-        BufferedReader readerRace = new BufferedReader(new FileReader("C:\\Users\\Tom\\Desktop\\CIT\\Work\\Fair Ranking\\rawData\\COMPAS\\ProPublica_race.csv"));
-        BufferedReader readerGender = new BufferedReader(new FileReader("C:\\Users\\Tom\\Desktop\\CIT\\Work\\Fair Ranking\\rawData\\COMPAS\\ProPublica_sex.csv"));
+        Path currentDir = Paths.get(".");
+        String currentDirString = currentDir.toAbsolutePath().toString();
+        BufferedReader readerRace = new BufferedReader(new FileReader(currentDirString+"\\data\\COMPAS\\ProPublica_race.csv"));
+        BufferedReader readerGender = new BufferedReader(new FileReader(currentDirString+"\\data\\COMPAS\\ProPublica_sex.csv"));
         String raceLine = readerRace.readLine();
         String genderLine = readerGender.readLine();
         raceLine = readerRace.readLine();

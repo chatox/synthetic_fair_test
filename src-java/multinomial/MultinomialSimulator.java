@@ -1,6 +1,7 @@
 package multinomial;
 
 import binomial.CSVWriter;
+import binomial.analyticalVSexperimental.MTableFailProbPair;
 import binomial.analyticalVSexperimental.MTableGenerator;
 import multinomial.util.*;
 import org.apache.commons.math3.fitting.PolynomialCurveFitter;
@@ -338,16 +339,15 @@ public class MultinomialSimulator {
             double midDiff = Math.abs(mid.getFailprob() - alphaOld);
             double maxDiff = Math.abs(max.getFailprob() - alphaOld);
             double minDiff = Math.abs(min.getFailprob() - alphaOld);
-
-            if (midDiff <= tolerance) {
+            if (midDiff <= tolerance && midDiff <= maxDiff && midDiff <= minDiff) {
 //                System.out.println("MID:Failprob: " + mid.getFailprob() + " ; k: " + k);
                 return mid;
             }
-            if (minDiff <= tolerance) {
+            if (minDiff <= tolerance && minDiff <= maxDiff && minDiff <= midDiff) {
 //                System.out.println("MIN:Failprob: " + min.getFailprob() + " ; k: " + k);
                 return min;
             }
-            if (maxDiff <= tolerance) {
+            if (maxDiff <= tolerance && maxDiff <= minDiff && maxDiff <= midDiff) {
 //                System.out.println("MAX:Failprob: " + max.getFailprob() + " ; k: " + k);
                 return max;
             }
@@ -416,7 +416,7 @@ public class MultinomialSimulator {
             pair.unadjustedAlpha = originalAlpha;
             pair.iterations = iterations;
             pair.maxPreAdjustK = maxPreAdjustK;
-        }else{
+        } else {
             pair.finalAdjustmentTime = 0;
             pair.preAdjustmentTime = duration;
             pair.unadjustedAlpha = originalAlpha;
@@ -497,17 +497,17 @@ public class MultinomialSimulator {
             }
         }
         CSVWriter writer = new CSVWriter();
-        writer.writePlotToCSV(experimentDataToString(experiments),"fullRuntimeExperiment");
+        writer.writePlotToCSV(experimentDataToString(experiments), "fullRuntimeExperiment");
 
     }
 
-    public static String experimentDataToString(ArrayList<MultinomialMTableFailProbPair> experiments){
+    public static String experimentDataToString(ArrayList<MultinomialMTableFailProbPair> experiments) {
         StringBuilder sb = new StringBuilder();
         double billion = 1000000000.0;
-        sb.append("k,p1,p2,alpha,max_preadjust_k,iterations,adjustedAlpha,failprob,preadjustTime,finalAdjustTime"+'\n');
-        for(MultinomialMTableFailProbPair pair : experiments){
-            sb.append(""+pair.getK()+","+pair.getP()[1]+","+pair.getP()[2]+","+pair.unadjustedAlpha+","+pair.maxPreAdjustK
-                    +","+pair.iterations+","+pair.getAlpha()+","+pair.getFailprob()+","+pair.preAdjustmentTime/billion+","+pair.finalAdjustmentTime/billion+'\n');
+        sb.append("k,p1,p2,alpha,max_preadjust_k,iterations,adjustedAlpha,failprob,preadjustTime,finalAdjustTime" + '\n');
+        for (MultinomialMTableFailProbPair pair : experiments) {
+            sb.append("" + pair.getK() + "," + pair.getP()[1] + "," + pair.getP()[2] + "," + pair.unadjustedAlpha + "," + pair.maxPreAdjustK
+                    + "," + pair.iterations + "," + pair.getAlpha() + "," + pair.getFailprob() + "," + pair.preAdjustmentTime / billion + "," + pair.finalAdjustmentTime / billion + '\n');
         }
         return sb.toString();
     }
@@ -516,7 +516,7 @@ public class MultinomialSimulator {
         int minMaxPreAdjustk = 10;
         ArrayList<MultinomialMTableFailProbPair> experiments = new ArrayList<>();
 
-        for (int preAdjustK = minMaxPreAdjustk; preAdjustK < k; preAdjustK+=5) {
+        for (int preAdjustK = minMaxPreAdjustk; preAdjustK < k; preAdjustK += 5) {
             for (int i : iterations) {
                 if (i < k) {
                     experiments.add(MultinomialSimulator.regressionAlphaAdjustment(k, p, alpha, preAdjustK, i));
@@ -527,7 +527,18 @@ public class MultinomialSimulator {
     }
 
     public static void main(String[] args) throws Exception {
-        runtimeExperiment();
+        //runtimeExperiment();
+        double[] p = {0.4, 0.2, 0.4};
+        MultinomialMTableFailProbPair pair = binarySearchAlphaAdjustment(10, p, 0.1);
+        for (int i = 0; i <= 10; i++) {
+            ArrayList<int[]> level = pair.getMtable().get(i);
+            StringBuilder out = new StringBuilder();
+            for (int[] s : level) {
+                out.append("|").append(MultinomialSimulator.sigToString(s));
+            }
+            System.out.println("" + i + "," + out.toString());
+        }
+        //TODO Rankings may be created with MultinomialFairRanker
     }
 
 
