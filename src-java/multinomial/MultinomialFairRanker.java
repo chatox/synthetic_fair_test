@@ -134,7 +134,7 @@ public class MultinomialFairRanker {
         for (int i = 1; i <= k; i++) {
             currentLevel = getCurrentLevelCandidates(mtable, mirrors, currentPath, i);
             if (currentLevel.size() > 1) {
-                int pathNumber = random.nextInt(currentLevel.size());
+                int pathNumber = random.nextInt(currentLevel.size()); // THIS LINE change to most likely path
                 currentPath = currentLevel.get(pathNumber);
             } else {
                 currentPath = currentLevel.get(0);
