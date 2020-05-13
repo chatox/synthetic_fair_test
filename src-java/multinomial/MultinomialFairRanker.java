@@ -26,8 +26,8 @@ public class MultinomialFairRanker {
     public ArrayList<COMPASCandidate> readCompasData() throws IOException {
         Path currentDir = Paths.get(".");
         String currentDirString = currentDir.toAbsolutePath().toString();
-        BufferedReader readerRace = new BufferedReader(new FileReader(currentDirString+"\\data\\COMPAS\\ProPublica_race.csv"));
-        BufferedReader readerGender = new BufferedReader(new FileReader(currentDirString+"\\data\\COMPAS\\ProPublica_sex.csv"));
+        BufferedReader readerRace = new BufferedReader(new FileReader(currentDirString+"/data/COMPAS/ProPublica_race.csv"));
+        BufferedReader readerGender = new BufferedReader(new FileReader(currentDirString+"/data/COMPAS/ProPublica_sex.csv"));
         String raceLine = readerRace.readLine();
         String genderLine = readerGender.readLine();
         raceLine = readerRace.readLine();
