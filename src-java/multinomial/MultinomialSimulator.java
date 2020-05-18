@@ -459,7 +459,7 @@ public class MultinomialSimulator {
         return sb.toString();
     }
 
-    public static double calculateDCG(ArrayList<COMPASCandidate> ranking, int position) {
+    public static double calculateDCG(ArrayList<Candidate> ranking, int position) {
         double sum = 0;
         for (int i = 1; i <= position; i++) {
             sum += (Math.pow(2, ranking.get(i - 1).getScore()) - 1) / MultinomialSimulator.log2(i + 1);

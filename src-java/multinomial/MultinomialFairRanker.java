@@ -23,7 +23,7 @@ public class MultinomialFairRanker {
         this.alpha = alpha;
     }
 
-    public ArrayList<COMPASCandidate> readCompasData() throws IOException {
+    public ArrayList<Candidate> readCompasData() throws IOException {
         Path currentDir = Paths.get(".");
         String currentDirString = currentDir.toAbsolutePath().toString();
         BufferedReader readerRace = new BufferedReader(new FileReader(currentDirString+"/data/COMPAS/ProPublica_race.csv"));
@@ -32,7 +32,7 @@ public class MultinomialFairRanker {
         String genderLine = readerGender.readLine();
         raceLine = readerRace.readLine();
         genderLine = readerGender.readLine();
-        ArrayList<COMPASCandidate> candidates = new ArrayList<>();
+        ArrayList<Candidate> candidates = new ArrayList<>();
         int id = 0;
         while (raceLine != null) {
             String[] raceArr = raceLine.split(",");
@@ -50,7 +50,7 @@ public class MultinomialFairRanker {
             if (!race && gender) {
                 group = 3;
             }
-            candidates.add(new COMPASCandidate(score, group, id));
+            candidates.add(new Candidate(score, group, id));
             id++;
             raceLine = readerRace.readLine();
             genderLine = readerGender.readLine();
@@ -58,16 +58,16 @@ public class MultinomialFairRanker {
         return candidates;
     }
 
-    public ArrayList<COMPASCandidate> createMultinomialFairRankingCOMPAS(MultinomialMTableFailProbPair pair) throws IOException {
-        ArrayList<COMPASCandidate> ranking = new ArrayList<>();
+    public ArrayList<Candidate> createMultinomialFairRankingCOMPAS(MultinomialMTableFailProbPair pair) throws IOException {
+        ArrayList<Candidate> ranking = new ArrayList<>();
         HashMap<Integer, ArrayList<int[]>> mtable = pair.getMtable();
         ArrayList<int[]> mirrors = pair.getMirrors();
-        ArrayList<COMPASCandidate> candidates = readCompasData();
-        ArrayList<COMPASCandidate> group0 = new ArrayList<>();
-        ArrayList<COMPASCandidate> group1 = new ArrayList<>();
-        ArrayList<COMPASCandidate> group2 = new ArrayList<>();
-        ArrayList<COMPASCandidate> group3 = new ArrayList<>();
-        for (COMPASCandidate candidate : candidates) {
+        ArrayList<Candidate> candidates = readCompasData();
+        ArrayList<Candidate> group0 = new ArrayList<>();
+        ArrayList<Candidate> group1 = new ArrayList<>();
+        ArrayList<Candidate> group2 = new ArrayList<>();
+        ArrayList<Candidate> group3 = new ArrayList<>();
+        for (Candidate candidate : candidates) {
             if (candidate.getGroup() == 0) {
                 group0.add(candidate);
             }
@@ -81,9 +81,9 @@ public class MultinomialFairRanker {
                 group3.add(candidate);
             }
         }
-        group0.sort(new Comparator<COMPASCandidate>() {
+        group0.sort(new Comparator<Candidate>() {
             @Override
-            public int compare(COMPASCandidate o1, COMPASCandidate o2) {
+            public int compare(Candidate o1, Candidate o2) {
                 if(o1.getScore()<o2.getScore())
                     return 1;
                 if(o1.getScore()>o2.getScore())
@@ -92,9 +92,9 @@ public class MultinomialFairRanker {
                     return 0;
             }
         });
-        group1.sort(new Comparator<COMPASCandidate>() {
+        group1.sort(new Comparator<Candidate>() {
             @Override
-            public int compare(COMPASCandidate o1, COMPASCandidate o2) {
+            public int compare(Candidate o1, Candidate o2) {
                 if(o1.getScore()<o2.getScore())
                     return 1;
                 if(o1.getScore()>o2.getScore())
@@ -103,9 +103,9 @@ public class MultinomialFairRanker {
                     return 0;
             }
         });
-        group2.sort(new Comparator<COMPASCandidate>() {
+        group2.sort(new Comparator<Candidate>() {
             @Override
-            public int compare(COMPASCandidate o1, COMPASCandidate o2) {
+            public int compare(Candidate o1, Candidate o2) {
                 if(o1.getScore()<o2.getScore())
                     return 1;
                 if(o1.getScore()>o2.getScore())
@@ -114,9 +114,9 @@ public class MultinomialFairRanker {
                     return 0;
             }
         });
-        group3.sort(new Comparator<COMPASCandidate>() {
+        group3.sort(new Comparator<Candidate>() {
             @Override
-            public int compare(COMPASCandidate o1, COMPASCandidate o2) {
+            public int compare(Candidate o1, Candidate o2) {
                 if(o1.getScore()<o2.getScore())
                     return 1;
                 if(o1.getScore()>o2.getScore())
@@ -125,7 +125,7 @@ public class MultinomialFairRanker {
                     return 0;
             }
         });
-        HashMap<Integer, ArrayList<COMPASCandidate>> groups = new HashMap<>();
+        HashMap<Integer, ArrayList<Candidate>> groups = new HashMap<>();
         groups.put(0, group0);
         groups.put(1, group1);
         groups.put(2, group2);
@@ -145,24 +145,24 @@ public class MultinomialFairRanker {
             }
             int candidateNeeded = getCandidateNeeded(candidatesRankedSoFar, currentPath);
             if (candidateNeeded == 1 && group1.size() > 0) {
-                COMPASCandidate currentBest = group1.get(0);
+                Candidate currentBest = group1.get(0);
                 ranking.add(currentBest);
                 groups.get(currentBest.getGroup()).remove(0);
                 candidatesRankedSoFar[currentBest.getGroup()]++;
             } else if (candidateNeeded == 2 && group2.size() > 0) {
-                COMPASCandidate currentBest = group2.get(0);
+                Candidate currentBest = group2.get(0);
                 ranking.add(currentBest);
                 groups.get(currentBest.getGroup()).remove(0);
                 candidatesRankedSoFar[currentBest.getGroup()]++;
             } else if (candidateNeeded == 3 && group3.size() > 0) {
-                COMPASCandidate currentBest = group3.get(0);
+                Candidate currentBest = group3.get(0);
                 ranking.add(currentBest);
                 groups.get(currentBest.getGroup()).remove(0);
                 candidatesRankedSoFar[currentBest.getGroup()]++;
             }
             //No protected candidate needed => get best next candidate
             else {
-                ArrayList<COMPASCandidate> next = new ArrayList<>();
+                ArrayList<Candidate> next = new ArrayList<>();
                 if (group0.size() > 0)
                     next.add(group0.get(0));
                 if (group1.size() > 0)
@@ -172,7 +172,7 @@ public class MultinomialFairRanker {
                 if (group3.size() > 0)
                     next.add(group3.get(0));
                 double maxScore = 0;
-                COMPASCandidate currentBest = null;
+                Candidate currentBest = null;
                 for (int j = 0; j < next.size(); j++) {
                     if (next.get(j).getScore() >= maxScore) {
                         currentBest = next.get(j);
@@ -190,22 +190,22 @@ public class MultinomialFairRanker {
         return ranking;
     }
 
-    public ArrayList<ArrayList<COMPASCandidate>> createBothRankings(int iterations, int stepsize) throws IOException {
+    public ArrayList<ArrayList<Candidate>> createBothRankings(int iterations, int stepsize) throws IOException {
         MultinomialMTableFailProbPair pair = MultinomialSimulator.regressionAlphaAdjustment(k, p, alpha, iterations,stepsize);
-        ArrayList<COMPASCandidate> fairRanking = createMultinomialFairRankingCOMPAS(pair);
-        ArrayList<COMPASCandidate> scoreRanking = createScoreRanking();
+        ArrayList<Candidate> fairRanking = createMultinomialFairRankingCOMPAS(pair);
+        ArrayList<Candidate> scoreRanking = createScoreRanking();
 
-        ArrayList<ArrayList<COMPASCandidate>> compareRankings = new ArrayList<>();
+        ArrayList<ArrayList<Candidate>> compareRankings = new ArrayList<>();
         compareRankings.add(fairRanking);
         compareRankings.add(scoreRanking);
 
         return compareRankings;
     }
 
-    private ArrayList<COMPASCandidate> createScoreRanking() throws IOException {
-        ArrayList<COMPASCandidate> candidates = readCompasData();
-        candidates.sort(Comparator.comparing(COMPASCandidate::getScore));
-        ArrayList<COMPASCandidate> ranking = new ArrayList<>();
+    private ArrayList<Candidate> createScoreRanking() throws IOException {
+        ArrayList<Candidate> candidates = readCompasData();
+        candidates.sort(Comparator.comparing(Candidate::getScore));
+        ArrayList<Candidate> ranking = new ArrayList<>();
         for(int i=1; i<=k; i++){
             ranking.add(candidates.get(candidates.size()-1));
             candidates.remove(candidates.size()-1);

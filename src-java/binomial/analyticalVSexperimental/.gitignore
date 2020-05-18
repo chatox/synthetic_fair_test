@@ -1,0 +1,15 @@
+/BinomDistKey.class
+/CSVWriter.class
+/DataFrame.class
+/FailprobCalculator.class
+/FailprobabilityCalculator.class
+/LegalAssignmentKey.class
+/MTableFailProbPair.class
+/MTableGenerator.class
+/MTableMultiTester.class
+/Main.class
+/RecursiveBlockMatrixFailprobabilityCalculator.class
+/RecursiveNumericFailprobabilityCalculator.class
+/RecursiveTableFailprobabilityCalculator.class
+/Simulator.class
+/SuccessProbBlockMatrixKey.class
