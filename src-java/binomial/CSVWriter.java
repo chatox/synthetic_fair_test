@@ -20,8 +20,21 @@ public class CSVWriter {
         pw.close();
     }
 
+    public void appendStrToFile(String fileName, String str) {
+        try {
+
+            // Open given file in append mode.
+            BufferedWriter out = new BufferedWriter(
+                    new FileWriter(fileName, true));
+            out.write(str);
+            out.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void writePlotToCSV(String data, String title) throws FileNotFoundException {
-        String filename = title+".csv";
+        String filename = title + ".csv";
         PrintWriter pw = new PrintWriter(new File("C:\\Users\\Tom\\Desktop\\" + filename));
         pw.write(data);
         pw.close();

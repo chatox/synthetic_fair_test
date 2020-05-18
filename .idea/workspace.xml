@@ -1,17 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="FA-IR_Ranking:jar" />
+      <artifact name="FA-IR_Ranking:jar2" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="60e81048-2371-49d3-8cf7-ab70d7119f9b" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src-java/multinomial/COMPASCandidate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src-java/multinomial/MultinomialFairRanker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/FA_IR_Ranking_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/FA_IR_Ranking_jar2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/hamcrest-core-1.3.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/junit-4.12.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/junit_4_12.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/multinomial plotting/failprobIncreaseWithK_binom.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/multinomial plotting/failprobIncreaseWithK_multinomial.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/META-INF/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src-java/Experiment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src-java/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/FA-IR_Ranking.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/FA-IR_Ranking.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/multinomial plotting/multinomial plotting.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/multinomial plotting/multinomial plotting.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FA-IR_Ranking/CSVWriter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FA-IR_Ranking/Simulator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FA-IR_Ranking/analyticalVSexperimental/BinomDistKey.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FA-IR_Ranking/analyticalVSexperimental/CSVWriter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FA-IR_Ranking/analyticalVSexperimental/DataFrame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FA-IR_Ranking/analyticalVSexperimental/FailprobCalculator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FA-IR_Ranking/analyticalVSexperimental/FailprobabilityCalculator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FA-IR_Ranking/analyticalVSexperimental/LegalAssignmentKey.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FA-IR_Ranking/analyticalVSexperimental/MTableFailProbPair.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FA-IR_Ranking/analyticalVSexperimental/MTableGenerator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FA-IR_Ranking/analyticalVSexperimental/MTableMultiTester.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FA-IR_Ranking/analyticalVSexperimental/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FA-IR_Ranking/analyticalVSexperimental/RecursiveBlockMatrixFailprobabilityCalculator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FA-IR_Ranking/analyticalVSexperimental/RecursiveNumericFailprobabilityCalculator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FA-IR_Ranking/analyticalVSexperimental/RecursiveTableFailprobabilityCalculator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FA-IR_Ranking/analyticalVSexperimental/Simulator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FA-IR_Ranking/analyticalVSexperimental/SuccessProbBlockMatrixKey.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FA-IR_Ranking/test/MTableMultiTesterTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FA-IR_Ranking/test/RankingCaseParameterKey.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FA-IR_Ranking/test/RecursiveBlockMatrixFailprobabilityCalculatorTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FA-IR_Ranking/test/RecursiveNumericFailprobabilityCalculatorTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FA-IR_Ranking/test/RecursiveTableFailprobabilityCalculatorTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src-java/binomial/CSVWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src-java/binomial/CSVWriter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src-java/multinomial/MultinomialFairRanker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src-java/multinomial/MultinomialFairRanker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src-java/multinomial/MultinomialSimulator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src-java/multinomial/MultinomialSimulator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-java/multinomial/util/MultinomialFailprobCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src-java/multinomial/util/MultinomialFailprobCalculator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-java/multinomial/util/MultinomialMTableFailProbPair.java" beforeDir="false" afterPath="$PROJECT_DIR$/src-java/multinomial/util/MultinomialMTableFailProbPair.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src-java/multinomial/util/MCDFCache.java" beforeDir="false" afterPath="$PROJECT_DIR$/src-java/multinomial/util/MCDFCache.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src-java/multinomial/util/MultinomialMTableGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src-java/multinomial/util/MultinomialMTableGenerator.java" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,49 +68,6 @@
     <expand />
     <select />
   </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src-java/multinomial/MultinomialSimulator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="486" column="77" selection-start-line="486" selection-start-column="77" selection-end-line="486" selection-end-column="77" />
-              <folding>
-                <element signature="method#computeMultinomialMTree#0;class#MultinomialSimulator#0" />
-                <element signature="method#countProtected#0;class#MultinomialSimulator#0" />
-                <element signature="method#writeCoeffMatrix#0;class#MultinomialSimulator#0" />
-                <element signature="method#calculateDCG#0;class#MultinomialSimulator#0" />
-                <element signature="e#17453#17454#0" expanded="true" />
-                <element signature="e#17503#17504#0" expanded="true" />
-                <element signature="method#sigToString#0;class#MultinomialSimulator#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src-java/binomial/CSVWriter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="24" column="77" selection-start-line="24" selection-start-column="51" selection-end-line="24" selection-end-column="77" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src-java/multinomial/util/MultinomialMTableGenerator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
-  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -82,161 +76,59 @@
       </list>
     </option>
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>System.array</find>
-    </findStrings>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/src/post_processing_methods/fair_ranker/test.py" />
-        <option value="$PROJECT_DIR$/src/utilsAndConstants/utils.py" />
-        <option value="$PROJECT_DIR$/src/dataset_creator/yangStoyanovichMethod.py" />
-        <option value="$PROJECT_DIR$/src/post_processing_methods/fair_ranker/alpha_adjustment.py" />
-        <option value="$PROJECT_DIR$/src/post_processing_methods/fair_ranker/simulation.py" />
-        <option value="$PROJECT_DIR$/src-java/Simulator.java" />
-        <option value="$PROJECT_DIR$/src-java/CSVWriter.java" />
-        <option value="$PROJECT_DIR$/src-python/simulation_yang_stoyanovich.py" />
-        <option value="$PROJECT_DIR$/src-java/analyticalVSexperimental/CSVWriter.java" />
-        <option value="$PROJECT_DIR$/src-java/analyticalVSexperimental/DataFrame.java" />
-        <option value="$PROJECT_DIR$/src-java/analyticalVSexperimental/FailprobCalculator.java" />
-        <option value="$PROJECT_DIR$/src-java/analyticalVSexperimental/MTableGenerator.java" />
-        <option value="$PROJECT_DIR$/src-java/analyticalVSexperimental/BinomDistKey.java" />
-        <option value="$PROJECT_DIR$/src-java/analyticalVSexperimental/RecursiveGlobalTableFailprobabilityCalculator.java" />
-        <option value="$PROJECT_DIR$/src-java/test/MtableTest.java" />
-        <option value="$PROJECT_DIR$/src-java/test/RankingCaseParameterKey.java" />
-        <option value="$PROJECT_DIR$/src-java/test/ComputeFailProbTestSuite.java" />
-        <option value="$PROJECT_DIR$/src-java/test/MTableMultiTesterTest.java" />
-        <option value="$PROJECT_DIR$/src-java/analyticalVSexperimental/SuccessProbBlockMatrixKey.java" />
-        <option value="$PROJECT_DIR$/src-java/test/RecursiveNumericFailprobabilityTest.java" />
-        <option value="$PROJECT_DIR$/src-java/analyticalVSexperimental/RecursiveNumericCachedFailprobabilityCalculator.java" />
-        <option value="$PROJECT_DIR$/src-java/analyticalVSexperimental/LegalAssignmentKey.java" />
-        <option value="$PROJECT_DIR$/src-java/analyticalVSexperimental/MTableFailProbPair.java" />
-        <option value="$PROJECT_DIR$/src-java/analyticalVSexperimental/FailprobabilityCalculator.java" />
-        <option value="$PROJECT_DIR$/src-java/analyticalVSexperimental/RecursiveTableFailprobabilityCalculator.java" />
-        <option value="$PROJECT_DIR$/src-java/analyticalVSexperimental/RecursiveBlockMatrixFailprobabilityCalculator.java" />
-        <option value="$PROJECT_DIR$/src-java/test/RecursiveNumericFailprobabilityCalculatorTest.java" />
-        <option value="$PROJECT_DIR$/src-java/test/RecursiveBlockMatrixFailprobabilityCalculatorTest.java" />
-        <option value="$PROJECT_DIR$/src-java/test/RecursiveTableFailprobabilityCalculatorTest.java" />
-        <option value="$PROJECT_DIR$/src-java/analyticalVSexperimental/MTableMultiTester.java" />
-        <option value="$PROJECT_DIR$/src-java/analyticalVSexperimental/RecursiveNumericFailprobabilityCalculator.java" />
-        <option value="$PROJECT_DIR$/src-java/analyticalVSexperimental/Main.java" />
-        <option value="$PROJECT_DIR$/src-java/analyticalVSexperimental/Simulator.java" />
-        <option value="$PROJECT_DIR$/src-java/binomial/analyticalVSexperimental/Simulator.java" />
-        <option value="$PROJECT_DIR$/src-java/multinomial/util/FairnessTestGraph.java" />
-        <option value="$PROJECT_DIR$/src-java/multinomial/util/DiscontFactorCache.java" />
-        <option value="$PROJECT_DIR$/src-java/binomial/analyticalVSexperimental/MTableGenerator.java" />
-        <option value="$PROJECT_DIR$/src-java/binomial/analyticalVSexperimental/RecursiveNumericFailprobabilityCalculator.java" />
-        <option value="$PROJECT_DIR$/src-java/multinomial/util/TreeNode.java" />
-        <option value="$PROJECT_DIR$/src-java/multinomial/util/InverseMultinomialCDFThread.java" />
-        <option value="$PROJECT_DIR$/src-java/multinomial/util/MCDFCache.java" />
-        <option value="$PROJECT_DIR$/src-java/binomial/CSVWriter.java" />
-        <option value="$PROJECT_DIR$/src-java/multinomial/COMPASCandidate.java" />
-        <option value="$PROJECT_DIR$/src-java/multinomial/util/MultinomialFailprobCalculator.java" />
-        <option value="$PROJECT_DIR$/src-java/multinomial/MultinomialFairRanker.java" />
-        <option value="$PROJECT_DIR$/src-java/multinomial/util/MultinomialMTableFailProbPair.java" />
-        <option value="$PROJECT_DIR$/src-java/multinomial/util/MultinomialMTableGenerator.java" />
-        <option value="$PROJECT_DIR$/src-java/multinomial/MultinomialSimulator.java" />
-      </list>
-    </option>
   </component>
   <component name="InvalidFacetManager">
     <ignored-facets>
       <facet id="FA-IR_Ranking/invalid/Python" />
     </ignored-facets>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
-  </component>
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="syntheticFairTest" type="b2602c69:ProjectViewProjectNode" />
-              <item name="syntheticFairTest" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="syntheticFairTest" type="b2602c69:ProjectViewProjectNode" />
-              <item name="syntheticFairTest" type="462c0819:PsiDirectoryNode" />
-              <item name="src-java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="syntheticFairTest" type="b2602c69:ProjectViewProjectNode" />
-              <item name="syntheticFairTest" type="462c0819:PsiDirectoryNode" />
-              <item name="src-java" type="462c0819:PsiDirectoryNode" />
-              <item name="binomial" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="syntheticFairTest" type="b2602c69:ProjectViewProjectNode" />
-              <item name="syntheticFairTest" type="462c0819:PsiDirectoryNode" />
-              <item name="src-java" type="462c0819:PsiDirectoryNode" />
-              <item name="multinomial" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="syntheticFairTest" type="b2602c69:ProjectViewProjectNode" />
-              <item name="syntheticFairTest" type="462c0819:PsiDirectoryNode" />
-              <item name="src-java" type="462c0819:PsiDirectoryNode" />
-              <item name="multinomial" type="462c0819:PsiDirectoryNode" />
-              <item name="util" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-    </panes>
+  <component name="ProjectId" id="1Z2WNsB7yjNMyTouiqiUlkkkFyT" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1563792843133" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/ssj/ssj-3.3.1.jar!/" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/fairnesstransparency/dev/script.js" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.editor" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Tom\Desktop\CIT\Work\syntheticFairTest\ssj" />
-    </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="analyticalVSexperimental" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Tom\Desktop\CIT\Work\syntheticFairTest\ssj" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Data_Desktop\synthetic_fair_test\.idea\libraries" />
+    </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
-  <component name="RunManager" selected="Application.MultinomialSimulator">
+  <component name="RunManager" selected="Application.Experiment">
     <configuration default="true" type="Applet">
       <option name="HEIGHT" value="0" />
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <option name="WIDTH" value="0" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Experiment" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Experiment" />
+      <module name="FA-IR_Ranking" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -302,24 +194,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RecursiveNumericFailprobabilityCalculatorTest.runRecursiveTableFailprobCalculatorWithHighK" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="FA-IR_Ranking" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="binomial.test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="binomial.test" />
-      <option name="MAIN_CLASS_NAME" value="binomial.test.RecursiveNumericFailprobabilityCalculatorTest" />
-      <option name="METHOD_NAME" value="runRecursiveTableFailprobCalculatorWithHighK" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" />
@@ -352,17 +226,29 @@
       <item itemvalue="Application.Simulator" />
       <item itemvalue="Application.MultinomialSimulator" />
       <item itemvalue="Application.MCDFCache" />
-      <item itemvalue="JUnit.RecursiveNumericFailprobabilityCalculatorTest.runRecursiveTableFailprobCalculatorWithHighK" />
+      <item itemvalue="Application.Experiment" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.MultinomialSimulator" />
+        <item itemvalue="Application.Experiment" />
         <item itemvalue="Application.MCDFCache" />
+        <item itemvalue="Application.MultinomialSimulator" />
         <item itemvalue="Application.Simulator" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.RecursiveNumericFailprobabilityCalculatorTest.runRecursiveTableFailprobCalculatorWithHighK" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -449,128 +335,92 @@
       <workItem from="1563726701561" duration="3775000" />
       <workItem from="1563780303416" duration="4869000" />
       <workItem from="1563891799962" duration="598000" />
+      <workItem from="1584037633955" duration="1069000" />
+      <workItem from="1585303279298" duration="9458000" />
+      <workItem from="1585734667203" duration="9854000" />
+      <workItem from="1585903712218" duration="2537000" />
+      <workItem from="1586266746202" duration="601000" />
+      <workItem from="1586775385714" duration="49000" />
+      <workItem from="1587047516486" duration="2131000" />
+      <workItem from="1587131614328" duration="2535000" />
+      <workItem from="1587374306045" duration="608000" />
+      <workItem from="1587376474119" duration="1192000" />
+      <workItem from="1587567442775" duration="3276000" />
+      <workItem from="1587721189338" duration="1024000" />
+      <workItem from="1587981905605" duration="101000" />
+      <workItem from="1589277406754" duration="681000" />
     </task>
     <servers />
   </component>
-  <component name="TestHistory">
-    <history-entry file="RecursiveNumericFailprobabilityTest_runRecursiveTableFailprobCalculatorWithLowKAndZeroMTables - 2018.10.02 at 14h 54m 05s.xml">
-      <configuration name="RecursiveNumericFailprobabilityTest.runRecursiveTableFailprobCalculatorWithLowKAndZeroMTables" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="RecursiveNumericFailprobabilityTest_runRecursiveTableFailprobCalculatorWithLowKAndZeroMTables - 2018.10.02 at 14h 55m 33s.xml">
-      <configuration name="RecursiveNumericFailprobabilityTest.runRecursiveTableFailprobCalculatorWithLowKAndZeroMTables" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="RecursiveTableFailprobabilityCalculatorTest_runRecursiveTableFailprobCalculatorWithLowKAndZeroMTables - 2018.10.02 at 14h 55m 57s.xml">
-      <configuration name="RecursiveTableFailprobabilityCalculatorTest.runRecursiveTableFailprobCalculatorWithLowKAndZeroMTables" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="RecursiveTableFailprobabilityCalculatorTest_runRecursiveTableFailprobCalculatorWithLowKAndZeroMTables - 2018.10.02 at 14h 56m 06s.xml">
-      <configuration name="RecursiveTableFailprobabilityCalculatorTest.runRecursiveTableFailprobCalculatorWithLowKAndZeroMTables" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="RecursiveTableFailprobabilityCalculatorTest_runRecursiveTableFailprobCalculatorWithLowKAndZeroMTables - 2018.10.02 at 14h 56m 51s.xml">
-      <configuration name="RecursiveTableFailprobabilityCalculatorTest.runRecursiveTableFailprobCalculatorWithLowKAndZeroMTables" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="RecursiveNumericFailprobabilityTest_runRecursiveTableFailprobCalculatorWithLowKAndZeroMTables - 2018.10.02 at 14h 57m 06s.xml">
-      <configuration name="RecursiveNumericFailprobabilityTest.runRecursiveTableFailprobCalculatorWithLowKAndZeroMTables" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="RecursiveNumericFailprobabilityTest_runRecursiveTableFailprobCalculatorWithLowKAndNonZeroMTables - 2018.10.02 at 14h 57m 12s.xml">
-      <configuration name="RecursiveNumericFailprobabilityTest.runRecursiveTableFailprobCalculatorWithLowKAndNonZeroMTables" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="RecursiveNumericFailprobabilityTest_runRecursiveTableFailprobCalculatorWithLowKAndNonZeroMTables - 2018.10.02 at 14h 58m 15s.xml">
-      <configuration name="RecursiveNumericFailprobabilityTest.runRecursiveTableFailprobCalculatorWithLowKAndNonZeroMTables" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="RecursiveNumericFailprobabilityTest_runRecursiveTableFailprobCalculatorWithLowKAndNonZeroMTables - 2018.10.02 at 15h 00m 25s.xml">
-      <configuration name="RecursiveNumericFailprobabilityTest.runRecursiveTableFailprobCalculatorWithLowKAndNonZeroMTables" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="RecursiveNumericFailprobabilityTest_runRecursiveTableFailprobCalculatorWithHighK - 2018.10.02 at 15h 07m 32s.xml">
-      <configuration name="RecursiveNumericFailprobabilityTest.runRecursiveTableFailprobCalculatorWithHighK" configurationId="JUnit" />
-    </history-entry>
-  </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="302391000" />
-  </component>
-  <component name="TodoView">
-    <todo-panel id="selected-file">
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-    <todo-panel id="all">
-      <are-packages-shown value="true" />
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14925373" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Image Layers" order="2" />
-      <window_info id="Designer" order="3" />
-      <window_info id="UI Designer" order="4" />
-      <window_info id="Capture Tool" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32900432" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.25757575" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.47402596" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32750398" />
-      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.3290938" />
-      <window_info anchor="bottom" id="Version Control" order="10" />
-      <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.32900432" />
-      <window_info anchor="bottom" id="Duplicate detector" order="13" weight="0.32900432" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Maven" order="3" />
-      <window_info anchor="right" id="Palette" order="4" />
-      <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="right" id="Data View" order="6" />
-      <window_info anchor="right" id="Theme Preview" order="7" />
-      <window_info anchor="right" id="Database" order="8" weight="0.32995737" />
-      <window_info anchor="right" id="Palette&#9;" order="9" />
-      <window_info anchor="right" id="Maven Projects" order="10" />
-      <window_info anchor="right" id="SciView" order="11" />
-    </layout>
-    <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14765458" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Image Layers" order="2" />
-      <window_info id="Designer" order="3" />
-      <window_info id="UI Designer" order="4" />
-      <window_info id="Capture Tool" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32900432" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.25757575" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.47402596" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32750398" />
-      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.3290938" />
-      <window_info anchor="bottom" id="Version Control" order="10" />
-      <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.32900432" />
-      <window_info anchor="bottom" id="Duplicate detector" order="13" weight="0.32900432" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Maven" order="3" />
-      <window_info anchor="right" id="Palette" order="4" />
-      <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="right" id="Data View" order="6" />
-      <window_info anchor="right" id="Theme Preview" order="7" />
-      <window_info anchor="right" id="Database" order="8" weight="0.32995737" />
-      <window_info anchor="right" id="Palette&#9;" order="9" />
-      <window_info anchor="right" id="Maven Projects" order="10" />
-      <window_info anchor="right" id="SciView" order="11" />
-    </layout-to-restore>
-  </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="223" y="68" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587049560320">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="223" y="68" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1587049560320" />
+    <state x="499" y="197" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1587133687591">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="499" y="197" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1536.824@0.0.1536.824" timestamp="1587133687591" />
+    <state x="808" y="410" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1584037639731">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="808" y="410" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1584037639731" />
+    <state x="549" y="155" key="FileChooserDialogImpl" timestamp="1586775427015">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="549" y="155" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1586775427015" />
+    <state width="1493" height="158" key="GridCell.Tab.0.bottom" timestamp="1587378108055">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="158" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1587378108055" />
+    <state width="1493" height="158" key="GridCell.Tab.0.center" timestamp="1587378108055">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="158" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1587378108055" />
+    <state width="1493" height="158" key="GridCell.Tab.0.left" timestamp="1587378108055">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="158" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1587378108055" />
+    <state width="1493" height="158" key="GridCell.Tab.0.right" timestamp="1587378108055">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="158" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1587378108055" />
+    <state width="1493" height="315" key="GridCell.Tab.1.bottom" timestamp="1585324570734">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="315" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1585324570734" />
+    <state width="1493" height="315" key="GridCell.Tab.1.center" timestamp="1585324570734">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="315" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1585324570734" />
+    <state width="1493" height="315" key="GridCell.Tab.1.left" timestamp="1585324570734">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="315" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1585324570734" />
+    <state width="1493" height="315" key="GridCell.Tab.1.right" timestamp="1585324570734">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="315" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1585324570734" />
+    <state x="249" y="0" key="SettingsEditor" timestamp="1587133966974">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="249" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1587133966974" />
+    <state x="498" y="307" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1585305802648">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="498" y="307" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1536.824@0.0.1536.824" timestamp="1585305802648" />
+    <state x="526" y="93" width="609" height="638" key="find.popup" timestamp="1585303699087">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="526" y="93" width="609" height="638" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1585303699087" />
+    <state x="657" y="118" width="606" height="804" key="find.popup/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1584038375902" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1587049609830">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1587049609830" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -578,32 +428,32 @@
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src-java/binomial/analyticalVSexperimental/RecursiveBlockMatrixFailprobabilityCalculator.java</url>
           <line>50</line>
-          <properties />
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src-java/binomial/test/RecursiveNumericFailprobabilityCalculatorTest.java</url>
           <line>77</line>
-          <properties />
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src-java/binomial/analyticalVSexperimental/MTableMultiTester.java</url>
           <line>135</line>
-          <properties />
           <option name="timeStamp" value="15" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src-java/binomial/analyticalVSexperimental/Main.java</url>
           <line>44</line>
-          <properties />
           <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src-java/multinomial/util/DiscontFactorCache.java</url>
           <line>89</line>
-          <properties />
           <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src-java/multinomial/MultinomialSimulator.java</url>
+          <line>33</line>
+          <option name="timeStamp" value="27" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -613,453 +463,5 @@
         <watch expression="possibleWayDown.get(0)" />
       </configuration>
     </watches-manager>
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src-java/binomial/analyticalVSexperimental/DataFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="45" column="5" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src-java/binomial/analyticalVSexperimental/MTableMultiTester.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1734">
-          <caret line="106" column="52" selection-start-line="106" selection-start-column="52" selection-end-line="106" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src-java/binomial/analyticalVSexperimental/FailprobCalculator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2210">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src-python/simulation_yang_stoyanovich.py" />
-    <entry file="file://$PROJECT_DIR$/src-java/multinomial/util/SampleIterating.java" />
-    <entry file="file://$PROJECT_DIR$/src-java/binomial/analyticalVSexperimental/Simulator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="122" column="17" selection-start-line="122" selection-start-column="17" selection-end-line="122" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src-java/multinomial/util/SampleData.java" />
-    <entry file="file://$PROJECT_DIR$/src-java/multinomial/util/SampleSearching.java" />
-    <entry file="file://$PROJECT_DIR$/src-java/binomial/Simulator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2006">
-          <caret line="121" selection-start-line="9" selection-end-line="121" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src-java/binomial/analyticalVSexperimental/BinomDistKey.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="35" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src-java/multinomial/util/TreeNodeIter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src-java/binomial/analyticalVSexperimental/MTableFailProbPair.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="30" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/java.base/java/lang/Runtime.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="658" column="73" selection-start-line="658" selection-start-column="68" selection-end-line="658" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src-java/multinomial/util/NodeDisplayWrapperTreePane.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="9" column="39" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src-java/multinomial/util/NodeDisplayWrapperNodeExtentProvider.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="12" column="40" selection-start-line="12" selection-start-column="40" selection-end-line="12" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/java.base/java/lang/Iterable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="41" column="17" selection-start-line="41" selection-start-column="17" selection-end-line="41" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src-java/multinomial/util/Price.java" />
-    <entry file="jar://$PROJECT_DIR$/ssj/org.abego.treelayout.core-1.0.3.jar!/org/abego/treelayout/util/DefaultTreeForTreeLayout.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="43" column="16" selection-start-line="43" selection-start-column="16" selection-end-line="43" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src-java/multinomial/util/Node.java" />
-    <entry file="file://$PROJECT_DIR$/src-java/multinomial/util/Edge.java" />
-    <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/java.base/java/io/Serializable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2034">
-          <caret line="168" column="17" selection-start-line="168" selection-start-column="17" selection-end-line="168" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src-java/multinomial/util/MTree.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="51" selection-start-line="17" selection-start-column="51" selection-end-line="17" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src-java/multinomial/util/NodeWriteObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src-java/multinomial/util/MultinomialMtableTreeVisualizer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src-java/multinomial/util/NodeDisplayWrapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="25" selection-start-column="25" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src-java/binomial/analyticalVSexperimental/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="47" column="13" selection-start-line="47" selection-start-column="13" selection-end-line="47" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src-java/binomial/analyticalVSexperimental/SuccessProbBlockMatrixKey.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src-java/binomial/analyticalVSexperimental/RecursiveBlockMatrixFailprobabilityCalculator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1173">
-          <caret line="69" column="40" selection-start-line="69" selection-start-column="40" selection-end-line="69" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src-java/binomial/analyticalVSexperimental/RecursiveTableFailprobabilityCalculator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="15" column="50" selection-start-line="15" selection-start-column="50" selection-end-line="15" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src-java/multinomial/util/FairnessTestGraph.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="34" column="36" lean-forward="true" selection-start-line="34" selection-start-column="36" selection-end-line="34" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/java.base/java/lang/System.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="524" column="30" selection-start-line="524" selection-start-column="30" selection-end-line="524" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/ssj/ssj-3.3.1.jar!/umontreal/ssj/probdistmulti/MultinomialDist.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="75" column="25" selection-start-line="75" selection-start-column="25" selection-end-line="75" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/java.base/java/util/function/ToDoubleFunction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="47" column="11" selection-start-line="47" selection-start-column="11" selection-end-line="47" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src-java/binomial/analyticalVSexperimental/RecursiveNumericFailprobabilityCalculator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1001">
-          <caret line="71" column="48" selection-start-line="71" selection-start-column="48" selection-end-line="71" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src-java/multinomial/util/InverseMultinomialCDFThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#inverseMultinomialCDF#0;class#InverseMultinomialCDFThread#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src-java/multinomial/util/TreeNode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="15" column="26" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src-java/multinomial/util/DiscontFactorCache.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="593">
-          <caret line="110" selection-start-line="110" selection-end-line="110" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src-java/binomial/analyticalVSexperimental/MTableGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="593">
-          <caret line="74" column="21" selection-start-line="74" selection-start-column="21" selection-end-line="74" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src-java/multinomial/util/MCDFCache.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/java.base/java/lang/Double.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="1019" column="20" lean-forward="true" selection-start-line="1019" selection-start-column="20" selection-end-line="1019" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/java.base/java/lang/Math.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
-          <caret line="310" column="25" selection-start-line="310" selection-start-column="25" selection-end-line="310" selection-end-column="25" />
-          <folding>
-            <element signature="e#11799#11800#0" expanded="true" />
-            <element signature="e#11880#11881#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../../../quicksort/commons-math3-3.6.1/commons-math3-3.6.1-sources.jar!/org/apache/commons/math3/fitting/WeightedObservedPoints.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../../../quicksort/commons-math3-3.6.1/commons-math3-3.6.1-sources.jar!/org/apache/commons/math3/fitting/AbstractCurveFitter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="51" column="22" selection-start-line="51" selection-start-column="22" selection-end-line="51" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../../../quicksort/commons-math3-3.6.1/commons-math3-3.6.1-sources.jar!/org/apache/commons/math3/fitting/PolynomialCurveFitter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="38" column="50" selection-start-line="38" selection-start-column="50" selection-end-line="38" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src-java/multinomial/MultinomialFairRanker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3094">
-          <caret line="189" column="124" selection-start-line="189" selection-start-column="124" selection-end-line="189" selection-end-column="124" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src-java/multinomial/COMPASCandidate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-          <folding>
-            <element signature="e#411#412#0" expanded="true" />
-            <element signature="e#436#437#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src-java/multinomial/util/MultinomialFailprobCalculator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="833">
-          <caret line="51" selection-start-line="51" selection-end-line="51" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3450#3451#0" expanded="true" />
-            <element signature="e#3481#3482#0" expanded="true" />
-            <element signature="e#3513#3514#0" expanded="true" />
-            <element signature="e#3541#3542#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src-java/multinomial/util/MultinomialMTableFailProbPair.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="29" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src-java/multinomial/MultinomialSimulator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="486" column="77" selection-start-line="486" selection-start-column="77" selection-end-line="486" selection-end-column="77" />
-          <folding>
-            <element signature="method#computeMultinomialMTree#0;class#MultinomialSimulator#0" />
-            <element signature="method#countProtected#0;class#MultinomialSimulator#0" />
-            <element signature="method#writeCoeffMatrix#0;class#MultinomialSimulator#0" />
-            <element signature="method#calculateDCG#0;class#MultinomialSimulator#0" />
-            <element signature="e#17453#17454#0" expanded="true" />
-            <element signature="e#17503#17504#0" expanded="true" />
-            <element signature="method#sigToString#0;class#MultinomialSimulator#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src-java/binomial/CSVWriter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="24" column="77" selection-start-line="24" selection-start-column="51" selection-end-line="24" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src-java/multinomial/util/MultinomialMTableGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-  </component>
-  <component name="masterDetails">
-    <states>
-      <state key="ArquillianSettingsConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ArtifactsStructureConfigurable.UI">
-        <settings>
-          <artifact-editor />
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <last-edited>Python</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="GlobalLibrariesConfigurable.UI">
-        <settings>
-          <last-edited>Python 3.6 (venv) interpreter library</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="JdkListConfigurable.UI">
-        <settings>
-          <last-edited>9</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ModuleStructureConfigurable.UI">
-        <settings>
-          <last-edited>FA-IR_Ranking</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-                <option value="0.6" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectLibrariesConfigurable.UI">
-        <settings>
-          <last-edited>colt-1.2.0</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
   </component>
 </project>
