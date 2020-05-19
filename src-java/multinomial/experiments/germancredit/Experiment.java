@@ -23,8 +23,8 @@ public class Experiment {
             
             break;
         case "GermanCredit":
-            DataFrame frame = new DataFrame(columnHeaders);
-            frame.readCSV(System.getProperty("user.dir") + "../../data/GermanCredit/german.data-numeric", "   ");
+            DataFrame data = new DataFrame(columnHeaders);
+            data.readCSV(System.getProperty("user.dir") + "../../data/GermanCredit/german.data-numeric", "   ");
             break;
         case "LSAT":
             break;
