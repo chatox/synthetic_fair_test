@@ -2,38 +2,32 @@ package multinomial.util;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
-
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Scanner;
+import java.util.List;
 
 public class DataFrame {
-    private float [][] data;
+    private Double[][] data;
+    private String[] columnHeaders;
     
-    public DataFrame() {
-        this.data = new float[][];
-    }
-    
-    public DataFrame(int rows, int columns) {
-        this.data = new float[rows][columns];
+    public DataFrame (String[] columnHeaders) {
+        this.columnHeaders = columnHeaders;
     }
 
-    public float[][] readCSV(String file) {
-        Scanner sc = new Scanner(new BufferedReader(new FileReader("sample.txt")));
-        while(sc.hasNextLine()) {
-            for (int i=0; i<myArray.length; i++) {
-                String[] line = sc.nextLine().trim().split(" ");
-                for (int j=0; j<line.length; j++) {
-                    myArray[i][j] = Integer.parseInt(line[j]);
-                }
-            }
+    public Double[][] readCSV(String filename, String separator) throws IOException {
+        BufferedReader reader = new BufferedReader(new FileReader(filename));
+        List<Double[]> lines = new ArrayList<Double[]>();
+        for (String line = reader.readLine(); line != null; line = reader.readLine()) {
+            String[] cells = line.split(separator);
+            Double[] cellsAsDouble = Arrays.stream(cells).map(Double::valueOf).toArray(Double[]::new);
+            lines.add(cellsAsDouble);
         }
-        
+        assert columnHeaders.length == lines.size();
+        reader.close();
+        // convert list to a String array.
+        this.data = new Double[lines.size()][0];
+        lines.toArray(this.data);
         return this.data;
     }
-    public static void main(String args[]) throws Exception {
-        int rows = 4;
-          int columns = 4;
-          System.out.println(Arrays.deepToString(myArray));
-    }
 }
-
