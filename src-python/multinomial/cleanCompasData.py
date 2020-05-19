@@ -7,6 +7,8 @@ import pandas as pd
 import numpy as np
 import os
 import scipy.stats as stats
+from sklearn import preprocessing
+from mpl_toolkits.axes_grid1.axes_size import Scaled
 
 
 def main():
@@ -33,24 +35,27 @@ def main():
                                          "Asian":3,
                                          "Native American":4,
                                          "Other":5})
+    # normalize numeric columns to interval [0,1]
+    scaledDecile = (data["decile_score"] - np.min(data["decile_score"])) / np.ptp(data["decile_score"])
+    scaledVDecile = (data["v_decile_score"] - np.min(data["v_decile_score"])) / np.ptp(data["v_decile_score"])
+    scaledpriors = (data["priors_count"] - np.min(data["priors_count"])) / np.ptp(data["priors_count"])
+
     # calculate score based on recidivism score, violent recidivism score and number of prior arrests
     # violent recidivism weighs highest.
     data["score"] = np.zeros(data.shape[0])
-    for idx, row in data.iterrows():
-        recidivism = row.loc["decile_score"]
-        violentRecidivism = row.loc["v_decile_score"]
-        priorArrests = row.loc["priors_count"]
+    for idx, _ in data.iterrows():
+        recidivism = scaledDecile[idx]
+        violentRecidivism = scaledVDecile[idx]
+        priorArrests = scaledpriors[idx]
 
         score = 0.25 * recidivism + 0.5 * violentRecidivism + 0.25 * priorArrests
         data.loc[idx, "score"] = score
 
+    # higher scores should be better scores
     data["score"] = data["score"].max() - data["score"]
     print(data["score"])
     # drop these columns
     data = data.drop(columns=['decile_score', 'v_decile_score', 'priors_count'])
-
-    # zscore score and normalize scores
-    data["score"] = stats.zscore(data["score"])
 
     data.to_csv("../../src-java/multinomial/data/COMPAS/compas_sexAgeRace.csv", header=True, index=False)
 
