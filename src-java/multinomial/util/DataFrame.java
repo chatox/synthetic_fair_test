@@ -30,4 +30,12 @@ public class DataFrame {
         lines.toArray(this.data);
         return this.data;
     }
+
+    public Double[][] getData() {
+        return data;
+    }
+
+    public String[] getColumnHeaders() {
+        return columnHeaders;
+    }
 }

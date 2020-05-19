@@ -17,3 +17,4 @@ out/production/FA-IR_Ranking/binomial.CSVWriter.class
 /.project
 /.pydevproject
 out/
+.~lock*
