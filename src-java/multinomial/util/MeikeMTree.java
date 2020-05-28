@@ -1,16 +1,18 @@
 package multinomial.util;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.HashMap;
 
-public class MTree implements Serializable {
+public class MeikeMTree implements Serializable {
 
     private int k;
     private double[] p;
     private double alpha;
-    private TreeNode<int[]> tree;
-    private double[] failprobabilities;
+    private HashMap<Integer, ArrayList<int[]>> tree;
 
-    public MTree (int k, double[] p, double alpha, TreeNode<int[]> tree, double[] failprobabilities){
+
+    public MeikeMTree (int k, double[] p, double alpha, TreeNode<int[]> tree, double[] failprobabilities){
         this.k = k;
         this.p = p;
         this.alpha = alpha;

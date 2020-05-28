@@ -1,10 +1,10 @@
-package multinomial.experiments.germancredit;
+package multinomial.experiments;
 
 import java.io.IOException;
 
-import multinomial.util.DataFrame;
+import multinomial.util.MeikeDataFrame;
 
-public class Experiment {
+public class MeikeExperiment {
     
     public static void cleanData() {
         
@@ -14,17 +14,15 @@ public class Experiment {
         /**
          * command arguments
          *      args[0] = experiment name (COMPAS xor GermanCredit xor LSAT)
-         *      args[-1] = column headers of data file as one argument (needs to be put into "")
          */
-        String[] columnHeaders = args[args.length - 1].split(" ");
+        MeikeDataFrame data = new MeikeDataFrame();
         //Which experiment?
         switch (args[0]) {
         case "COMPAS":
-            
+            data.readCSV(System.getProperty("user.dir") + "../../data/COMPAS/compas_sexAgeRace", ",", true);
             break;
         case "GermanCredit":
-            DataFrame data = new DataFrame(columnHeaders);
-            data.readCSV(System.getProperty("user.dir") + "../../data/GermanCredit/german.data-numeric", "   ");
+            data.readCSV(System.getProperty("user.dir") + "../../data/GermanCredit/germanCredit_sexAgeForeigner.csv", "   ", true);
             break;
         case "LSAT":
             break;
